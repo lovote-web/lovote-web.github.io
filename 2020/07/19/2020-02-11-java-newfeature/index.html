@@ -405,10 +405,7 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <ul>
-<li>TOC<br>{:toc}</li>
-</ul>
-<h1 id="1-语言新特性"><a href="#1-语言新特性" class="headerlink" title="1 语言新特性"></a><code>1</code> 语言新特性</h1><h2 id="1-1-Lambda"><a href="#1-1-Lambda" class="headerlink" title="1.1 Lambda"></a><code>1.1</code> Lambda</h2><p>自动推测形参类型<code>e</code></p>
+                <h1 id="1-语言新特性"><a href="#1-语言新特性" class="headerlink" title="1 语言新特性"></a><code>1</code> 语言新特性</h1><h2 id="1-1-Lambda"><a href="#1-1-Lambda" class="headerlink" title="1.1 Lambda"></a><code>1.1</code> Lambda</h2><p>自动推测形参类型<code>e</code></p>
 <pre class=" language-java"><code class="language-java">Arrays<span class="token punctuation">.</span><span class="token function">asList</span><span class="token punctuation">(</span> <span class="token string">"a"</span><span class="token punctuation">,</span> <span class="token string">"b"</span><span class="token punctuation">,</span> <span class="token string">"d"</span> <span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span> e <span class="token operator">-</span><span class="token operator">></span> System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span> e <span class="token punctuation">)</span> <span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
 <p>指定形参类型<code>e</code></p>
 <pre class=" language-java"><code class="language-java">Arrays<span class="token punctuation">.</span><span class="token function">asList</span><span class="token punctuation">(</span> <span class="token string">"a"</span><span class="token punctuation">,</span> <span class="token string">"b"</span><span class="token punctuation">,</span> <span class="token string">"d"</span> <span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span> <span class="token punctuation">(</span> String e <span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span> e <span class="token punctuation">)</span> <span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
@@ -1016,14 +1013,13 @@ System<span class="token punctuation">.</span>out<span class="token punctuation"
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
-TOC{:toc}
-
-第一章 Java 概述1.1 什么是 Java ?Java 主要分为三个版本：
+                            第一章 Java 概述1.1 什么是 Java ?Java 主要分为三个版本：
 
 JavaSE（J2SE）: Java 平台标准版
 JavaEE（J2EE）: Java 平台企业版
-JavaME （J2ME）: Ja
+JavaME （J2ME）: Java 平台微型版
+
+1.
                         
                     </div>
                     <div class="publish-info">
@@ -1072,14 +1068,11 @@ JavaME （J2ME）: Ja
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
-TOC{:toc}
-
-一 创建和销毁对象1.考虑用静态工厂方法代替构造器静态工厂方法的优势：
+                            一 创建和销毁对象1.考虑用静态工厂方法代替构造器静态工厂方法的优势：
 1.有名称，可以见名知义了解获取对象的特点
 2.不必每次调用时都创建一个对象
 3.可以返回原类型的任何子类型对象
-4.创建参数化类型实例时，可以
+4.创建参数化类型实例时，可以使代码更简洁(右边无需再
                         
                     </div>
                     <div class="publish-info">
@@ -1281,9 +1274,6 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 
 
 
-    <a href="mailto:1181062873@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
-        <i class="fas fa-envelope-open"></i>
-    </a>
 
 
 
@@ -1291,19 +1281,10 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 
 
 
-    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1181062873" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
-        <i class="fab fa-qq"></i>
-    </a>
 
 
 
 
-
-
-
-    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
-        <i class="fas fa-rss"></i>
-    </a>
 
 </div>
     </div>
@@ -1364,8 +1345,6 @@ $(function () {
     })();
 </script>
 
-    
-    <script src="/libs/others/clicklove.js" async="async"></script>
     
     
     <script async src="/libs/others/busuanzi.pure.mini.js"></script>
