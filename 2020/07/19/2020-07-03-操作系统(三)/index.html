@@ -1,0 +1,1160 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="操作系统(三), Hexo">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>操作系统(三) | Hexo</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 4.2.1"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Hexo</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Hexo</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">操作系统(三)</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        height: calc(100vh - 250px);
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E7%AE%A1%E7%90%86/">
+                                <span class="chip bg-color">操作系统 输入输出管理</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" class="post-category">
+                                操作系统
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2020-07-19
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <ul>
+<li>TOC<br>{:toc}</li>
+</ul>
+<h1 id="第五章-输入输出管理"><a href="#第五章-输入输出管理" class="headerlink" title="第五章 输入输出管理"></a>第五章 输入输出管理</h1><h2 id="5-1-IO-管理概述"><a href="#5-1-IO-管理概述" class="headerlink" title="5.1 IO 管理概述"></a>5.1 IO 管理概述</h2><h3 id="1、IO设备"><a href="#1、IO设备" class="headerlink" title="1、IO设备"></a>1、IO设备</h3><p>IO设备管理是操作系统设计中最凌乱也最具挑战性的部分。由于它包含了很多领域的不同设备以及与设备相关的应用程序，因此很难有一个通用且一直的设计方案。所以在理解设备管理之前，应该先了解具体的IO设备类型。</p>
+<p>计算机系统中的IO设备按使用特性可以分为一下类型：</p>
+<p>1）人机交互类外部设备，又称慢速IO设备，用于桶计算机用户之间交互的设备，如打印机、显示器、鼠标、键盘等。这类设备数据交换速度相对较慢，通常是以字节为单位进行数据交换。</p>
+<p>2）存储设备，用于存储程序和数据的设备，如磁盘、磁带、光盘等。这类设备用于数据交换，速度较快，通常以多字节组成的块为单位进行数据交换。</p>
+<p>3）网络通信设备，用于与远程设备通信的设备，如各种网络接口、调制解调器等。其数据交换速度介于外部设备与存储设备之间。网络通信设备在使用和管理上与前两者设备有很大的不同。</p>
+<p>1）低速设备，传输速率仅为每秒钟几个字节至数百个字节的一类设备，如键盘、鼠标等。</p>
+<p>2）中速设备，传输速率在每秒数千个字节至数万个字节的一类设备，如行式打印机、激光打印机等。</p>
+<p>3）高速设备，传输速率在数百个千字节至千兆字节的一类设备，如磁带机、磁盘机、光盘机等。</p>
+<p>（2）按信息交换的单位分类</p>
+<p>1）块设备</p>
+<p>由于信息的存取总是以数据块为单位，所以存储信息的设备称为块设备。它属于有结构设备，如磁盘等。磁盘设备的基本特征是传输速率高，以及可寻址，即对他可随机地读写任意块。</p>
+<p>2）字符设备</p>
+<p>用于数据输入输出的设备为字符设备，因为其传输的基本单位是字符。它属于无结构类型，如交互式终端机、打印机等。他们的传输速率低、不可寻址、并且在输入输出时常采用中断驱动方式。</p>
+<p>对于IO设备，有以下三种不同类型的使用方式：</p>
+<p>独占式使用设备。独占式使用设备是指在申请设备是，如果设备空闲，就将其独占，不再允许其他进程申请使用，一直等到该设备被释放才允许其他进程申请使用。例如：打印机。</p>
+<p>分时式共享使用设备。独占式使用设备时，设备利用率低，当设备没有独占使用的要求时，可以通过分时共享使用，提高利用率。例如：对磁盘设备的IO操作，各进程每次IO操作请求可以通过分时来交替进行。</p>
+<p>以SPOOLing方式使用外部设备。SPOOLing技术是在批处理操作系统时代引入的，即假脱机IO技术。这种技术用于对设备的操作，实质上就是对IO操作进行批处理。具体的内容后面有单独讲解。</p>
+<p>采用上面三种使用方式的设备分别称为独占设备、共享设备和虚拟设备。</p>
+<h3 id="2、IO管理目标"><a href="#2、IO管理目标" class="headerlink" title="2、IO管理目标"></a>2、IO管理目标</h3><p>IO设备管理的主要目标有以下三个方面。</p>
+<p>方便使用：方便用户使用外部设备，控制设备工作完成用户的输入输出要求。</p>
+<p>提高效率：提高系统的并行工作能力，提高设备的使用效率。</p>
+<p>方便控制：提高外围设备和系统的可靠性和安全性，以使系统能正常工作。</p>
+<h3 id="3、IO管理功能"><a href="#3、IO管理功能" class="headerlink" title="3、IO管理功能"></a>3、IO管理功能</h3><p>IO设备管理的功能是按照输入输出子系统的结构和设备类型制定分配和使用设备的策略，主要包括：</p>
+<p>设备的分配和回收。</p>
+<p>外围设备的启动。</p>
+<p>对磁盘的驱动调度。</p>
+<p>外部设备中断处理。</p>
+<p>虚拟设备的实现。</p>
+<h3 id="4、IO应用接口"><a href="#4、IO应用接口" class="headerlink" title="4、IO应用接口"></a>4、IO应用接口</h3><p>IO应用接口就是从不同的输入输出设备中抽象出一些通用类型。每个类型都可以通过一组标准函数（即接口）来访问。具体的差别被内核模块（也称设备驱动程序）所封装。这些设备驱动程序一方面可以定制，以设和各种设备，另一方面也提供了一些标准接口。</p>
+<p>IO应用接口的具体实现方式是：先把IO设备划分为若干种类的通用类型；然后对每一种类型提供一组标准函数来访问，这里的标准函数就是接口；为每个IO设备提供各自的设备驱动程序，各种设备间的差异就体现在设备驱动程序的不同之中，而对于访问这些设备的接口却是按照该设备分数的类型而统一。</p>
+<p>划分IO设备所属的通用类型的依据：</p>
+<p>l 字符设备还是块设备。</p>
+<p>l 顺序访问还是随机访问。</p>
+<p>l IO传输是同步还是异步。</p>
+<p>l 共享设备还是独占设备。</p>
+<p>l 操作速度的高低。</p>
+<p>l 访问模式是读写、只读还是只写。</p>
+<h3 id="5、设备控制器（IO部件）"><a href="#5、设备控制器（IO部件）" class="headerlink" title="5、设备控制器（IO部件）"></a>5、设备控制器（IO部件）</h3><p>IO设备通常包括一个机械部件和一个电子部件。为了达到设计的模块性和通用性，一般将其分开。电子部件成为设备控制器（或适配器），在个人计算机中，通常是一块插入主板扩充槽的印制电路板；机械部件即设备本身。</p>
+<p>由于具体的设备操作涉及硬件接口，且不同的设备有不同的硬件特性和参数，所以这些复杂的操作交由操作系统用户编写程序来操作是不实际的。引入控制器后，系统可以通过几个简单的参数完成对控制器的操作，而具体的硬件操作则由控制器调用相应的设备接口完成。设备控制器的引入大大简化了操作系统的设计，特别是有利于计算机系统和操作系统对各类控制器和设备的兼容；同时也实现了主存和设备之间的数据传输操作，使CPU从繁重的设备控制操作中解放出来。</p>
+<p>设备控制器通过寄存器与CPU通信，在某些计算机上，这些寄存器占用内存地址的一部分，称为内存映像IO；另一些计算机则采用IO专用地址，寄存器独立编址。操作系统通过想控制器寄存器写命令字来执行IO功能。控制器收到一条命令后，CPU可以转向进行其他工作，而让设备控制器自行完成具体IO操作。当命令执行完毕后，控制器发出一个中断信号，操作系统重新获得CPU的控制权并检查执行结果，此时，CPU仍旧是从控制器寄存器中读取信息来获得执行结果和设备的状态信息。</p>
+<p>设备控制器的主要功能为：</p>
+<p>l 接收和识别CPU或通道发来的命令，如磁盘控制器能就收读、写、查找、搜索等命令。</p>
+<p>l 实现数据交换，包括设备和控制器之间的数据传输；通过数据总线或通道，控制器和主存之间的数据传输。</p>
+<p>l 发现和记录设备及自身的状态信息，供CPU处理使用。</p>
+<p>l 设备地址识别。</p>
+<p>为实现上述功能，设备控制器必须包含以下组成部分：</p>
+<p>该接口有三类信号线：数据线、地址线和控制线。数据线通常与两类寄存器相连接：数据存储器（存放从设备送来的输入数据或从CPU送来的输出数据）和控制/状态寄存器（存放从CPU送来的控制信息或设备的状态信息）。</p>
+<p>设备控制器链接设备需要相应数量的接口，一个借口链接一台设备。每个接口中都存在数据、控制和状态三种类型的信号。</p>
+<p>用于实现对设备的控制。它通过一组控制线与处理器交互，对从处理器收到的IO命令进行译码。CPU启动设备时，将启动命令发送给控制器，并同时通过地址线吧地址发送给控制器，由控制器的IO逻辑对地址进行译码，并相应地对所选设备进行控制。</p>
+<h3 id="6、IO控制方式"><a href="#6、IO控制方式" class="headerlink" title="6、IO控制方式"></a>6、IO控制方式</h3><p>设备管理的主要任务之一是控制设备和内存或处理器之间的数据传送，外围设备和内存之间的输入输出控制方式有四种，下面分别介绍。</p>
+<p>计算机从外部设备读取数据到存储器，每次读一个字的数据。对读入的每个字，CPU需要对状态循环检查，知道确定该字已经在IO控制器的数据寄存器中。在程序IO方式中，由于CPU的高速型和IO设备的低速性，致使CPU的绝大部分时间都处于等待IO设备完成数据IO的循环测试中，造成CPU的极大浪费。在该方式中，CPU之所以要不断地测试IO设备的状态，就是因为在CPU中无中断机构，使IO设备无法向CPU报告它已完成了一个字符的输入操作。</p>
+<p>程序直接控制方式虽然简单易于实现，但是其缺点也是显然的，由于CPU和外部设备只能串行工作，导致CPU的利用率相当低。</p>
+<p>中断驱动方式的思想是：允许IO设备主动打断CPU的运行并请求服务，从而“解放”CPU，使得其向IO控制器发送命令后可以继续做其他有用的工作。我们从IO控制器和CPU两个角度分别来看中断驱动方式的工作过程： 从IO控制器的角度来看，IO控制器从COU接受一个读命令，然后从外围设备读数据。一旦数据读入到该IO控制器的数据寄存器，便通过控制线给CPU发出一个中断信号，表示数据已准备好，然后等待CPU请求该数据。IO控制器收到CPU发出的取数据请求后，将数据放到数据总线上，传到CPU的寄存器中。至此，本次IO操作完成，IO控制器又可以开始下一次IO操作。</p>
+<p>从CPU的角度来看，CPU发送读命令，然后保存当前运行程序的上下文（现场，包括程序计数器及处理器寄存器），转去执行其他程序。在每个指令周期的末尾，CPU检查中断。当有来自IO控制器的中断时，CPU保存当前正在运行程序的上下文，转去执行中断处理程序处理该中断。这时，CPU从IO控制器读一个字的数据传送到寄存器，并存入主存。接着，CPU恢复发出IO命令的程序（或其他程序）的上下文，然后继续运行。</p>
+<p>中断驱动方式比程序直接控制方式有效，但由于数据中的每个字在存储器与IO控制器之间的传输都必须通过CPU处理，这就导致了中断驱动方式仍然会花费较多的CPU时间。</p>
+<p>中断驱动方式中，CPU仍然需要主动处理在存储器和IO设备之间的数据传送，所以速度还是受限，而直接内存存取（DMA）方式的基本思想是在外围设备和内存之间开辟直接的数据交换通路，彻底解放CPU。该方式的特点是：</p>
+<p>l 基本单位是数据块。</p>
+<p>l 所传诵的数据，是从设备直接送入内存的，或者相反。</p>
+<p>l 仅在传送一个或多个数据块的开始和结束时，才需CPU干预，整块数据的传送是在DMA控制器的控制下完成的。</p>
+<p>为了实现在主机与控制器之间成块数据的直接交换，必须在DMA控制器中设置如下四类寄存器：</p>
+<p>l 命令/状态寄存器（CR）。用于接收从CPU发来的IO命令或有关控制信息，或设备的状态。</p>
+<p>l 内存地址寄存器（MAR）。在输入时，它存放把数据从设备传送到内存的起始目标地址；在输出时，它存放由内存到设备的内存源地址。</p>
+<p>l 数据寄存器（DR）。用于暂存从设备到内存或从内存到设备的数据。</p>
+<p>l 数据计数器（DC）。存放本次CPU要读或写的字节数。</p>
+<p>DMA的工作过程是：CPU读写数据时，他给IO控制器发出一条命令，启动DMA控制器，然后继续其他工作。之后CPU就把这个操作委托给DMA控制器，由该控制器负责处理。DMA控制器直接与存储器交互，传送整个数据块，这个过程不需要CPU参与。当传送完成后，DMA控制器发送一个中断信号给处理器。因此，只有在传送开始和结束时才需要CPU的参与。</p>
+<p>DMA控制方式与中断驱动方式的主要区别是中断驱动方式在每个数据传送玩后中断CPU，而DMA控制方式则是在所要求传送的一批数据全部传送结束时中断CPU；此外，中断驱动方式数据传送的是在中断处理时由CPU控制完成，而DMA控制方式则是在DMA控制器的控制下完成的。</p>
+<p>IO通道方式是DMA方式的发展，它可以进一步减少CPU的干预，即把对一个数据块的读或写为一个单位的干预，减少为对一组数据块的读或写及有关的控制盒管理为单位的干预。同时，又可以实现CPU、通道和IO设备三者的并行操作，从而更有效的提高整个系统的资源利用率。</p>
+<p>例如，当CPU要完成一组相关的读或写操作及有关控制时，只需向IO通道发送一条IO指令，已给出其所要执行的通道程序的首址和要访问的IO设备，通道接到该指令后，通过执行通道程序便可完成CPU指定的IO任务。</p>
+<p>IO通道和一般处理器的区别是：通道指令的类型单一，没有自己的内存，通道所执行的通道程序释放在主机内存中的，也就是说通道与CPU共享内存。</p>
+<p>IO通道与DMA的区别是：DMA方式需要CPU来控制传输的数据块大小、传输的内存位置，而通道方式中这些信息是由通道控制的。另外，每个DMA控制器对应一台设备与内存传递数据，而一个通道可以控制多台设备与内存的数据交换。</p>
+<h2 id="5-2-IO-核心子系统"><a href="#5-2-IO-核心子系统" class="headerlink" title="5.2 IO 核心子系统"></a>5.2 IO 核心子系统</h2><h3 id="1、IO层次结构"><a href="#1、IO层次结构" class="headerlink" title="1、IO层次结构"></a>1、IO层次结构</h3><p>IO实现普遍采用了层次式的结构。其基本思想与计算机网络中的层次结构相同：将系统IO的功能组织成一系列的层次，每一层完成整个系统功能的一个子集，其实现依赖于下层完成更原始的功能，并屏蔽这些功能的实现细节，从而为上层提供各种服务。</p>
+<p>一个比较合理的层次划分为四个层次的系统结构，各层次及其功能如下：</p>
+<p>1）用户层IO软件：实现与用户交互的接口，用户可直接调用在用户层提供的、与IO操作有关的库函数，对设备进行操作。</p>
+<p>2）设备独立性软件：用于实现用户程序与设备驱动器的统一接口、设备命令、设备保护，以及设备分配与释放等，同时为设备管理和数据传送提供必要的存储空间。</p>
+<p>3）设备驱动程序：与硬件直接相关，用于具体实现系统对设备发出的操作指令，驱动IO设备工作的驱动程序。</p>
+<p>4）中断处理程序：用于保存被中断进程的CPU环境，转入相应的中断处理程序进行处理，处理完并回复被中断进程的现场后，返回到被中断进程。</p>
+<h3 id="2、IO调度概念"><a href="#2、IO调度概念" class="headerlink" title="2、IO调度概念"></a>2、IO调度概念</h3><p>调度一组IO请求就是确定确定一个好的顺序来执行这些请求。应用程序所发布的系统调用的顺序不一定总是最佳选择，所以需要调度来改善系统整体性能，是进程之间公平的共享设备访问，减少IO完成所需要的平均等待时间。</p>
+<p>操作系统开发人员通过为每个设备维护一个请求队列来实现调度。当一个应用程序执行阻塞IO系统调用时，该请求就加到相应设备的队列上。IO调度会重新安排队列顺序以改善系统总体效率和应用程序的平均响应时间。</p>
+<p>IO子系统还可以使用主存或磁盘上的存储空间的技术，如缓冲、高速缓冲、假脱机等。</p>
+<h3 id="3、高速缓存与缓冲区"><a href="#3、高速缓存与缓冲区" class="headerlink" title="3、高速缓存与缓冲区"></a>3、高速缓存与缓冲区</h3><p>操作系统总是用磁盘高速缓存技术来提高磁盘的IO速度，对高速缓存复制的访问要比原始数据访问更为高效。例如，正在运行的进程的指令即存储在磁盘上，也存储在物理内存上，也被复制到CPU的二级和一级高速缓存中。</p>
+<p>不过，磁盘高速缓存技术不同于通常意义下的介于CPU与内存之间的小容量高速存储器，而是利用内存中的存储空间来暂存从磁盘中读出的一系列盘块中的信息，因此，磁盘高速缓存在逻辑上属于磁盘，物理上则是驻留在内存中的盘块。</p>
+<p>高速缓存在内存中分为两种形式：一种是在内存中开辟一个单独的存储空间作为磁盘高速缓存，大小固定；另一种是把未利用的内存空间作为一个缓冲池，共请求分页系统和磁盘IO时共享。</p>
+<p>在设备管理子系统中，引入缓冲区的目的有：</p>
+<p>1）缓和CPU与IO 设备间速度不匹配的矛盾。</p>
+<p>2）减少对CPU的中断频率，放宽对CPU 中断响应时间的限制。</p>
+<p>3）解决基本数据单元大小不匹配的问题。</p>
+<p>4）提高CPU和IO设备之间的并行性。</p>
+<p>其实现方法有：</p>
+<p>1）采用硬件缓冲器，但由于成本太高，出一些关键部位外，一般情况下不采用硬件缓冲器。</p>
+<p>2）采用缓冲区（位于内存区域）</p>
+<p>根据系统设置缓冲器的个数，缓冲技术可以分为：</p>
+<p>1）单缓冲。在设备和处理器之间设置一个缓冲区。设备和处理器交换数据时，先把被交换数据写入缓冲区，然后把需要数据的设备或处理器从缓冲区取走数据。</p>
+<p>在块设备输入时，假定从磁盘把一块数据输入到缓冲区的时间为T，操作系统将该缓冲区中的数据局传送到用户区的时间为M，而CPU对这一块数据处理的时间为C。由于T和C是可以并行的，所以可把系统对每一块数据的处理时间表示为Max（C,T）+M。</p>
+<p>2）双缓冲。双缓冲区机制又称缓冲对换。IO设备输入数据时先输入到缓冲区1，直到缓冲区1满后才输入到缓冲区2，此时操作系统可以从缓冲区1中取出数据放入用户进程，并由CPU计算。双缓冲的使用提高了处理器和输入设备的并行操作的程度。</p>
+<p>系统处理一块数据的时间可以粗略地认为是Max（C,T）。如果CT，则可使CPU不必等待设备输入。对于字符设备，若采用行输入方式，则采用双缓冲可使用户再输入完第一行之后，在CPU执行第一行中的命令的同事，用户可继续向第二缓冲区输入下一行数据。而单缓冲情况下则必须等待一行数据被提取完毕才可输入下一行的数据。</p>
+<p>如果两台机器之间通信仅配置了单缓冲，那么，他们在任意时刻都只能实现单方向的数据传输。为了实现双向数据传输，必须在两台机器中都设置两个缓冲区，一个用作发送缓冲区，另一个用作接收缓冲区。</p>
+<p>3）循环缓冲：包含多个大小相等的缓冲区，每个缓冲区中有一个缓冲区，最后一个缓冲区指针指向第一个缓冲区，多个缓冲区构成一个环形。用于输入输出时，还需要有两个指针in和out。对输入而言，首先要从设备接收数据到缓冲区中，in指针指向可以输入数据的第一个空缓冲区；当运行进程需要数据时，从循环缓冲去中去一个装满数据的缓冲区，并从此缓冲区中提取数据，out指针指向可以提取数据的第一个满缓冲区。输出正好相反。</p>
+<p>4）缓冲池：由多个系统共用的缓冲区组成，缓冲区按其使用状况可以形成三个队列：空缓冲队列、装满输入数据的缓冲队列（输入队列）和装满输出数据的缓冲队列（输出队列）。还应具有四种缓冲区：用于收容输入数据的工作缓冲区、用于提取输入数据的工作缓冲区、用于收容输出数据的工作缓冲区、用于提取输出数据的工作缓冲区。</p>
+<p>（4）高速缓存与缓冲区的对比</p>
+<p>高速缓存是可以保存复制数据的高速存储器。访问高速缓存比访问原始数据更高效，速度更快。</p>
+<h3 id="4、设备的分配与回收"><a href="#4、设备的分配与回收" class="headerlink" title="4、设备的分配与回收"></a>4、设备的分配与回收</h3><p>设备分配的基本任务是根据用户的IO请求，为他们分配所需的设备。设备分配的总原则是充分发挥设备的使用效率，尽可能地让设备忙碌，又要避免由于不合理的分配方法造成进程死锁。从设备的特性来看，可以把设备分成独占设备、共享设备和虚拟设备三类。</p>
+<p>对于独立设备，讲一个设备分配给某进程后，便有改进成都站，直至该进程完成或释放该设备。对于共享设备，可以同时分配给多个进程使用，但需要对这些进程访问该设备的先后次序进程合理的调度。虚拟设备属于可共享设备，可以将它同时分配给多个进程使用。</p>
+<p>设备分配依据的主要数据结构有设备控制表（DCT）、控制器控制表（COCT）、通道控制表（CHCT）和系统设备表（SDT），各数据结构功能如下：</p>
+<p>设备控制表：系统为每一个设备配置一张DCT，它用于记录设备的特性以及与IO控制器连接的情况。DCT包括设备标示符、设备类型、设备状态、指向COUCT的指针等。其中，设备队列指针指向等待使用该设备的进程组成的等待队列，控制表指针指向于该设备相连接的设备控制器。</p>
+<p>控制器控制表：每个控制器都配有一张COCT，它反应设备控制器的使用状态以及和通道的连接情况等。</p>
+<p>通道控制表：每个通道配有一张CHCT。</p>
+<p>系统设备表：整个系统只有一张SDT，它记录已连接到系统中的所有物理设备的情况，每个物理设备占一个表目。</p>
+<p>由于在多道程序系统中，进程数多于资源数，会引起资源的竞争。因此，要有一套合理的分配原则，主要考虑的因素有：IO设备的固有属性，IO设备的分配算法，设备分配的安全性，以及设备独立性。</p>
+<p>1）设备分配原则。设备的分配原则应根据设备特性、用户要求和系统配置的情况来决定。设备分配的总原则既要充分发挥设备的使用效率，又要避免造成进程死锁，还要将用户程序和具体设备隔离开。</p>
+<p>2）设备分配方式。设备分配方式有静态分配和动态分配两种。</p>
+<p>静态分配主要用于对独占设备的分配，它在用户作业开始执行前，有系统一次性分配该作业所要求的全部设备、控制器（和通道）。一旦分配后，这些设备、控制器（和通道）就一直为高作业所占用，知道该作业被撤销。静态分配方式不会出现死锁，但设备的使用效率较低。因此，静态分配方式并不符合分配的总原则。</p>
+<p>动态分配是在进程执行过程中根据执行需要进行。当进程需要设备时，通过系统调用命令向系统提出设备请求，由系统按照事先规定的策略给进程分配所需要的设备、IO控制器，一旦用完之后，便立即释放。动态分配方式有利于提高设备的利用率，但如果分配算法使用不当，则有可能造成进程死锁。</p>
+<p>3）设备分配算法。常用的动态设备分配算法有先请求先分配、优先级高者优先等。</p>
+<p>对于独占设备，即可以采用动态分配方式也可以静态分配方式，往往采用静态分配方式，即在作业执行前，将作业所要用到的这一类设备分配给它。共享设备可被多个进程所共享，一般采用动态分配方式，但在每个IO传输的单位时间内只被一个进程所占有，通常采用先请求先分配和优先级高者先分的分配算法。</p>
+<p>设备分配的安全性是指设备分配中应防止发生进程死锁。</p>
+<p>1）安全分配方式。每当进程发出IO请求后便进入阻塞状态，直到其IO操作完成时才被唤醒。这样，一旦进程已经获得某种设备后便阻塞，不嫩再请求任何资源，而且在它阻塞时也不保持任何资源。有点事设备分配安全；缺点是CPU和IO设备是串行工作的。</p>
+<p>2）不安全分配方式。进程在发出IO请求后继续运行，需要时发出第二个、第三个IO请求等。仅当进程所请求的设备已被另一进程占用时，才进入阻塞状态。有点事一个进程可以同时操作几个设备，从而市金城推进迅速；缺点是这种设备分配有可能产生死锁。</p>
+<p>为了提高设备分配的灵活性和设备的利用率、方便实现IO重定向，因此引入了设备独立性。设备独立性是指应用程序独立于具体使用的物理设备。</p>
+<p>为了实现设备独立性，在应用程序中使用逻辑设备名来请求使用某类设备，在系统中设置一张逻辑设备表（LUT），用于将逻辑设备名映射为物理设备名。LUT表项包括逻辑设备名、物理设备名和设备驱动程序入口地址；当进程用逻辑设备名来请求分配设备时，系统为他分配相应的物理设备，并在LUT中建立一个表项，以后进程再利用逻辑设备名请求IO操作时，系统通过查找LUT来寻找相应的物理设备和驱动程序。</p>
+<p>在系统中可采取两种方式建立逻辑设备表：</p>
+<p>1）在整个系统中只设置一张LUT表。这样，所有进程的设备分配情况都记录在这张表中，故不允许有相同的逻辑设备名，主要适用于单用户系统中。</p>
+<p>2）为每个用户设置一张LUT。当用户登录时，系统便为用户建立一个进程，同时也位置建立一张LUT，并肩改变放入进程的PCB中。</p>
+<h3 id="5、SPOOLing（假脱机技术）"><a href="#5、SPOOLing（假脱机技术）" class="headerlink" title="5、SPOOLing（假脱机技术）"></a>5、SPOOLing（假脱机技术）</h3><p>为了缓和CPU的高速型与IO设备低速性之间的矛盾而引入了脱机输入、脱机输出技术。该技术是利用专门的外围控制机，将低速IO设备上的数据传送到高速磁盘上；或者相反。SPOOLing的意思是外部设备同时联机操作，又称为假脱机输入输出操作，是操作系统中采用的一项将独占设备改造成共享设备的技术。</p>
+<p>再次攀上开辟出的两个存储区域。输入井模拟脱机输入时的磁盘，用于收容IO设备输入的数据。输出井模拟脱机输出的磁盘，用于收容用户程序的输出数据。</p>
+<p>在内存中开辟的两个缓冲区。出入缓冲区用于暂存由输入设备送来的数据，以后再传送到输入井。输出缓冲区用于暂存从输出井送来的数据，以后再传送到输出设备。</p>
+<p>输入进程模拟脱机输入时的外围控制机，将用户要求的数据从输入机通过输入缓冲区再送到输入井。当CPU需要输入数据时，直接将数据从输入井读入内存。输入进程模拟脱机输出时的外围控制机，把用户要求输出的数据先从内存送到输出井，待输出设备空闲时，再将输出井中的数据经过输出缓冲区送到输出设备。</p>
+<p>共享打印机是使用SPOOLing技术的一个实例，这项技术已被广泛的用于多用户系统和局域网络中。当用户进程请求打印输出时，SPOOLing系统同意为它打印输出，但并不真正立即把打印机分配给该用户进程，而只为她做两件事：</p>
+<p>1）由输出进程在输出井中为之申请一个空闲磁盘块区，并将要打印的数据送入其中。</p>
+<p>2）输出进程再为用户进程申请一张空白的用户请求打印表，并将用户的打印要求填入其中，再将该表挂到请求打印队列中。</p>
+<p>SPOOLing系统的特点是：提高了IO速度；将独占设备改造为共享设备；实现了虚拟设备功能。</p>
+<p>6、出错处理</p>
+<p>操作系统可以采用内存保护，这样一来就可以预防许多 硬件和应用程序的错误，即便有一些设备硬件上的适龄也不回导致系统的完全崩溃。</p>
+<p>IO设备传输中出现的错误很多，如网络上的堵塞和传输过载等。操作系统可以对一些短暂的出错进行处理，比如读取磁盘出错，那么可以选择重新常识对磁盘进行read操作；再比如在网络上发送数据出错，那么只要网络通信协议允许，就可以做resend操作。但是，如果计算机系统中的重要组件出现了永久性错误，那么操作系统将无法恢复。</p>
+<p>作为一个规则，IO系统调用通常返回一位调用状态信息，以表示成功或失败。在UNIX系统中，用一个名为errno的全局变量来表示出错代码，以表示出错原因。</p>
+<p>注意：read、send和resend都是操作系统的基本输入输出命令，分别用来读、发送和重发数据。</p>
+
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">John Doe</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://lovote-web.github.io/2020/07/19/2020-07-03-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F(%E4%B8%89)/">http://lovote-web.github.io/2020/07/19/2020-07-03-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F(%E4%B8%89)/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">John Doe</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E7%AE%A1%E7%90%86/">
+                                    <span class="chip bg-color">操作系统 输入输出管理</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2020/07/19/2020-07-03-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F(%E4%B8%80)/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="操作系统(一)">
+                        
+                        <span class="card-title">操作系统(一)</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+TOC{:toc}
+
+操作系统第一章  概述1.1  操作系统的概念计算机系统自下而上可粗分为四个部分：硬件、操作系统、应用程序和用户。操作系统管理各种计算机硬件，为应用程序提供基础，并充当计算机硬件和用户的中介。
+硬件，如中央处理器、内
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-07-19
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" class="post-category">
+                                    操作系统
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E8%BF%9B%E7%A8%8B%E7%AE%A1%E7%90%86/">
+                        <span class="chip bg-color">操作系统 进程管理</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2020/07/19/2020-07-03-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F(%E4%BA%8C)/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="操作系统(二)">
+                        
+                        <span class="card-title">操作系统(二)</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+TOC{:toc}
+
+第三章 内存管理3.1 内存管理基础0、内存管理的概念内存管理是操作系统中最重要和最复杂的内容之一。
+操作系统必须将内存空间进行合理的划分和动态分配，操作系统对内存的划分和动态分配，就是内存管理的概念。
+内存管理的功
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-19
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" class="post-category">
+                                    操作系统
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86-%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86/">
+                        <span class="chip bg-color">操作系统 内存管理 文件管理</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+<style type="text/css">
+code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
+</style>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            <span id="year">2019</span>
+            <a href="/about" target="_blank">John Doe</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:1181062873@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1181062873" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/search.xml", 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

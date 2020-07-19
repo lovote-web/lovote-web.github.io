@@ -1,0 +1,1561 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="Effective Java, Hexo">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>Effective Java | Hexo</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 4.2.1"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Hexo</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Hexo</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">Effective Java</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        height: calc(100vh - 250px);
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Effective-Java/">
+                                <span class="chip bg-color">Effective Java</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Java/" class="post-category">
+                                Java
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2020-07-19
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <ul>
+<li>TOC<br>{:toc}</li>
+</ul>
+<h1 id="一-创建和销毁对象"><a href="#一-创建和销毁对象" class="headerlink" title="一 创建和销毁对象"></a><code>一</code> 创建和销毁对象</h1><h2 id="1-考虑用静态工厂方法代替构造器"><a href="#1-考虑用静态工厂方法代替构造器" class="headerlink" title="1.考虑用静态工厂方法代替构造器"></a><code>1</code>.考虑用静态工厂方法代替构造器</h2><p>静态工厂方法的优势：</p>
+<p><code>1</code>.有名称，可以见名知义了解获取对象的特点</p>
+<p><code>2</code>.不必每次调用时都创建一个对象</p>
+<p><code>3</code>.可以返回原类型的任何子类型对象</p>
+<p><code>4</code>.创建参数化类型实例时，可以使代码更简洁(右边无需再写一遍)</p>
+<p><code>5</code>.不可变对象可以进行缓存，以提升性能</p>
+<h2 id="2-遇到多个构造器参数时要考虑用构建器"><a href="#2-遇到多个构造器参数时要考虑用构建器" class="headerlink" title="2.遇到多个构造器参数时要考虑用构建器"></a><code>2</code>.遇到多个构造器参数时要考虑用构建器</h2><p>构建器优势：</p>
+<p><code>1</code>.重叠构造器代码冗余</p>
+<p><code>2</code>.<code>JavaBean</code>模式阻止了将类做成不可变的可能</p>
+<p><code>3</code>.<code>builder</code>可以进行参数检查</p>
+<p><code>4</code>.无论创建多少个对象，builder只需要一个，且可以在创建不同对象时进行调整，或者自动填充某些域 。</p>
+<p>不足：创建对象前需要先创建builder</p>
+<h2 id="3-用私有构造器或者枚举类型强化Singleton属性"><a href="#3-用私有构造器或者枚举类型强化Singleton属性" class="headerlink" title="3.用私有构造器或者枚举类型强化Singleton属性"></a><code>3</code>.用私有构造器或者枚举类型强化Singleton属性</h2><p>不使用枚举时：</p>
+<p><code>1</code>.构造器私有</p>
+<p><code>2</code>.构造器抛出异常 <code>if(INSTANCE!=null) throw</code></p>
+<p><code>3</code>.序列化时必须声明所有实例域都是瞬时（<code>transient</code>）的，并提供一个<code>readResolve</code>方法返回现有的单例</p>
+<h2 id="4-通过私有构造器强化不可实例化的能力"><a href="#4-通过私有构造器强化不可实例化的能力" class="headerlink" title="4.通过私有构造器强化不可实例化的能力"></a><code>4</code>.通过私有构造器强化不可实例化的能力</h2><p>并在构造器中抛出异常</p>
+<h2 id="5-避免创建不必要的对象"><a href="#5-避免创建不必要的对象" class="headerlink" title="5.避免创建不必要的对象"></a><code>5</code>.避免创建不必要的对象</h2><p><code>1</code>.如果对象是不可变的,将始终可以重用</p>
+<p><code>2</code>.对于给定对象的适配器,不需要创建多个实例,例如:对于同一Map对象的keySet方法,每次返回的都是同一个对象</p>
+<p><code>3</code>.优先使用基本类型,而不是装箱类型</p>
+<p><code>4</code>.通过维护对象池来避免创建对象并不是好主意,除非对象非常昂贵(数据库连接池).</p>
+<h2 id="6-消除过期的对象引用"><a href="#6-消除过期的对象引用" class="headerlink" title="6.消除过期的对象引用"></a><code>6</code>.消除过期的对象引用</h2><p>内存泄露常见来源：</p>
+<p><code>1</code>.无意识的对象保持(只要是类自己管理内存，程序员就应该警惕内存泄露问题)</p>
+<p><code>2</code>.被遗忘在缓存中的对象引用(考虑用<code>WeakHashMap</code>实现缓存)</p>
+<p><code>3</code>.监听器和其他回调没有显式地取消注册</p>
+<p>4种引用：</p>
+<p><code>1</code>.<strong>强引用</strong> <code>Object obj = new Object();</code>： 只要强引用还存在，GC永远不会回收</p>
+<p><code>2</code>.<strong>软引用</strong> <code>SoftReference</code>：用来描述一些有用但不必需的对象，在系统将要发生内存溢出之前，GC会对软引用对象进行回收，若回收后仍没有足够内存，才会抛出异常。</p>
+<p><code>3</code>.<strong>弱引用</strong> <code>WeakReference</code>：也是用来描述非必需对象的，但是强度比软引用更弱，弱引用对象只能生存到下一次GC发生之前，当GC工作时，无论内存是否足够，都会回收弱引用对象</p>
+<p><code>4</code>.<strong>虚引用</strong> <code>PhantomReference</code>：也称为幽灵引用或幻影引用，是最弱的一种引用关系。一个对象是否有虚引用存在，完全不会对其生存时间构成影响，也无法通过虚引用来获得一个实例。 为对象设置一个虚引用的唯一目的就是能在这个对象被GC回收时收到一个系统通知。</p>
+<h2 id="7-避免使用终结方法"><a href="#7-避免使用终结方法" class="headerlink" title="7.避免使用终结方法"></a><code>7</code>.避免使用终结方法</h2><p><code>1</code>.终结方法不能保证会被及时执行，也不能保证会被执行，所以不应该依赖终结方法来更新重要的持久状态</p>
+<p><code>2</code>.终结方法中发生的异常不会使线程终止，也不会打印栈轨迹，对象将处于破坏状态</p>
+<p><code>3</code>.终结方法有非常严重的性能损失</p>
+<p><code>4</code>.如果需要终止资源，应该显式地提供终止方法(io中的close方法)，通常与try-finally结合使用，以确保及时终止</p>
+<p>注意：</p>
+<p><code>1</code>.除非作为安全网或者终止非关键资源，否则不要使用终结方法，最好就当没这个方法</p>
+<p><code>2</code>.如果使用了终结方法，要记住<code>super.finalize</code></p>
+<p><code>3</code>.如果终结方法作为安全网，要记录终结方法的非法用法</p>
+<p><code>4</code>.如果终结方法所属的类不是final的，请考虑使用<code>终结方法守卫者</code></p>
+<hr>
+<h1 id="二-通用方法"><a href="#二-通用方法" class="headerlink" title="二 通用方法"></a><code>二</code> 通用方法</h1><h2 id="8-覆盖equals时请遵守通用约定"><a href="#8-覆盖equals时请遵守通用约定" class="headerlink" title="8.覆盖equals时请遵守通用约定"></a><code>8</code>.覆盖equals时请遵守通用约定</h2><p>必须遵守<code>自反性</code>、<code>对称性</code>、<code>传递性</code>、<code>一致性</code>、<code>非空性</code></p>
+<p>可以用<code>&amp;&amp;</code>连接所有对field的比较结果使代码简洁</p>
+<p>诀窍:</p>
+<p><code>1</code>.先使用<code>==</code> 操作符比较以优化性能</p>
+<p><code>2</code>.使用<code>instanceof</code>检查类型是否正确可以同时搞定null判断</p>
+<p><code>3</code>.只比较关键域,可以通过关键域计算出来的冗余域不需要比较</p>
+<p><code>4</code>.优先比较最可能不同、开销最低的域</p>
+<p><code>5</code>.对<code>float</code>,<code>double</code>用<code>compare</code>特殊处理，对<code>数组</code>用<code>Arrays.equals</code>处理</p>
+<p><code>6</code>.覆盖equals时总要覆盖hashCode</p>
+<p><code>7</code>.不要企图让equals太智能，不需要考虑参数可能存在的等价关系</p>
+<p><code>8</code>.不要修改equals方法的参数类型(修改了就不是覆盖了),@Override可以避免这一点</p>
+<p><code>9</code>.<strong>里氏替换原则</strong></p>
+<p><code>10</code>.优先用<strong>组合+公有视图</strong>的方式扩展值组件，而不是用继承</p>
+<h2 id="9-覆盖equals时总要覆盖hashCode"><a href="#9-覆盖equals时总要覆盖hashCode" class="headerlink" title="9.覆盖equals时总要覆盖hashCode"></a><code>9</code>.覆盖equals时总要覆盖hashCode</h2><p><code>1</code>.相同的对象必须具有相同的hashCode(在hash表中,hashCode用来定位hash bucket,如果相等的对象有不同的hashCode,那么hash表将从错误的hash bucket中寻找对象,最后会判定为不存在)</p>
+<p><code>2</code>.用<code>result = 31 * result + c</code>的方式获取hashCode，result初值设为17，c为每个域的散列值</p>
+<p><code>3</code>.能够通过关键域计算出来的<strong>冗余域</strong>可以排除</p>
+<p><code>4</code>.如果计算hashCode开销很大，可以对hashCode进行缓存，并在hashCode方法第一次被访问时才进行计算</p>
+<p><code>5</code>.不要试图排除关键域(equals用到的所有域)来提高性能，这样虽然会提高hashCode计算速度，但是会提高hashCode重复率，反而降低散列性能。</p>
+<h2 id="10-始终要覆盖toString"><a href="#10-始终要覆盖toString" class="headerlink" title="10.始终要覆盖toString"></a><code>10</code>.始终要覆盖toString</h2><p><code>1</code>.优点：易于阅读，易于调试，易与其他应用交换数据</p>
+<p><code>2</code>.提供一个静态工厂用于将toString返回值转换为本身的类型</p>
+<p><code>3</code>.在文档中明确表示是否规定了toString的格式，如果规定了格式就要严格遵守</p>
+<p><code>4</code>.对toString返回值中包含的关键内容提供访问方法</p>
+<h2 id="11-谨慎地覆盖clone"><a href="#11-谨慎地覆盖clone" class="headerlink" title="11.谨慎地覆盖clone"></a><code>11</code>.谨慎地覆盖clone</h2><p><code>1</code>.实现Cloneable接口(空接口)需要提供一个<code>public clone</code>(Object中声明为<code>proteced</code>)方法</p>
+<p><code>2</code>.从jdk1.5开始，引入了<code>协变返回类型</code>，clone方法被覆盖后可以返回Object的子类型（通则：永远不要让客户去做任何类库能完成的事情）</p>
+<p> <code>3</code>.clone方法就是另一个构造器；必须确保它不会伤害到原始对象，并确保正确地创建被克隆对象中的约束条件。</p>
+<p> <code>4</code>.clone架构与引用可变对象的<code>final</code>域的正常用法是不相兼容的，为了使类可clone，有时需要去掉一些final</p>
+<p> <code>5</code>.使用<code>深拷贝</code>，递归地调用每个域中包含的域，一直深入到不可变类为止</p>
+<p> <code>6</code>.拷贝”长”对象(数组，链表等)时，如果使用<strong>递归</strong>会创建很多指针消耗栈空间，可以考虑换成<strong>迭代</strong></p>
+<p> <code>7</code>.另一种方法：先调用super.clone()，将所有域设为0值，然后为其赋值新对象。这种方法简单合理，但是没有”直接操作对象及其域中对象的clone方法“快。</p>
+<p> <code>8</code>.clone过程中不应该调用任何非final方法(如果是private方法则不需要final)，因为子类有机会改变该方法的行为。</p>
+<p> <code>9</code>.重写的<code>public clone</code>方法应该忽略<code>CloneNotSupportedException</code>，但如果</p>
+<p>该类是用来被继承的，则应该模拟Object.clone：声明为protected，抛出异常，不实现Cloneable。</p>
+<p><code>10</code>.对于不可变类，提供clone没有太大意义</p>
+<p><code>11</code>.用<code>拷贝构造器</code>(即参数类型为类本身的构造器)或者<code>拷贝工厂</code>代替clone，可以增加一个参数实现克隆对象的转型（例如接受一个Collection参数与一个Class参数）</p>
+<h2 id="12-考虑实现Comparable接口"><a href="#12-考虑实现Comparable接口" class="headerlink" title="12.考虑实现Comparable接口"></a><code>12</code>.考虑实现Comparable接口</h2><p><code>1</code>.可以方便地使用各种泛型算法与Comparable的集合实现</p>
+<p><code>2</code>.强烈建议<code>(x.compareTo(y) == 0) == (x.equals(y))</code>，但非必须，若违反了这个条件，应该予以说明。</p>
+<p><code>3</code>.不满足上一条约定的对象放入<code>有序集合</code>(使用compareTo，如TreeSet)中后，将无法遵守集合接口通用(使用equals)约定（如BigDecimal，浮点数）</p>
+<p><code>4</code>.优先用<code>组合+公有视图</code>的方式扩展值组件，而不是用继承(同equals)</p>
+<p><code>5</code>.Comparable只规定了符号，没有规定数值大小，可以直接返回两个数值相减的结果，但是要小心溢出</p>
+<hr>
+<h1 id="三-类和接口"><a href="#三-类和接口" class="headerlink" title="三 类和接口"></a><code>三</code> 类和接口</h1><h2 id="13-使类和成员的可访问性最小化"><a href="#13-使类和成员的可访问性最小化" class="headerlink" title="13.使类和成员的可访问性最小化"></a><code>13</code>.使类和成员的可访问性最小化</h2><p><code>1</code>.实例域决不能是公有的</p>
+<p><code>2</code>.静态公共域只能为final修饰的基本类型或者final修饰的不可变类</p>
+<p><code>3</code>.用<code>Collections.unmodifiableList(arr)</code></p>
+<p>将数组变成不可变列表后再提供访问；或者在访问方法中返回数组的clone()</p>
+<h2 id="14-在公有类中使用访问方法而非公有域"><a href="#14-在公有类中使用访问方法而非公有域" class="headerlink" title="14.在公有类中使用访问方法而非公有域"></a><code>14</code>.在公有类中使用访问方法而非公有域</h2><p>暴露域将失去内部表示法的灵活性，也将失去对数据访问进行限制的能力</p>
+<h2 id="15-使可变性最小化"><a href="#15-使可变性最小化" class="headerlink" title="15.使可变性最小化"></a><code>15</code>.使可变性最小化</h2><p><code>1</code>.创建不可变类的5条规则</p>
+<blockquote>
+<p><code>(1)</code>.不要提供任何会修改对象状态的方法</p>
+<p><code>(2)</code>.保证类不会被扩展(final或者构造器私有)</p>
+<p><code>(3)</code>.使所有域都是final的</p>
+<p><code>(4)</code>.使所有域成为私有的</p>
+<p><code>(5)</code>.确保对于任何可变组件的互斥访问</p>
+</blockquote>
+<p><code>2</code>.用公有的静态域或静态工厂为不可变类提供缓存</p>
+<p><code>3</code>不可变对象本质上是线程安全的，它们不要求同步，可以被自由地共享，永远不需要保护性拷贝，不需要拷贝构造器</p>
+<p><code>4</code>.不可变类可以共享内部信息</p>
+<p><code>5</code>.不可变对象为其他对象提供了大量的构件</p>
+<p><code>6</code>.不可变类的缺点：每一个不同的值都需要一个单独的对象，存在性能问题，可以提供1个配套类来进行过渡操作(如StringBuilder)</p>
+<p><code>7</code>.因历史问题没有设置成final的不可变类(如<code>BigInteger</code>)，在使用时需要检查对象是否被扩展了，如果被扩展了就可能需要保护性拷贝</p>
+<p><code>8</code>.如果实现<code>Serializable</code>，必须显式地提供<code>readObject</code>和<code>readResolve</code>方法或者使用<code>ObjectOutputStream.writeUnshared</code>和<code>ObjectInputStream.readUnshared</code>方法</p>
+<p><code>9</code>.除非有必须的理由让类可变，否则类应该是不可变的；如果类无法做成不可变的，也应该尽力限制其可变性。因此域也应该是final的。</p>
+<h2 id="16-复合优先于继承"><a href="#16-复合优先于继承" class="headerlink" title="16.复合优先于继承"></a><code>16</code>.复合优先于继承</h2><p><code>1</code>.继承破坏了封装性，子类依赖于父类的实现细节，若父类内部发生变动，将可能损坏子类。</p>
+<p><code>2</code>.假设子类覆盖父类所有的方法，增加了对参数的类型检查；后来父类增加了新方法，而子类没有同步更新，非法的参数将有可能通过类型检查，这将会产生安全漏洞</p>
+<p><code>3</code>.假设子类增加了新方法，后来父类也新增了1个签名相同但返回类型不同的方法，编译将不通过；如果方法签名与返回类型都相同，将形成覆盖，又回到了上一种情况</p>
+<p><code>4</code>.<code>复合/转发</code>的类称为组件，并实现相同接口的类为<code>包装类</code>，每个接口只需要1个转发类</p>
+<p><code>5</code>.包装类不适用于回调框架，回调函数传递是1个指向自身的引用，避开了外面的包装类</p>
+<p><code>6</code>.继承会将api中所有缺陷传播到子类中去，而复合却可以设计新的api隐藏缺陷</p>
+<p><code>7</code>.只有真正存在从属关系时，才应该使用继承</p>
+<h2 id="17-要么为继承而设计，并提供文档说明，要么就禁止继承"><a href="#17-要么为继承而设计，并提供文档说明，要么就禁止继承" class="headerlink" title="17.要么为继承而设计，并提供文档说明，要么就禁止继承"></a><code>17</code>.要么为继承而设计，并提供文档说明，要么就禁止继承</h2><p><code>1</code>.<strong>决不能在构造器中调用可以被覆盖的方法</strong>，否则这样的方法将会在子类构造器之前运行，若是该方法中存在对域的访问，将会造成空指针异常</p>
+<p><code>2</code>.类必须提供适当的hook，以便能够进入子类的内部工作流程</p>
+<p><code>3</code>.如果实现了Cloneable或Serializable接口，那么<code>clone</code>与<code>readObject</code>都<strong>不</strong>能调用可被覆盖的方法</p>
+<p><code>4</code>.如果实现了Serializable接口，必须使readObject与writeReplace成为<strong>受保护</strong>的方法，否则它们将会被子类忽略掉</p>
+<p><code>5</code>.如果必须让类可被继承，<strong>务必保证这个类永远不会调用可覆盖方法</strong>，可以机械地消除可覆盖方法的<code>自用性</code>：将每个可覆盖方法的方法体移到一个私有的“<code>辅助方法</code>中”，然后让可覆盖方法调用辅助方法实现功能，这样可以确保可覆盖方法永远不会干涉到父类的运行。</p>
+<h2 id="18-接口优于抽象类"><a href="#18-接口优于抽象类" class="headerlink" title="18.接口优于抽象类"></a><code>18</code>.接口优于抽象类</h2><p><code>1</code>.现有的类易被更新，以实现新的接口</p>
+<p><code>2</code>.接口是定义mixin（混合类型）理想选择</p>
+<p><code>3</code>.接口允许我们构造非层次接口的类型框架</p>
+<p><code>4</code>.在包装类模式下，接口使得安全地增强类的功能成为可能</p>
+<p><code>5</code>.通过对导出的每个接口都提供一个<code>骨架实现</code>（skeletal implementation）类，把接口和抽象类的优点结合起来</p>
+<p><code>6</code>.实现了接口的类可以把对于接口方法的调用转发到一个内部私有类的实例上，这个内部私有类扩展了骨架实现类，这种方法被称为“<code>多重模拟继承</code>”。</p>
+<p><code>7</code>.抽象类比接口更易于扩展，抽象类可以直接增加方法，接口却不可以。</p>
+<p><code>8</code>.接口一旦被公开发行，并且已被广泛实现，再想改变接口是不可能的。</p>
+<p><code>9</code>.接口通常是定义允许多个实现的类型的最佳途径，但是当<strong>演变</strong>的容易性比<strong>灵活性</strong>和<strong>功能性</strong>更重要时例外。</p>
+<h2 id="19-接口只用于定义类型"><a href="#19-接口只用于定义类型" class="headerlink" title="19.接口只用于定义类型"></a><code>19</code>.接口只用于定义类型</h2><p><code>1</code>.常量接口模式是对接口的不良使用</p>
+<p><code>2</code>.如果这些常量最好被看作枚举类型的成员，就应该是<code>枚举类型</code>，否则应该使用不可实例化的工具类来导出这些常量。</p>
+<p><code>3</code>.如果大量利用工具类来导出常量，可以通过利用<code>静态导入</code>机制，避免用类名来修饰常量名。（1.5版本后）</p>
+<h2 id="20-类层次优于标签类"><a href="#20-类层次优于标签类" class="headerlink" title="20.类层次优于标签类"></a><code>20</code>.类层次优于标签类</h2><p><code>1</code>.标签类过于冗长，容易出错，并且效率低下</p>
+<p><code>2</code>.编译器确保每个类的构造器都初始化它的数据域，对于根类中声明的每个抽象方法，都确保有一个实现。</p>
+<p><code>3</code>.类层次的另一种好处在于，它们可以用来反映类型之间本质上的层次关系，有助于增强灵活性，并进行更好的编译时类型检查。</p>
+<h2 id="21-用函数对象表示策略"><a href="#21-用函数对象表示策略" class="headerlink" title="21.用函数对象表示策略"></a><code>21</code>.用函数对象表示策略</h2><p><code>1</code>.如果一个类仅仅导出一个方法，它的实例实际上就等同于一个指向该方法的指针。</p>
+<p><code>2</code>.设计具体的策略类时，还需要定义一个策略接口</p>
+<p><code>3</code>.如果它被重复执行，考虑将函数对象存储到一个私有的静态final域里，并重用它。</p>
+<p><code>4</code>.宿主类可以导出公有的静态域（或静态工厂方法），其类型为策略接口，具体的策略类可以是宿主类的私有嵌套类。</p>
+<h2 id="22-优先考虑静态成员类"><a href="#22-优先考虑静态成员类" class="headerlink" title="22.优先考虑静态成员类"></a><code>22</code>.优先考虑静态成员类</h2><p><code>1</code>.嵌套类存在的目的应该只是为它的外围类提供服务。</p>
+<p><code>2</code>.嵌套类有四种：<code>静态成员类</code>，<code>非静态成员类</code>，<code>匿名类</code>，<code>局部类</code></p>
+<p><code>3</code>.非静态成员类每个实例都隐含着与外围类的一个实例相关联。</p>
+<p><code>4</code>.如果嵌套类的实例可以在它的外围类的实例之外独立存在，这个嵌套类就必须是静态成员类；在没有外围实例的情况下，想创建非静态成员类的实例是不可能的。</p>
+<p><code>5</code>.非静态成员类的一种常见用法是定义一个<code>Adapter</code>，它允许外部类的实例被看作是另一个不相关的类的实例。（如集合视图 keySet iterator）</p>
+<p><code>6</code>.如果声明成员类不要求访问外围实例，那成员类就应该是静态的。非静态成员类的实例必须要有一个外围的实例</p>
+<p><code>7</code>.私有静态成员类的一种常见用法是用来代表外围类所代表的对象的组件。</p>
+<p><code>8</code>.匿名类的常见用法是①动态地创建函数对象（第21条），②创建对象过程（Runabel,Thead,TimerTask）,③在静态工厂方法的内部</p>
+<p><code>9</code>.在任何可以声明局部变量的地方，都可以声明局部类，并且局部类也遵守同样的作用域规则。</p>
+<hr>
+<h1 id="四-泛型"><a href="#四-泛型" class="headerlink" title="四 泛型"></a><code>四</code> 泛型</h1><h2 id="23-不要在新代码中使用原生态类型"><a href="#23-不要在新代码中使用原生态类型" class="headerlink" title="23.不要在新代码中使用原生态类型"></a><code>23</code>.不要在新代码中使用原生态类型</h2><p><code>1</code>.错误应该尽早发现，最好在编译期就发现。</p>
+<p><code>2</code>.如果使用原生类型，就失去了泛型在安全性和表述性方面的所有优势</p>
+<p><code>3</code>.在不在乎集合中的元素类型时，使用<strong>无限制的通配符</strong>类型（<code>&lt;?&gt;</code>）</p>
+<p><code>4</code>.在类文字中必须使用原生态类型；因为泛型会被擦除，所以<code>instanceof</code>操作符使用原生类型就可以了。</p>
+<h2 id="24-消除非受检警告"><a href="#24-消除非受检警告" class="headerlink" title="24.消除非受检警告"></a><code>24</code>.消除非受检警告</h2><p><code>1</code>.泛型相关的编译警告：</p>
+<blockquote>
+<ul>
+<li><p>非受检强制转化警告（unchecked cast warnnings）</p>
+</li>
+<li><p>非受检方法调用警告</p>
+</li>
+<li><p>非受检普通数组创建警告</p>
+</li>
+<li><p>非受检转换警告（unchecked conversion warnings）</p>
+</li>
+</ul>
+</blockquote>
+<p><code>2</code>.要尽可能地消除每一个非受检警告</p>
+<p><code>3</code>.如果无法消除警告，可以同时证明引起警告的代码是类型安全的，只有在这种情况下才可以用一个<code>@SuppressWarnings(&quot;unchecked&quot;)</code>注解来禁止这条警告。</p>
+<p><code>4</code>.SuppressWarnings注解可以用在任何粒度的级别中，应该始终在尽可能小的范围中使用它，永远不要在整个类中使用它</p>
+<p><code>5</code>.如果在长度不止一行（即一行代码中存在多个动作）的代码中使用了SuppressWarnings注解，可以将它移到一个局部变量声明中，以减小SuppressWarnings注解的影响范围。</p>
+<p><code>6</code>.每当使用<code>@SuppressWarnings(&quot;unchecked&quot;)</code>时，都要添加一条注释，说明为什么这么做是安全的。</p>
+<h2 id="25-列表优先于数组"><a href="#25-列表优先于数组" class="headerlink" title="25.列表优先于数组"></a><code>25</code>.列表优先于数组</h2><p><code>1</code>.数组与泛型的区别</p>
+<blockquote>
+<ul>
+<li><p>数组是<code>协变</code>的，如果<code>sub</code>为<code>super</code>的子类型，那么<code>sub[]</code>也是<code>super[]</code>的子类型；相反，泛型则是<code>不可变</code>的，对于两个类型<code>Type1</code>与<code>Type2</code>，<code>List&lt;Type1&gt;</code>与<code>List&lt;Type2&gt;</code>没有任何关系。</p>
+</li>
+<li><p>数组是<code>具体化</code>的，因此数组在运行时才知道并检查它的元素类型约束；而泛型则是通过擦除（erasure）来实现的，泛型只在编译时强化类型信息，并在运行时擦除元素类型信息，擦除可以使泛型与早期无泛型的代码兼容。</p>
+</li>
+</ul>
+</blockquote>
+<p><code>2</code>.泛型与数组不能混合使用，因为泛型数组不是类型安全的。（因为数组是协变的，所以数组可以自动向上转型，我们可以往向上转型后的数组中插入与转型前不同的类型的数据，而借转型前数组名义取出的对象将会产生CalssCastException）</p>
+<pre><code>List&lt;String&gt;[] stringLists = new List&lt;String&gt;[];
+List&lt;Integer&gt; intList = Arrays.asList(42);
+Object[] objects = stringLists;
+objects[0] = intList;
+String s = stringLists[0].get(0);</code></pre><p><code>3</code>.每当调用可变参数方法时，就会创建一个数组来存放参数，如果这个数组的元素类型不是可具体化的，就会得到一条警告，除了禁止这个警告，别无他法。</p>
+<p><code>4</code>.数组提供了运行时的类型安全，但是没有提供编译时的类型安全；泛型提供了编译时的类型安全，但是没有提供运行时的类型安全。</p>
+<p><code>5</code>.不可具体化的类型数组转换只能在特殊情况下使用。</p>
+<h2 id="26-优先考虑泛型"><a href="#26-优先考虑泛型" class="headerlink" title="26.优先考虑泛型"></a><code>26</code>.优先考虑泛型</h2><p><code>1</code>.禁止数组类型的未受检转换比禁止标量类型的更加危险</p>
+<p><code>2</code>.使用泛型比使用需要在客户端代码中进行转换的类型更加安全，也更加容易，在设计新类型的时候，要确保不需要这种转换就能使用。</p>
+<h2 id="27-优先考虑泛型方法"><a href="#27-优先考虑泛型方法" class="headerlink" title="27.优先考虑泛型方法"></a><code>27</code>.优先考虑泛型方法</h2><p><code>1</code>.如果泛型方法返回的对象是无状态的，可以考虑将该对象做成<code>泛型单例</code></p>
+<p><code>2</code>.调用泛型方法时，编译器会对返回值进行类型推到，以适应接收者的类型</p>
+<h2 id="28-利用有限通配符来提升API的灵活性"><a href="#28-利用有限通配符来提升API的灵活性" class="headerlink" title="28.利用有限通配符来提升API的灵活性"></a><code>28</code>.利用有限通配符来提升API的灵活性</h2><p><code>1</code>.泛型中使用<code>extends</code>时，每个类型都是自身的子类型；使用<code>super</code>时，每个类型都是自身的超类型。</p>
+<p><code>2</code>.为了获得最大限度的灵活性，要在表示生产者或者消费者的输入参数上使用通配符类型。<strong>PECS</strong>（producer-extends；consumer-super）</p>
+<p><code>3</code>.不要用通配符类型作为返回类型</p>
+<p><code>4</code>.如果编译器不能推断你希望它拥有的类型，可以通过显式的类型参数来指定。</p>
+<p><code>5</code>.如果类型参数在方法中声明中只出现一次，可以用通配符取代它。</p>
+<p><code>6</code>.不能把null之外的任何值放进List&lt;?&gt;中</p>
+<h2 id="29-优先考虑类型安全的异构容器"><a href="#29-优先考虑类型安全的异构容器" class="headerlink" title="29.优先考虑类型安全的异构容器"></a><code>29</code>.优先考虑类型安全的异构容器</h2><p><code>1</code>.<code>cast</code>方法是java的cast操作符的动态模拟，它只检验它的参数是否为Class对象所表示的类型的实例，如果是，就返回参数，否则抛出ClassCastException</p>
+<p><code>2</code>.类型安全的异构容器的缺陷</p>
+<blockquote>
+<ul>
+<li><p>恶意的客户端可以很轻松的破坏类型安全，只要它以原生态类型使用Class对象，在容器的添加方法第一行加入参数的类型检查（<code>type.cast(obj)</code>）可以避免这种问题。</p>
+</li>
+<li><p>不可存放不可具体化的类型数据（如<code>List&lt;String&gt;</code>，因为<code>List&lt;String&gt;</code>的类型为List.class，而<code>List&lt;String&gt;.class</code>是语法错误），只能保存String或String[]等可具体化的对象。</p>
+</li>
+</ul>
+</blockquote>
+<p><code>3</code>.利用有限制类型参数或者有限制通配符来限制可以表示的类型</p>
+<p><code>4</code>.<code>asSubclass(List.class)</code>方法将Class类的类型令牌安全且动态地转换成参数所表示的类(List)的一个子类的通配符表示法(? extends List)，参数必须为调用者的父类型，如果成功，返回它的参数，否则抛出ClassCastExcpetion</p>
+<hr>
+<h1 id="五-枚举和注解"><a href="#五-枚举和注解" class="headerlink" title="五 枚举和注解"></a><code>五</code> 枚举和注解</h1><h2 id="30-用enum代替int常量"><a href="#30-用enum代替int常量" class="headerlink" title="30.用enum代替int常量"></a><code>30</code>.用enum代替int常量</h2><p><code>1</code>.因为没有可以访问的构造器，枚举类型是真正的<code>final</code>。</p>
+<p><code>2</code>.枚举类型允许添加任意的方法和域，并实现任意的接口。枚举提供了所有Object方法的高级实现，实现了Comparable和Serializable接口，并针对枚举类型的可任意改变性设计了序列化方式。</p>
+<p><code>3</code>.枚举有一个静态的<code>values</code>方法，按照声明顺序返回它的值数组，<code>toString</code>方法返回每个枚举值的声明名称。</p>
+<p><code>4</code>.在同一个枚举类型中，将特定的行为与每个具体的枚举常量关联起来：在枚举类型中声明一个抽象的方法，并<strong>在特定于常量的类主体中，覆盖该方法</strong>。</p>
+<p><code>5</code>.每一个枚举常量可以关联特定的数据（在构造器中绑定），因此特定于枚举常量的方法可以与特定于枚举常量的数据结合起来。</p>
+<p><code>6</code>.枚举类型有一个自动产生的valueOf(string)方法，它将常量的名字转变成常量本身。如果枚举类型中覆盖toString，要考虑编写一个<code>fromString</code>方法，将定制的字符串表示法变回相应的枚举。</p>
+<p><code>7</code>.如果多个枚举常量同时共享多个行为，要考虑<code>策略枚举</code>。</p>
+<h2 id="31-用实例域代替序数"><a href="#31-用实例域代替序数" class="headerlink" title="31.用实例域代替序数"></a><code>31</code>.用实例域代替序数</h2><p><code>1</code>.所有枚举都有一个<code>ordinal</code>方法，它返回每个枚举常量在类型中的数字位置</p>
+<p><code>2</code>.永远不要根据枚举的序数导出与他关联的值，而是要将值保存在一个实例域中。</p>
+<h2 id="32-用EnumSet代替位域"><a href="#32-用EnumSet代替位域" class="headerlink" title="32.用EnumSet代替位域"></a><code>32</code>.用EnumSet代替位域</h2><p><code>1</code>.<code>or</code>位运算将几个常量合并到一个集合中，称为<code>位域</code>。（形如111→rwx）</p>
+<p><code>2</code>.EnumSet可以表示从单个枚举类型中提取的多个值的集合，<code>EnumSet.of</code></p>
+<p><code>3</code>.截止jdk1.6，无法创建不可变的EnumSet</p>
+<h2 id="33-用EnumMap代替序数索引"><a href="#33-用EnumMap代替序数索引" class="headerlink" title="33.用EnumMap代替序数索引"></a><code>33</code>.用EnumMap代替序数索引</h2><p><code>1</code>.<code>EnumMap</code>构造器采用键类型的Class对象：这是一个有限制的类型令牌，它提供了运行时的泛型信息。实例化需要指定Class类型，可以保存同一个类型的对象与值的映射关系</p>
+<p><code>2</code>.最好不要用序数来索引数组，而要用EnumMap，如果需要表示的关系是多维的，就用嵌套的EnumMap</p>
+<h2 id="34-用接口模拟可伸缩的枚举"><a href="#34-用接口模拟可伸缩的枚举" class="headerlink" title="34.用接口模拟可伸缩的枚举"></a><code>34</code>.用接口模拟可伸缩的枚举</h2><p><code>1</code>.用接口模拟可伸缩的枚举有个小小的不足，即无法实现从一个枚举类型继承到另一个枚举类型。</p>
+<p><code>2</code>.虽然无法编写可扩展的枚举类型，却可以通过编写接口以及实现该接口的基础枚举类型，模拟可伸缩的枚举。<code>&lt;T extends Enum&lt;T&gt; &amp; interfaceType&gt;</code></p>
+<h2 id="35-注解优先于命名模式"><a href="#35-注解优先于命名模式" class="headerlink" title="35.注解优先于命名模式"></a><code>35</code>.注解优先于命名模式</h2><p><code>1</code>.注解的声明类型就是自身通过<code>Retention</code>和<code>Target</code> 注解进行注解，<code>@Retention(RetentionPolicy.RUNTIME)</code>元注解表明，应该在运行时保留；<code>@Target(ElementType.METHOD)</code>元注解表明，只有在方法声明中才是合法的。</p>
+<p><code>2</code>.<code>InvocationTargetException</code> 封装了目标方法在运行时产生的异常，出现该异常表明目标方法确实被运行了，使用<code>getCause()</code>可以获得方法运行时产生的具体异常。</p>
+<p><code>3</code>.用花括号包裹用逗号分隔的参数将自动变成参数数组</p>
+<p><code>4</code>.如果编写的工具需要在源文件上添加信息，就要定义一组适当的注解类型。</p>
+<h2 id="36-坚持使用Override注解"><a href="#36-坚持使用Override注解" class="headerlink" title="36.坚持使用Override注解"></a><code>36</code>.坚持使用Override注解</h2><p><code>1</code>.<code>Override</code>会对标记的方法进行代码检查，确保该方法成功地被重写了。</p>
+<p><code>2</code>.现代IDE在检测到Override注解时会提醒用户小心无意识的覆盖。</p>
+<p><code>3</code>.在抽象类或接口中使用Override可以确保不会添加新的方法。</p>
+<h2 id="37-用标记接口定义类型"><a href="#37-用标记接口定义类型" class="headerlink" title="37.用标记接口定义类型"></a><code>37</code>.用标记接口定义类型</h2><p><code>1</code>.标记接口是没有包含方法声明的接口，只是指明了实现类应该具有的属性。</p>
+<p><code>2</code>.标记接口有两点胜过注解</p>
+<blockquote>
+<ul>
+<li><p>标记接口可以在编译时进行类型检查，保证参数的有效性</p>
+</li>
+<li><p>标记接口类型更容易指定实现类的约束条件，如Set就是一个标记接口，他限制了实现类必须具有Collection特性。</p>
+</li>
+</ul>
+</blockquote>
+<p><code>3</code>.注解有两点胜过标记接口</p>
+<blockquote>
+<ul>
+<li><p>注解可以在内部丰富信息而不影响客户端使用</p>
+</li>
+<li><p>标记注解在支持注解的框架中具有一致性</p>
+</li>
+</ul>
+</blockquote>
+<p><code>4</code>.如果标记需要应用到任何程序元素而不仅仅是类或接口上，就应该使用注解；否则应该使用标记接口；如果该标记只用于特定的接口，最好将标记定义成该接口的子接口(Set与Collection)</p>
+<p><code>5</code>.如果一个标记永远不会扩展，应该定义成标记接口；如果未来可能需要在标记上添加更多信息，则应该定义成标记注解。</p>
+<hr>
+<h1 id="六-方法"><a href="#六-方法" class="headerlink" title="六 方法"></a><code>六</code> 方法</h1><h2 id="38-检查参数的有效性"><a href="#38-检查参数的有效性" class="headerlink" title="38.检查参数的有效性"></a><code>38</code>.检查参数的有效性</h2><p><code>1</code>.应该在发生错误后，能够尽快检测出错误，不要让错误在过深的地方爆发出来。</p>
+<p><code>2</code>.对于公有的方法，要用<code>@throws</code>标签在文档中说明违反参数值限制时会抛出的异常。</p>
+<p><code>3</code>.非公有的方法通常应该使用断言来检查参数， <code>-ea</code>启用</p>
+<p><code>4</code>.如果有效性检查非常昂贵，或者已经隐含在计算中完成则无需进行检查</p>
+<p><code>5</code>.使用<code>异常转译</code>技术，将计算过程中抛出的异常转换为正确的异常。</p>
+<h2 id="39-必要时进行保护性拷贝"><a href="#39-必要时进行保护性拷贝" class="headerlink" title="39.必要时进行保护性拷贝"></a><code>39</code>.必要时进行保护性拷贝</h2><p><code>1</code>.对构造器的每个可变参数进行保护性拷贝</p>
+<p><code>2</code>.保护性拷贝是在检查参数的有效性之<code>前</code>进行的，并且有效性检查是针对拷贝之<code>后</code>的对象，而不是针对原始对象，这样可以避免在拷贝阶段从另一个线程改变类的参数。</p>
+<p><code>3</code>.对于参数类型可以被不信任方子类化的参数，不要使用<code>clone</code>。</p>
+<p><code>4</code>.如果需要访问类的内部域，返回内部域的保护性拷贝。</p>
+<p><code>5</code>.如果不能容忍客户端传入的对象可变，使用保护性拷贝</p>
+<p><code>6</code>.长度非0的数组总是可变的，使用保护性拷贝或者返回数组的不可变视图</p>
+<p><code>7</code>.通常使用Date.getTime()返回的long类型作为内部的时间表示法。</p>
+<p><code>8</code>.包装类一般客户端自己使用，无需使用保护性拷贝。</p>
+<h2 id="40-谨慎设计方法签名"><a href="#40-谨慎设计方法签名" class="headerlink" title="40.谨慎设计方法签名"></a><code>40</code>.谨慎设计方法签名</h2><p><code>1</code>.谨慎地选择方法的名称</p>
+<p><code>2</code>.不要过于追求提供便利的方法，只用某项操作被经常用到时，才提供快捷方式。</p>
+<p><code>3</code>.避免过长的参数列表，相同类型的长参数序列格外有害。</p>
+<p>缩短参数列表的三种方法</p>
+<blockquote>
+<ul>
+<li><p>把方法分解成多个方法，但是会导致方法过多，但是提升方法的正交性，可以减少方法数目。</p>
+</li>
+<li><p>创建辅助类，用来保存参数的分组。</p>
+</li>
+<li><p>从对象构建到方法调用都采用<code>Builder</code>模式</p>
+</li>
+</ul>
+</blockquote>
+<p><code>4</code>.对于参数类型，优先使用接口而不是类。</p>
+<p><code>5</code>.对于boolean参数，要优先使用连个元素的枚举类型。</p>
+<h2 id="41-慎用重载"><a href="#41-慎用重载" class="headerlink" title="41.慎用重载"></a><code>41</code>.慎用重载</h2><p><code>1</code>.要调用哪个重载方法是在<code>编译</code>时做出决定的。</p>
+<p><code>2</code>.对于重载方法的选择是<code>静态</code>的，而对于被覆盖的方法的选择是<code>动态</code>的。</p>
+<p><code>3</code>.如果普通用户根本不知道”对于一组给定的参数，其中哪个重载方法将会调用”，那么这样的API很可能导致错误。</p>
+<p><code>4</code>.安全而保守的策略是，永远不要导出两个具有相同参数数目的重载方法；如果方法使用可变参数，保守的策略是根本不重载它。</p>
+<p><code>5</code>.一个类的多个构造器总是重载的，很多情况下可以用静态工厂代替构造器。</p>
+<p><code>6</code>.对于一对重载方法，如果至少有一个对应的参数在两个方法中具有”<strong>根本不同</strong>（无法强转）”的类型，那就不会让用户感到混淆。</p>
+<p><code>7</code>.将<code>list.remove()</code>参数转换成<code>Integer</code>，迫使选择正确的重载方法。<strong>java语言添加了自动装箱后，破坏了List接口</strong>。</p>
+<p><code>8</code>.当传递的参数没有本质的不同时，必须确保所有的重载方法行为一致，做法是让更具体化的重载方法把调用转发给更一般化的重载方法。</p>
+<h2 id="42-慎用可变参数"><a href="#42-慎用可变参数" class="headerlink" title="42.慎用可变参数"></a><code>42</code>.慎用可变参数</h2><p><code>1</code>.参数数量检测无法在编译期完成</p>
+<p><code>2</code>.可变参数方法会将多个参数收集成<strong>数组</strong>，但若参数本身就是数组，那么收集后的数组将无法得到预期的结果（<code>Arrays.asList</code>）</p>
+<p><code>3</code>.不必改造具有数组参数的每个方法；只当确实是在数量不定的值上执行调用时才使用可变参数</p>
+<p><code>4</code>.重视性能时要小心，可变参数方法每次调用都会进行数组分配和初始化</p>
+<p><code>5</code>.提供大多数使用情况下的不可变参数方法，再额外附加可变参数方法（<code>EnumSet.of</code>）</p>
+<h2 id="43-返回零长度的数组或者集合，而不是null"><a href="#43-返回零长度的数组或者集合，而不是null" class="headerlink" title="43.返回零长度的数组或者集合，而不是null"></a><code>43</code>.返回零长度的数组或者集合，而不是null</h2><p><code>1</code>.如果返回null，每次调用该方法时都会需要进行空值判断</p>
+<p><code>2</code>.长度为0的数组是不可变的，因此返回的空数组可以自由共享</p>
+<p>（<code>Collections.emptySet</code>；</p>
+<p><code>Collections.emptyList</code>；</p>
+<p><code>Collections.emptyMap</code>）</p>
+<h2 id="44-为所有导出的API元素编写文档注释"><a href="#44-为所有导出的API元素编写文档注释" class="headerlink" title="44.为所有导出的API元素编写文档注释"></a><code>44</code>.为所有导出的API元素编写文档注释</h2><p><code>1</code>.文档注释应该简洁地描述出它和客户端之间的约定</p>
+<p><code>2</code>.应该列举出这个方法的所有前提条件，后置条件和副作用</p>
+<p><code>3</code>.<code>{@code}</code>会造成包裹的内容以代码片段形式呈现（即生成code标签）</p>
+<p><code>4</code>.<code>{@literal}</code>会自动转义包裹的内容</p>
+<p><code>5</code>.同一个类或者接口中的两个成员或者构造器，不应该具有相同的概要描述</p>
+<p><code>6</code>.不要忽视类是否是<strong>线程安全</strong>的，以及类是否是<strong>可序列化</strong>的。</p>
+<p><code>7</code>.<code>{@inheritDoc}</code>继承注释</p>
+<hr>
+<h1 id="七-通用程序设计"><a href="#七-通用程序设计" class="headerlink" title="七 通用程序设计"></a><code>七</code> 通用程序设计</h1><h2 id="45-将局部变量的作用域最小化"><a href="#45-将局部变量的作用域最小化" class="headerlink" title="45.将局部变量的作用域最小化"></a><code>45</code>.将局部变量的作用域最小化</h2><p><code>1</code>.最有力的方法就是在第一次使用它的地方声明</p>
+<p><code>2</code>.几乎每个局部变量都应该包含一个初始化表达式，如果没有足够的信息来进行有意义的初始化，就推迟这个声明，try-catch除外。</p>
+<p><code>3</code>.循环中提供了特殊的机会来将变量的作用域最小化，如果在循环终止后不再需要循环变量的内容，<code>for</code>循环就优先于<code>while</code>循环。</p>
+<h2 id="46-for-each-循环优先于传统for循环"><a href="#46-for-each-循环优先于传统for循环" class="headerlink" title="46.for-each 循环优先于传统for循环"></a><code>46</code>.for-each 循环优先于传统for循环</h2><p><code>1</code>.嵌套的for-each循环，外层循环的对象可以在内层对象中保持，不会随内层循环移动指针。</p>
+<p><code>2</code>.有3种情况无法使用for-each</p>
+<blockquote>
+<ul>
+<li><p>需要遍历并删除元素时</p>
+</li>
+<li><p>需要遍历元素并取代某些值时</p>
+</li>
+<li><p>需要并行迭代多个集合时</p>
+</li>
+</ul>
+</blockquote>
+<h2 id="47-了解和使用类库"><a href="#47-了解和使用类库" class="headerlink" title="47.了解和使用类库"></a><code>47</code>.了解和使用类库</h2><p><code>java.lang</code>；</p>
+<p><code>java.util</code>；</p>
+<p><code>java.io</code>；</p>
+<p><code>java.util.concurrent</code>；</p>
+<h2 id="48-如果需要精确的答案，请避免使用float和double"><a href="#48-如果需要精确的答案，请避免使用float和double" class="headerlink" title="48.如果需要精确的答案，请避免使用float和double"></a><code>48</code>.如果需要精确的答案，请避免使用float和double</h2><p>使用<code>BigDecimal</code>，<code>int</code> 或者 <code>long</code> 进行货币计算</p>
+<h2 id="49-基本类型优先于装箱基本类型"><a href="#49-基本类型优先于装箱基本类型" class="headerlink" title="49.基本类型优先于装箱基本类型"></a><code>49</code>.基本类型优先于装箱基本类型</h2><p><code>1</code>.基本类型与装箱基本类型的区别</p>
+<blockquote>
+<ul>
+<li><p>基本类型只有值，而装箱基本类型的<strong>同一性</strong>不仅取决于值</p>
+</li>
+<li><p>装箱基本类型除了值还多了一个null</p>
+</li>
+<li><p>基本类型更节省空间</p>
+</li>
+</ul>
+</blockquote>
+<p><code>2</code>.对装箱基本类型使用==操作符几乎总是错误的。</p>
+<p><code>3</code>.当一项操作中混合使用基本类型和装箱基本类型时，装箱基本类型会<strong>自动拆箱</strong>。若被拆的对象为null，将抛出异常。</p>
+<p><code>4</code>.在集合中只能使用装箱基本类型</p>
+<h2 id="50-如果其他类型更适合，则尽量避免使用字符串"><a href="#50-如果其他类型更适合，则尽量避免使用字符串" class="headerlink" title="50.如果其他类型更适合，则尽量避免使用字符串"></a><code>50</code>.如果其他类型更适合，则尽量避免使用字符串</h2><p><code>1</code>.字符串不适合代替其他的值类型</p>
+<p><code>2</code>.字符串不适合代替枚举类型</p>
+<p><code>3</code>.字符串不适合代替聚集类型（即将多个部分拼接成字符串用关键字分隔），最好用一个简单的类来代替。</p>
+<p><code>4</code>.字符串不可替代控制共享资源访问权限的键</p>
+<h2 id="51-当心字符串连接的性能"><a href="#51-当心字符串连接的性能" class="headerlink" title="51.当心字符串连接的性能"></a><code>51</code>.当心字符串连接的性能</h2><p><code>1</code>.为连接n个字符串而重复地使用字符串连接操作符，需要n的平方级的时间</p>
+<p><code>2</code>.为了性能，用<code>StringBuilder</code>替代String</p>
+<h2 id="52-通过接口引用对象"><a href="#52-通过接口引用对象" class="headerlink" title="52.通过接口引用对象"></a><code>52</code>.通过接口引用对象</h2><p><code>1</code>.如果有合适的接口类型存在，那么对于参数，返回值，变量和域来说，就都应该使用接口类型进行声明</p>
+<p><code>2</code>.如果对象属于基于类的框架，就应该使用基类引用这个对象，尽量用抽象类型引用对象</p>
+<p><code>3</code>.如果程序依赖于类中额外的方法，那么这种类应该只被用来引用实例，而不应该作为参数类型。</p>
+<h2 id="53-接口优先于反射机制"><a href="#53-接口优先于反射机制" class="headerlink" title="53.接口优先于反射机制"></a><code>53</code>.接口优先于反射机制</h2><p>反射功能应该只有在设计时被用到，或者只是用来创建对象，程序在运行时不应该以反射方式访问对象</p>
+<h2 id="54-谨慎地使用本地方法"><a href="#54-谨慎地使用本地方法" class="headerlink" title="54.谨慎地使用本地方法"></a><code>54</code>.谨慎地使用本地方法</h2><p><code>1</code>.本地方法3个用途</p>
+<blockquote>
+<ul>
+<li><p>提供访问特定于平台的机制的能力，如注册表和文件锁</p>
+</li>
+<li><p>提供了访问遗留代码库的能力</p>
+</li>
+<li><p>通过本地语言，编写程序中注重性能的部分</p>
+</li>
+</ul>
+</blockquote>
+<p><code>2</code>.使用本地方法<strong>不值得提倡</strong>，<code>java.util.prefs</code>提供了访问注册表的能力，<code>java.awt.SystemTray</code>提供了访问桌面系统托盘的能力</p>
+<p><code>3</code>.本地语言是<code>不安全</code>的，无法免受内存毁坏错误的影响。</p>
+<h2 id="55-谨慎地进行优化"><a href="#55-谨慎地进行优化" class="headerlink" title="55.谨慎地进行优化"></a><code>55</code>.谨慎地进行优化</h2><p><code>1</code>.好的程序体现了信息隐藏的原则，只要有可能，就要把设计决策（暂时理解为业务逻辑）集中在单个模块中，因此，可以改变单个决策，而不会影响到系统的其他部分。</p>
+<p><code>2</code>.努力避免那些限制性能的设计决策，系统中最难更改的是指定模块<strong>交互关系</strong>的组件，<strong>API</strong>，<strong>线路层协议</strong>和<strong>永久数据格式</strong></p>
+<p><code>3</code>.要考虑API设计设计决策的性能后果</p>
+<blockquote>
+<ul>
+<li><p>如果将公类类型成为可变的，就可能导致大量不必要的保护性拷贝</p>
+</li>
+<li><p>在适合使用复合模式的公有类中使用继承，会把这个类与它的超类永远束缚在一起</p>
+</li>
+<li><p>在API中使用实现类而不是接口，会将客户端束缚在具体的实现类上，如果将来出现更快的实现也无法使用。</p>
+</li>
+</ul>
+</blockquote>
+<h2 id="56-遵守普遍接受的命名习惯"><a href="#56-遵守普遍接受的命名习惯" class="headerlink" title="56.遵守普遍接受的命名习惯"></a><code>56</code>.遵守普遍接受的命名习惯</h2><p><code>1</code>.《<code>The Java Language Specification</code>》</p>
+<p><code>2</code>.对于缩写单词，也应该遵守首字母大写原则</p>
+<p><code>3</code>.常量域是唯一推荐使用下划线的情形</p>
+<p><code>4</code>.类型参数，<code>T</code>任意类型，<code>E</code>集合元素类型，<code>KV</code>键值映射类型，<code>X</code>异常，任何类型的序列可以是T,U,V或者T1,T2,t3</p>
+<p><code>5</code>.转换对象类型，返回不同类型的独立对象的方法 <code>toType</code>；</p>
+<p>返回视图<code>asType</code>；</p>
+<p>返回一个与被调用对象相同值的基本类型的方法<code>typeValue</code>；</p>
+<p>静态工厂<code>valueOf</code>，<code>of</code>，<code>getInstance</code>，</p>
+<p><code>newInstance</code>，<code>getType</code>，<code>NewType</code></p>
+<hr>
+<h1 id="八-异常"><a href="#八-异常" class="headerlink" title="八 异常"></a><code>八</code> 异常</h1><h2 id="57-只针对不正常情况使用异常"><a href="#57-只针对不正常情况使用异常" class="headerlink" title="57.只针对不正常情况使用异常"></a><code>57</code>.只针对不正常情况使用异常</h2><p><code>1</code>.异常机制的设计初衷是为了不正常的情形，很少有JVM实现会对它进行优化；把代码放在try-catch中反而阻止了本来可以进行的优化；对数组进行遍历的标准模式并会不导致冗余的检查，有些现代的JVM实现会将它们优化掉。</p>
+<p><code>2</code>.异常只应用于不正常情况，不应该用于正常的控制流。</p>
+<p><code>3</code>.如果类具有状态，有两种方法可以避免异常，第一种是<code>状态测试法</code>，如Iteable接口的hasNext。</p>
+<p><code>4</code>.另一种方法是<code>可识别返回值法</code>，并发环境下或状态检查影响性能时更适用，如果所有情况等同，优先使用状态检测法。</p>
+<h2 id="58-对可恢复的情况使用受检异常，对编程错误使用运行时异常"><a href="#58-对可恢复的情况使用受检异常，对编程错误使用运行时异常" class="headerlink" title="58.对可恢复的情况使用受检异常，对编程错误使用运行时异常"></a><code>58</code>.对可恢复的情况使用受检异常，对编程错误使用运行时异常</h2><p><code>1</code>.三种可抛出结构：<code>受检异常</code>，<code>运行时异常</code>，<code>错误</code></p>
+<p><code>2</code>.如果期望调用者能够适当地恢复，使用受检的异常</p>
+<p><code>3</code>.用运行时异常表明编程错误，大多数运行时异常表示提前违例，即API用户没有遵守约定</p>
+<p><code>4</code>.错误通常被JVM保留，用于表示资源不足，约束失败等，最好不要再实现任何新的Error子类</p>
+<p><code>5</code>.如果不清楚是否有可能恢复，最好使用<strong>未受检</strong>的异常</p>
+<p><code>6</code>.受检的异常往往需要表明可回复条件，提供一些便于查询信息的方法尤其重要</p>
+<h2 id="59-避免不必要地使用受检的异常"><a href="#59-避免不必要地使用受检的异常" class="headerlink" title="59.避免不必要地使用受检的异常"></a><code>59</code>.避免不必要地使用受检的异常</h2><p><code>1</code>.如果正确使用API不能阻止异常的产生，而一旦产生异常API使用者能够立即采取有效的动作，就值得使用受检的异常，除非两个条件都成立，否则更适合使用<strong>未受检</strong>异常。</p>
+<p><code>2</code>.把受检的异常变成未受检异常的方法是把抛出异常的方法分成两个方法，其中一个方法返回boolean表示是否应该抛出异常（类似状态检测法）。这种方法在并发环境下或者异常检测很耗性能时则不适用。</p>
+<h2 id="60-优先使用标准的异常"><a href="#60-优先使用标准的异常" class="headerlink" title="60.优先使用标准的异常"></a><code>60</code>.优先使用标准的异常</h2><p><code>ConcurrentModificationException</code>；</p>
+<p><code>UnsupportedOperationException</code></p>
+<h2 id="61-抛出与抽象相对应的异常"><a href="#61-抛出与抽象相对应的异常" class="headerlink" title="61.抛出与抽象相对应的异常"></a><code>61</code>.抛出与抽象相对应的异常</h2><p><code>1</code>.更高层的实现应该捕获低层的异常，同时抛出可以按照高层抽象进行解释的异常，这种做法称为<code>异常转译</code></p>
+<p><code>2</code>.一种特殊的异常转译形式称为<code>异常链</code>，如果低层异常对于调试高层异常有帮助，就适合使用异常链，高层异常提供访问方法获得低层异常（<code>Throwable.getCause</code>）</p>
+<p><code>3</code>.大多数标准异常都有异常链构造器，没有异常链构造器的，可以使用Throwable的<code>initCause</code>方法设置原因。</p>
+<p><code>4</code>.异常转译不应滥用，更好的做法是<strong>及时进行参数检查</strong>，尽早中断异常链。</p>
+<h2 id="62-每个方法抛出的异常都要有文档"><a href="#62-每个方法抛出的异常都要有文档" class="headerlink" title="62.每个方法抛出的异常都要有文档"></a><code>62</code>.每个方法抛出的异常都要有文档</h2><p><code>1</code>.始终要单独声明受检的异常，而不是抛出多个异常的共同的超类，并且利用<code>@throws</code>标记，准确记录下抛出每个异常的条件</p>
+<p><code>2</code>.不要在方法声明中抛出任何<code>RuntimException</code></p>
+<p><code>3</code>.如果一个类中的多个方法出于同样的原因抛出同样的异常，可以将异常的信息写入到类的文档注释中。</p>
+<h2 id="63-在细节消息中包含能捕捉失败的信息"><a href="#63-在细节消息中包含能捕捉失败的信息" class="headerlink" title="63.在细节消息中包含能捕捉失败的信息"></a><code>63</code>.在细节消息中包含能捕捉失败的信息</h2><p><code>1</code>.如果捕获失败，异常的细节信息应该包含所有对异常有贡献的参数和域的值</p>
+<p><code>2</code>.在异常的<strong>构造器</strong>中引入细节信息</p>
+<h2 id="64-努力使失败保持原子性"><a href="#64-努力使失败保持原子性" class="headerlink" title="64.努力使失败保持原子性"></a><code>64</code>.努力使失败保持原子性</h2><p><code>1</code>.失败的方法调用应该使对象保持在被调用之前的状态</p>
+<p><code>2</code>.保持失败原子性的方法：</p>
+<blockquote>
+<ul>
+<li><p>设计不可变类</p>
+</li>
+<li><p>检查参数有效性，提前失败，将所有可能产生失败的运算放到改变状态的操作之前</p>
+</li>
+<li><p>编写恢复代码</p>
+</li>
+<li><p>在对象的一份临时拷贝上操作，然后用拷贝中的结果代替对象的内容（如<code>Collections.sort</code>）</p>
+</li>
+</ul>
+</blockquote>
+<p><code>3</code>.在缺乏同步机制的情况下并发访问对象，难以保持失败原子性。</p>
+<h2 id="65-不要忽略异常"><a href="#65-不要忽略异常" class="headerlink" title="65.不要忽略异常"></a><code>65</code>.不要忽略异常</h2><p>有一种情形可以忽略异常，即关闭FileInputStream时，因为文件状态没有改变，不必终止当前操作，即使这种情况下，也应该将异常信息记录下来，以便排查。</p>
+<hr>
+<h2 id="九-并发"><a href="#九-并发" class="headerlink" title="九 并发"></a><code>九</code> 并发</h2><h2 id="66-同步访问共享的可变数据"><a href="#66-同步访问共享的可变数据" class="headerlink" title="66.同步访问共享的可变数据"></a><code>66</code>.同步访问共享的可变数据</h2><p><code>1</code>.同步可以保证每个线程看到的对象处于一致 的状态中；保证每个线程都看到锁对象被修改的结果。</p>
+<p><code>2</code>.java语言规范保证，读或者写一个变量是原子的，除非这个变量的类型为<code>long</code>或<code>double</code></p>
+<p><code>3</code>.读写原子数据的时候也应该使用同步，不仅为了<code>互斥访问</code>，也为了在线程间进行可靠的<code>通信</code>。详见<strong>java内存模型</strong>。</p>
+<p><code>4</code>.不要用<code>Thead.sotp</code>。要中断一个线程，建议做法是轮询boolean域，通过另一个线程修改这个boolean域；具体方法是添加对这个boolean域的读写方法，并对读写方法添加<code>同步</code>。</p>
+<p><code>5</code>.<code>volatile</code>修饰符虽然<strong>不</strong>执行互斥访问，但是可以保证每个线程在读取该域的时候都能看到<strong>最近</strong>刚被写入的值。</p>
+<p><code>6</code>.使用<code>AtomicLong</code>进行原子化long操作</p>
+<p><code>7</code>.最佳做法是要么不共享可变数据，要么就共享不可变数据，就是将可变数据限制在单个线程内部。</p>
+<p><code>8</code>.活性失败：线程永远无法读取到变量的变化</p>
+<p><code>9</code>.安全性失败：一个线程修改非原子变量时，另一个线程过来读取，此时只能读取到<strong>过渡</strong>状态的数据。</p>
+<h2 id="67-避免过度同步"><a href="#67-避免过度同步" class="headerlink" title="67.避免过度同步"></a><code>67</code>.避免过度同步</h2><p><code>1</code>.为了避免活性失败和安全性失败，在一个被同步的方法或者代码块中，永远不要放弃对客户端的控制。尽量不要在同步代码块中调用可被覆盖的方法或者客户端提供的方法（<strong>原则上永远不要信任客户端</strong>）</p>
+<p><code>2</code>.当客户端造成服务端变化后能够预定通知，即观察者（<code>Observer</code>）模式</p>
+<p><code>3</code>.线程B需要获得锁才能继续执行，但是线程B执行完当前的代码片段后，线程A才能让出锁，此时将会造成<code>死锁</code>。死锁的根本原因是，多个线程同时需求同步锁。</p>
+<p><code>4</code>.java中的锁是<code>可重入</code>的，这样的锁简化了多线程面向对象的构造</p>
+<p><code>5</code>.不要把锁对象传递给客户端，而是传递锁对象的快照，这样可以避免死锁</p>
+<p><code>6</code>.java类库提供了并发集合<code>CopyOnWriteArrayList</code></p>
+<p><code>7</code>.同步区域内的工作越少越好</p>
+<p><code>8</code>.如果一个可变的类需要并发访问，应该使这个类变成线程安全的，通过内部同步可以实现；如果不确定是否需要同步，那就不要同步，并建立文档，注明它不是线程安全的</p>
+<p><code>9</code>.如果在内部同步了类，就可以进行<code>分拆锁</code>，<code>分离锁</code>和<code>非阻塞</code>并发控制</p>
+<p><code>10</code>.如果方法修改了静态域，那么就必须同步对这个域的访问，即使它往往只作用于单个线程，这是为了可靠的线程通信</p>
+<h2 id="68-executor和task优先于线程"><a href="#68-executor和task优先于线程" class="headerlink" title="68.executor和task优先于线程"></a><code>68</code>.executor和task优先于线程</h2><p>1.<code>Executor Framework</code> </p>
+<pre><code>ExecutorService executor = Executors.newSingleThreadExecutor();
+executor.execute(runnable);
+executor.shutdown();
+invokeAny
+invokeAll
+awaitTermination
+ExecutorCompletionService</code></pre><p><code>2</code>.如果编写的是小程序，或者轻载服务器，使用<code>Executors.newCachedThreadPool</code></p>
+<p><code>3</code>.在大负载的产品服务器中，使用<code>Executors.newFixedThreadPool</code></p>
+<p><code>4</code>.尽量不要编写自己的工作队列，尽量不直接使用线程。现在的关键抽象不再是Thread了，而是task。task有两种：Runnable与Callable，执行任务的关键机制是ExecutorService。</p>
+<p><code>5</code>.ScheduledThreadPool代替Timer</p>
+<p><code>6</code>.《<code>Java Concurrency in Practice</code>》</p>
+<h2 id="69-并发工具优先于wait和notify"><a href="#69-并发工具优先于wait和notify" class="headerlink" title="69.并发工具优先于wait和notify"></a><code>69</code>.并发工具优先于wait和notify</h2><p><code>1</code>.concurrent包中三类工具：</p>
+<blockquote>
+<ul>
+<li><p>Executor Framework</p>
+</li>
+<li><p>并发集合</p>
+</li>
+<li><p>同步器</p>
+</li>
+</ul>
+</blockquote>
+<p><code>2</code>.并发集合中不可能排除并发活动，将他锁定没什么作用，只会使程序速度变慢。</p>
+<p><code>3</code>.应该优先使用<code>ConcurrentHashMap</code>，而不是<code>Collections.synchronizedMap</code>或者<code>Hashtable</code></p>
+<p><code>4</code>.阻塞队列用于工作队列或<strong>生产者-消费者</strong>队列，任意个生产者线程向工作队列中添加项目，并且当工作项目可用时，任意个消费者线程从工作队列中取出项目</p>
+<p><code>5</code>.同步器是一些使线程能够等待另一个线程的对象（互斥），最常用的同步器是<code>CountDownLatch</code>和<code>Semaphore</code>，较不常用的是CyclicBarrier和Exchanger</p>
+<p><code>6</code>.倒计数锁存器，当countDown数量足够时，将自动从<code>await</code>状态唤醒，否则将继续等待。</p>
+<p><code>7</code>.线程饥饿死锁</p>
+<p><code>8</code>.对于间歇式的定时，始终应该优先使用<code>System.nanoTime</code>，而不是System.currentTimeMills</p>
+<p><code>9</code>.<code>a.wait()</code>，使所有访问a对象的线程等待，该方法必须在同步区域内被调用；始终应该使用<code>wait循环模式</code>调用wati方法，永远不要在循环之外调用wait方法。</p>
+<p><code>10</code>.优先使用<code>notifyAll</code>，因为被意外唤醒的线程会在循环中检查条件，如果条件不满足，会继续等待。</p>
+<h2 id="70-线程安全性的文档化"><a href="#70-线程安全性的文档化" class="headerlink" title="70.线程安全性的文档化"></a><code>70</code>.线程安全性的文档化</h2><p><code>1</code>.在一个方法声明中出现synchronized修饰符，这个是实现细节，不是导出API的一部分</p>
+<p><code>2</code>.一个类为了可以被多个线程安全地使用，必须在文档中清楚说明它所支持的线程安全级别：</p>
+<blockquote>
+<ul>
+<li><p><strong>不可变的</strong></p>
+</li>
+<li><p><strong>无条件的线程安全</strong>：可变类，但是有足够的内部同步，可以被并发使用</p>
+</li>
+<li><p><strong>有条件的线程安全</strong>：某些方法需要外部同步</p>
+</li>
+<li><p><strong>非线程安全</strong>：必须外部同步</p>
+</li>
+<li><p><strong>线程对立</strong>：即使所有调用都有外部同步，依旧不能安全地并发使用。通常因为没有同步地修改静态数据</p>
+</li>
+</ul>
+</blockquote>
+<p><code>3</code>.必须指明哪个调用序列需要外部同步，还要指明为了调用这个序列，<strong>必须获得哪一把锁</strong>。如果一个对象代表了另一个对象的一个视图，客户端通常就必须在后台对象上同步，以防止其他线程直接修改后台对象。</p>
+<p><code>4</code>.除非从返回类型来看已非常明显，否则静态工厂必须在文档中说明被返回对象的线程安全性</p>
+<p><code>5</code>.私有锁对象必须声明为final的，只能用在无条件线程安全类上，有条件线程安全类不能使用，因为外部调用时无法获得锁。</p>
+<h2 id="71-慎用延迟初始化"><a href="#71-慎用延迟初始化" class="headerlink" title="71.慎用延迟初始化"></a><code>71</code>.慎用延迟初始化</h2><p><code>1</code>.对静态域使用延迟初始化，用 <code>lazy initialization holder class</code> 模式（静态私有内部类）</p>
+<p><code>2</code>.对实例域使用延迟初始化，用<strong>双重检查模式</strong>，第二次检查在同步中进行</p>
+<p><code>3</code>.如果允许重复初始化，用<strong>单重检查模式</strong></p>
+<h2 id="72-不要依赖于线程调度器"><a href="#72-不要依赖于线程调度器" class="headerlink" title="72.不要依赖于线程调度器"></a><code>72</code>.不要依赖于线程调度器</h2><p><code>1</code>.任何依赖于线程调度器来达到正确性或者性能要求的程序，很可能不可移植</p>
+<p><code>2</code>.最好的办法是确保可运行的线程平均数量<strong>不</strong>明显多于处理器数量</p>
+<p><code>3</code>.如果线程没有在做有意义的工作，就不应该运行</p>
+<p><code>4</code>.不要企图通过<code>Thread.yield</code>来修正程序，它唯一的作用是在测试期间人为增加程序的并发性</p>
+<p><code>5</code>.线程优先级是Java平台上最<strong>不可移植</strong>的特征</p>
+<h2 id="73-避免使用线程组"><a href="#73-避免使用线程组" class="headerlink" title="73.避免使用线程组"></a><code>73</code>.避免使用线程组</h2><hr>
+<h1 id="十-序列化"><a href="#十-序列化" class="headerlink" title="十 序列化"></a><code>十</code> 序列化</h1><h2 id="74-谨慎地实现Serializable接口"><a href="#74-谨慎地实现Serializable接口" class="headerlink" title="74.谨慎地实现Serializable接口"></a><code>74</code>.谨慎地实现Serializable接口</h2><p><code>1</code>.实现Serializable接口的代价是，</p>
+<ul>
+<li><p>一旦一个类被发布，就大大降低了改变这个类实现的可能性</p>
+</li>
+<li><p>增加了出现BUG和安全漏洞的可能性，反序列化是语言之外的对象创建机制</p>
+</li>
+<li><p>随着类发行新的版本，相关的测试负担也增加了</p>
+</li>
+</ul>
+<p><code>2</code>.如果没有声明<code>serialVersionUID</code>，系统将在运行时通过类名，接口，成员等自动产生</p>
+<p><code>3</code>.为了继承而设计的类，应该<strong>尽少</strong>实现Serializable接口，用户接口也应该尽少继承Serializable接口</p>
+<p><code>4</code>.如果类有一些约束条件，当类的实例域被初始化为默认值，就会违背这些约束条件，此时需要添加<code>readObjectNoData</code>方法，并在其中抛出<code>InvalidObjectException</code></p>
+<p><code>5</code>.对于为继承而设计的可序列化的类，应该提供一个<strong>无参构造器</strong>，以及一个<strong>初始化方法</strong>，readObject与有参构造器共用这个初始化方法</p>
+<p><code>6</code>.<code>AtomicReference</code>操作原子引用，这是一个很好的线程安全状态机</p>
+<p><code>7</code>.内部类不应该实现Serializable，内部类的默认序列化形式是定义不清楚的，然而静态成员类却可以实现Serializable</p>
+<h2 id="75-考虑使用自定义的序列化形式"><a href="#75-考虑使用自定义的序列化形式" class="headerlink" title="75.考虑使用自定义的序列化形式"></a><code>75</code>.考虑使用自定义的序列化形式</h2><p><code>1</code>.如果没有先认真考虑默认的序列化形式是否合适，则不要贸然接受；理想的序列化形式应该只包含该对象所表示的<strong>逻辑数据</strong>，而逻辑数据与物理表示法应该是各自独立的</p>
+<p><code>2</code>.如果一个对象的物理表示法等同于它的逻辑内容，可能就适合于使用默认的序列化形式</p>
+<p><code>3</code>.即使确认了默认的序列化形式是合适的，通常还必须提供一个<code>readObject</code>方法以保证约束关系和安全性</p>
+<p><code>4</code>.当一个对象的物理表示法与逻辑内容有实质性的区别时，使用默认的序列化形式会有以下4个缺点</p>
+<ul>
+<li><p>这个类的导出API永远束缚在该类的内部表示法上</p>
+</li>
+<li><p>消耗过多的空间，因为会反序列化所有的域</p>
+</li>
+<li><p>消耗过多的时间，因为会遍历对象图的拓扑关系</p>
+</li>
+<li><p>引起栈溢出，因为会递归遍历对象图</p>
+</li>
+</ul>
+<p><code>5</code>.<code>defaultWriteObject</code>方法被调用的时，每个<strong>未</strong>被标记为<code>transient</code>的域都会被序列化；<code>defaultReadObject</code>将会反序列化这些域，在决定将一个域做成非transient之前，一定要确信它的值将是逻辑状态的一部人</p>
+<p><code>6</code>.如果所有的域都是瞬时的，不调用defaultWriteObject和defaultReadObject也是允许的，但是不推荐这么做，可能会引起<code>StreamCorruptedException</code></p>
+<p><code>7</code>.如果在读取整个对象状态的任何其他方法上强制任何<strong>同步</strong>，则也必须在对象序列化上强制这种同步</p>
+<p><code>8</code>.不管选择哪种序列化形式，都要为自己编写的每个可序列化的类声明一个显式的序列版本<code>UID</code>，这样可以避免因为自动生成UID造成不兼容</p>
+<p><code>9</code>.如果想为一个类生成一个新的版本，使这个类与现有的类不兼容，那么只需修改UID即可，反序列化时将会发生<code>InvalidClassException</code></p>
+<h2 id="76-保护性地编写readObject方法"><a href="#76-保护性地编写readObject方法" class="headerlink" title="76.保护性地编写readObject方法"></a><code>76</code>.保护性地编写readObject方法</h2><p><code>1</code>.《<code>Java Object Serialization Specification</code>》</p>
+<p><code>2</code>.当一个对象被反序列化的时候，如果哪个域将被客户端所引用，就必须要做<strong>保护性拷贝</strong></p>
+<p><code>3</code>.不要使用<code>writeUnshared</code>和<code>readUnshared</code>方法</p>
+<p>writeUnshared：将“未共享”对象写入 ObjectOutputStream。此方法等同于 writeObject，不同点在于它总是将给定对象作为流中惟一的新对象进行写入</p>
+<p>readUnshared：从流中读取一个不共享的对象，同readObject，但不会让后续的readObject和readUnshared调用引用这次调用反序列化得到的对象</p>
+<p><code>4</code>.readObject不可以调用可被覆盖的方法，一旦调用，这个方法将在子类的域被反序列化之前运行，如果这个方法依赖子类的域，将导致程序失败</p>
+<p><code>5</code>.对于任何约束条件，如果检查失败，则抛出<code>InvalidObjectException</code>，这写检查应该在所有的保护性拷贝之后</p>
+<p><code>6</code>.如果整个对象图在反序列化之后必须进行验证，则使用<code>ObjectInputValidation</code>接口</p>
+<h2 id="77-对于实例的控制，枚举类型优先于readResolve"><a href="#77-对于实例的控制，枚举类型优先于readResolve" class="headerlink" title="77.对于实例的控制，枚举类型优先于readResolve"></a><code>77</code>.对于实例的控制，枚举类型优先于readResolve</h2><p><code>1</code>.在反序列化之后，新建对象上的readResolve方法将被调用，然后该方法返回的对象将取代新建的对象</p>
+<p><code>2</code>.如果依赖readObject进行实例控制，带有对象类型的所有实例域必须声明为transient的</p>
+<p><code>3</code>.用readResolve进行实例控制并不过时，如果必须编写可序列化的实例受控的类，它的实例在编译时还不知道，你就无法将类表示成枚举</p>
+<p><code>4</code>.如果把readResolve放在一个<strong>final</strong>类上，它就应该是<strong>私有</strong>的；如果readResolve方法不是私有的，并且子类没有覆盖它，对序列化过的子类进行反序列化，将会获得一个<strong>超类</strong>的实例，可能出现ClassCastException</p>
+<h2 id="78-考虑用序列化代理代替序列化实例"><a href="#78-考虑用序列化代理代替序列化实例" class="headerlink" title="78.考虑用序列化代理代替序列化实例"></a><code>78</code>.考虑用序列化代理代替序列化实例</h2><p><code>1</code>.实际在流之间传输的是代理对象，反序列化之后，代理对象通过<code>readResolve</code>返回对象，此时通过构造器创建外围对象，构造器中自带参数检查；序列化时，外围类通过<code>writeReplace</code>返回序列化代理实例。</p>
+<p><code>2</code>.writeReplace方法将在对象被写入流之前执行，然后用方法返回的实例替换自身被写入流中，与readResolve相对</p>
+
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">John Doe</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://lovote-web.github.io/2020/07/19/2020-02-11-effective-java/">http://lovote-web.github.io/2020/07/19/2020-02-11-effective-java/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">John Doe</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/Effective-Java/">
+                                    <span class="chip bg-color">Effective Java</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2020/07/19/2020-02-11-java-newfeature/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Java8 新特性">
+                        
+                        <span class="card-title">Java8 新特性</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+TOC{:toc}
+
+1 语言新特性1.1 Lambda自动推测形参类型e
+Arrays.asList( "a", "b", "d" ).forEach( e -> System.out.println( e ) );
+指定形参类型e
+A
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-07-19
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Java/" class="post-category">
+                                    Java
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Java-%E6%96%B0%E7%89%B9%E6%80%A7/">
+                        <span class="chip bg-color">Java 新特性</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2020/07/19/hello-world/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
+                        
+                        <span class="card-title">Hello World</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hex
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-19
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            John Doe
+                            
+                        </span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+<style type="text/css">
+code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
+</style>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            <span id="year">2019</span>
+            <a href="/about" target="_blank">John Doe</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:1181062873@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1181062873" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/search.xml", 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

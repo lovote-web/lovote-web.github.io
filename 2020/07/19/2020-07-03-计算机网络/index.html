@@ -1,0 +1,1230 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="常用计算机网络, Hexo">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>常用计算机网络 | Hexo</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 4.2.1"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Hexo</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Hexo</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">常用计算机网络</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        height: calc(100vh - 250px);
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">
+                                <span class="chip bg-color">计算机网络</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" class="post-category">
+                                计算机网络
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2020-07-19
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <ul>
+<li>TOC<br>{:toc}</li>
+</ul>
+<h1 id="计算机网络"><a href="#计算机网络" class="headerlink" title="计算机网络"></a>计算机网络</h1><h2 id="Http"><a href="#Http" class="headerlink" title="Http"></a>Http</h2><h3 id="响应码"><a href="#响应码" class="headerlink" title="响应码"></a>响应码</h3><ul>
+<li>1XX：信息响应码，例如 100 表示到目前为止都很正常，客户端可以继续发送请求或者忽略这个响应。</li>
+<li>2XX：成功状态码，例如 200 表示 OK，204 表示不包含实体，206 表示范围请求。</li>
+<li>3XX：重定向<ul>
+<li>301：永久性重定向</li>
+<li>302：临时性重定向</li>
+<li>304 Not Modified：如果不满足首部的一些条件则返回304</li>
+<li>307：临时性重定向，但要求浏览器不会把重定向请求的 post 方法改成 get 方法。</li>
+</ul>
+</li>
+<li>4XX：客户端错误<ul>
+<li>400 Bad Request：请求报文存在语法错误</li>
+<li>401 Unauthorized：表示发送的请求需要有认证信息</li>
+<li>403：请求被拒绝</li>
+<li>404：Not Found</li>
+</ul>
+</li>
+<li>5XX：服务器错误<ul>
+<li>500：服务器正在执行请求时发生了错误</li>
+<li>503：服务器处于超负载或者停机维护，无法处理请求</li>
+</ul>
+</li>
+</ul>
+<h3 id="首部"><a href="#首部" class="headerlink" title="首部"></a>首部</h3><ul>
+<li>通用<ul>
+<li>Cache-Control</li>
+<li>Connective</li>
+<li>Date</li>
+</ul>
+</li>
+<li>请求<ul>
+<li>Host</li>
+<li>Accept-Encoding</li>
+<li>if-modified-since</li>
+<li>user-agent</li>
+<li>accpet</li>
+</ul>
+</li>
+<li>响应<ul>
+<li>Location：令客户端重定向到指定URI</li>
+<li>Server</li>
+<li>Accept-Ranges：是否接收字节范围的请求</li>
+</ul>
+</li>
+<li>实体首部字段<ul>
+<li>Expired</li>
+<li>Last-Modified</li>
+<li>Content-Type</li>
+<li>Content-Length</li>
+<li>Content-Encoding</li>
+</ul>
+</li>
+</ul>
+<h3 id="版本区别"><a href="#版本区别" class="headerlink" title="版本区别"></a>版本区别</h3><ul>
+<li>Http 1.0：不能长连接，只能短连接</li>
+<li>Http 1.1：一个Tcp 连接可以发送多个 Http请求，不过服务器只能按照顺序一个一个响应。</li>
+<li>Http 2.0：采用了多路复用，他把 Http 报文分解成更小的二进程帧来传送，不同的 Http 请求报文可以混合在一个TCP 连接上传输，服务器收到后，在根据二进制帧里面存放的 ID 来进行分类。</li>
+</ul>
+<h3 id="请求方法"><a href="#请求方法" class="headerlink" title="请求方法"></a>请求方法</h3><ul>
+<li>get：参数会显示在地址栏，不安全</li>
+<li>post：参数放在实体部分</li>
+<li>head：不返回实体部分，确认URL的有效性以及资源更新日期</li>
+<li>put：上传文件</li>
+<li>patch：对部分资源进行修改</li>
+<li>delete</li>
+<li>option：查询支持的方法</li>
+<li>trace：服务器会将通信路径返回给客户端。</li>
+</ul>
+<h3 id="幂等性"><a href="#幂等性" class="headerlink" title="幂等性"></a>幂等性</h3><p>定义：</p>
+<p>​    同样的请求被执行一次与连续执行多次的效果是一样的，服务器的状态也是一样的。</p>
+<p>get，head，put，delete 方法是幂等性的，而 post 不是。</p>
+<p>###缺点</p>
+<ul>
+<li>明文传输，容易被窃听。</li>
+<li>没有验证对方身份，容易遭到伪装</li>
+<li>无法证明报文的完整性，容易被篡改</li>
+</ul>
+<h3 id="攻击"><a href="#攻击" class="headerlink" title="攻击"></a>攻击</h3><ul>
+<li>跨站脚本攻击</li>
+<li>SQL 注入</li>
+<li>OS 命令攻击</li>
+</ul>
+<h2 id="ICMP"><a href="#ICMP" class="headerlink" title="ICMP"></a>ICMP</h2><p>分为差错报告报文和询问报文，工作在网络层</p>
+<p>###类型的值</p>
+<p>3：终点不可达</p>
+<p>11：时间超时</p>
+<p>5：改变路由</p>
+<p>8 或者0：回送 （echo）请求或者回答</p>
+<p>13 或者 14：时间戳请求或者回答</p>
+<h3 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h3><ul>
+<li>ping：通过向目的主机发送 ICMP echo 请求报文，目的主机收到后会回送 echo 回答报文，ping 会根据时间和成功响应的次数来估算数据包的往返时间以及丢包率</li>
+<li>traceroute：发送的 IP 数据报封装的是不可交付的 UDP 用户数据报，并由目的主机终点不可达差错报文。例如：发送TTL 为 1 的数据报，R1 收到后把 TTL 减为 1 变为 0，R1 把 P1 丢弃，向源主机发送ICMP 时间超时报文。  主机收到后，发现数据包封装的是不可交付的 UDP ，此时就会向目的主机发送终点不可达的差错报文了。</li>
+</ul>
+<h2 id="DHCP"><a href="#DHCP" class="headerlink" title="DHCP"></a>DHCP</h2><ol>
+<li>发送 Discover 报文（UDP），把 255.255.255.255:67 作为目的地址，0.0.0.0:68 作为源地址。</li>
+<li>DHCP 服务器收到后发广播一个 Offer 报文，包含 ip，网关，有效期等。</li>
+<li>客户端选择一个报文，然后向服务器发送一个 Request 报文</li>
+<li>服务端收到后会发送一个 ACK 报文，并且把该 IP 标记为已使用</li>
+</ol>
+<p>一般客户端会在租约时间达到 1/2 的时候，客户端会向 DHCP 单播 request 报文，以此来续约。如果续约失败，会在 7/8 再次发送 request 报文。bug 此时的处理情况如果首次分配 ip 地址。</p>
+<h2 id="ARP"><a href="#ARP" class="headerlink" title="ARP"></a>ARP</h2><h2 id="DNS"><a href="#DNS" class="headerlink" title="DNS"></a>DNS</h2><p>先浏览器缓存查，没有则本地 host 文件查，没有就请求 DNS 服务器，主要是 递归和迭代两种方式相结合。</p>
+<p>Linux 下 DNS 解析命令： dig</p>
+<p>根域名-&gt; 顶级域名-&gt; 次级域名-&gt;主机名</p>
+<h2 id="Https"><a href="#Https" class="headerlink" title="Https"></a>Https</h2><p>Https 是披着 SSL 外壳的 HTTP</p>
+<h3 id="加密的两种方式"><a href="#加密的两种方式" class="headerlink" title="加密的两种方式"></a>加密的两种方式</h3><ul>
+<li>建立安全的通信通道<ul>
+<li>SSL（Secure Socket Layer）：安全套接层</li>
+<li>TLS（Transport Layer Security）：安全层传输协议</li>
+</ul>
+</li>
+<li>对内容进行加密</li>
+</ul>
+<h3 id="具体步骤"><a href="#具体步骤" class="headerlink" title="具体步骤"></a>具体步骤</h3><ol>
+<li>服务器用 hash 算法把一些个人信息以及公钥生成信息摘要。</li>
+<li>接着服务器把自己的公钥以及个人信息用 CA 的私钥进行加密，把加密后的信息和信息摘要合并成数字证书。</li>
+<li>客户端收到后，会用 CA 提供的公钥对加密的部分进行解密，解密之后进行 hash。把 hash 后的结果与信息摘要进行对比。</li>
+<li>客户端的公钥已经提前植入到浏览器的了。</li>
+</ol>
+<h3 id="具体的握手过程"><a href="#具体的握手过程" class="headerlink" title="具体的握手过程"></a>具体的握手过程</h3><p>客户端：发送 hello 报文，报文指定自己接受的 ssl 版本，加密组件等（例如加密算法以及长度）</p>
+<p>服务端：通用告诉客户端自己接收的 ssl 版本，加密组件等信息，不过加密组件是从客户端那里选择。</p>
+<p>服务器：紧接着发送数字证书，当然，数字证书包含服务器的公钥</p>
+<p>客户端：接着客户端给服务器发送一个用来加密的随机密码串。当然，该报文会用公钥进行加密。</p>
+<h3 id="客户端证书"><a href="#客户端证书" class="headerlink" title="客户端证书"></a>客户端证书</h3><p>意味着每个用户都需要一个证书，需要自己安装。</p>
+<p>例如网银登录的时候，需要证书。</p>
+<h2 id="TCP"><a href="#TCP" class="headerlink" title="TCP"></a>TCP</h2><h3 id="三次握手"><a href="#三次握手" class="headerlink" title="三次握手"></a>三次握手</h3><h4 id="握手过程"><a href="#握手过程" class="headerlink" title="握手过程"></a>握手过程</h4><p>客户端发送 SYN 报文，指定序列号为 ISN，处于 SYN_Send状态。</p>
+<p>服务端 把 SYN 作为应答，指定 ISN，把客户端的 ISN + 1 作为 ACK 值，此时处于 SYN_REVD 状态。</p>
+<p>客户端发送一个 ACK 报文，此时处于 establised 状态</p>
+<p>服务器收到 ACK 报文后也处于 establised 状态</p>
+<h4 id="用处"><a href="#用处" class="headerlink" title="用处"></a>用处</h4><ul>
+<li>确认双方的交付能力</li>
+<li>指定初始序列号，为可靠传输做准备</li>
+<li>交互加密机制</li>
+</ul>
+<h4 id="相关问题"><a href="#相关问题" class="headerlink" title="相关问题"></a>相关问题</h4><ul>
+<li>ISN 固定吗</li>
+<li>半连接队列</li>
+<li>握手过程可以携带数据吗</li>
+</ul>
+<h3 id="四次握手"><a href="#四次握手" class="headerlink" title="四次握手"></a>四次握手</h3><h4 id="挥手过程"><a href="#挥手过程" class="headerlink" title="挥手过程"></a>挥手过程</h4><ol>
+<li>客户端发送 FIN 报文，指定序列号，此时处于 FIN_WAIT 状态</li>
+<li>服务端收到发送 ACK 报文，处于 Closed_Wait 状态</li>
+<li>客户端收到 ACK 报文后处于 FIN_Wait2 状态</li>
+<li>服务端发送 FIN 报文，处于 LAST_ACK 状态</li>
+<li>客户端发送一个 ACK 报文，处于 TIME_WAIT 状态</li>
+</ol>
+<h4 id="TIME-WAIT"><a href="#TIME-WAIT" class="headerlink" title="TIME_WAIT"></a>TIME_WAIT</h4><p>确保服务器已经收到 ACK 报文</p>
+<p>持续时间至少为一个报文的来回时间</p>
+<p><strong>如果没有这个状态会发生什么？</strong></p>
+<p>同ip同端口再次建立连接，并且原来的连接还残留有数据，这个时候会被新的连接所接收。</p>
+<p>解决方案：</p>
+<ul>
+<li>修改配置文件，现在最大连接数（/etc/security/limits.conf）</li>
+<li>修改默认的等待时间（/etc/sysctl.conf）net.ipv4.tcp_fin_timeout = 2</li>
+<li>允许重用端口：net.ipv4.tcp_tw_reuse = 1</li>
+<li>开启快速回收策略：net.ipv4.tcp_tw_recycle = 1</li>
+</ul>
+<h4 id="Close-Wait-状态"><a href="#Close-Wait-状态" class="headerlink" title="Close_Wait 状态"></a>Close_Wait 状态</h4><p>无论是 time_wait 还是 close_wait 滞留太多，我们可以通过 so_reuseaddr 参数来强行重用端口</p>
+<h3 id="流量控制"><a href="#流量控制" class="headerlink" title="流量控制"></a>流量控制</h3><p>接收方每次发送确认报文的时候，可以告诉发送方的接收窗口大小，当为0 时，发送方停止发送。</p>
+<p>之后发送方开发一个定时器，每隔一段时间发送测试报文去询问接收方的窗口大小。</p>
+<h3 id="拥塞控制"><a href="#拥塞控制" class="headerlink" title="拥塞控制"></a>拥塞控制</h3><p>慢启动：1，2，4… 指数增长</p>
+<p>拥塞避免：慢启动到底阈值，就开始线性增长</p>
+<p><strong>到达瓶颈值怎么办？</strong></p>
+<p>把阈值调为瓶颈值的一半，接着在来用慢启动 + 拥塞避免</p>
+<p><strong>超时不一定就是 网络拥塞</strong></p>
+<p><strong>快速重传</strong>：如果 B 收到了，M1，M2，M4，M5 确始终没到 M2，那么 B 会连续给 A 发送 M2 的 ACK 确认报文，意在告诉 A 可能 M3 丢失了。当 A 连续收到 M2 的 三次 ACK，但 M3 还没超时，那么 A 就会发送 M3.</p>
+<p><strong>快速恢复</strong>：该事件发送之后，会把阈值设置为瓶颈值的一半，并且把滑动窗口设置为阈值，之后线性增长。这个版本也称之为 TCP Reno。而不具备这个功能的称之为 TCP Tahoe.</p>
+<h3 id="可靠传输"><a href="#可靠传输" class="headerlink" title="可靠传输"></a>可靠传输</h3><h4 id="确认—重传机制"><a href="#确认—重传机制" class="headerlink" title="确认—重传机制"></a>确认—重传机制</h4><h4 id="回退-N-步协议"><a href="#回退-N-步协议" class="headerlink" title="回退 N 步协议"></a>回退 N 步协议</h4><ul>
+<li>接收方：如果是按序到达的，则接收，否则发送ACK确认</li>
+<li>发送方<ul>
+<li>收到 M4 的 ACK，代表M4 之前的也正常交付了</li>
+<li>发送超时事件时，会重发所有已经发送但未得到确认的报文</li>
+<li>注意，这个只设置一个定时器就可以了</li>
+</ul>
+</li>
+</ul>
+<h4 id="选择重传"><a href="#选择重传" class="headerlink" title="选择重传"></a>选择重传</h4><p>接收方会缓存没有按序达到的报文，等到按序后，在发送ACK，发送方会为每个报文设置一个定时器，那个超时就发送哪个。bug 这个时候还有一个问题。</p>
+<h3 id="与-UDP-的差别"><a href="#与-UDP-的差别" class="headerlink" title="与 UDP 的差别"></a>与 UDP 的差别</h3><p>UDP：</p>
+<ul>
+<li>无连接</li>
+<li>不可靠</li>
+<li>面向报文（对上层来的报文不做拆分合并，只是服装上UDP首部）</li>
+<li>支持一对多，多对一</li>
+</ul>
+<p>TCP</p>
+<ul>
+<li>可靠的</li>
+<li>面向连接的</li>
+<li>面向字节流的（把报文看成字节流，拆分组织成大小不等的数据块）</li>
+<li>只能一对一</li>
+</ul>
+<h3 id="首部-1"><a href="#首部-1" class="headerlink" title="首部"></a>首部</h3><ul>
+<li>固定的 20 字节 + 4 字节的（选项 + 填充）</li>
+<li>RST 报文<ul>
+<li>访问的端口不存在</li>
+<li>访问的端口正处于 time_wait 状态</li>
+<li>异常终止</li>
+<li>处理半连接状态</li>
+</ul>
+</li>
+</ul>
+<h2 id="其他面试题"><a href="#其他面试题" class="headerlink" title="其他面试题"></a>其他面试题</h2><p>MTU 和· MSS 区别</p>
+<p>MTU：Maximum  Transmit Unit，最大传输单元，即物理接口（数据链路层）提供给其上层（通常是 IP 层）最大一次传输数据的大小；已普遍使用的以太网接口为例，缺省 MTU = 1500 Byte。帧的首部是 18 字节。</p>
+<p>TCP 提交给 IP 层最大分段大小，不包含 TCP Header 和 TCP Option ，只包含 TCP Payload</p>
+
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">John Doe</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://lovote-web.github.io/2020/07/19/2020-07-03-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">http://lovote-web.github.io/2020/07/19/2020-07-03-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">John Doe</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">
+                                    <span class="chip bg-color">计算机网络</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2020/07/19/2020-07-10-Spring/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="详解Spring">
+                        
+                        <span class="card-title">详解Spring</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+TOC{:toc}
+
+第一章、Spring1.1 什么是Spring？①   Spring 是为了解决企业应用程序开发复杂性而创建的。
+②   框架的主要优势之一就是：分层架构。
+三层架构：为 J2EE 应用程序开发提供集成的框架
+
+We
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-07-19
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Spring/" class="post-category">
+                                    Spring
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Spring/">
+                        <span class="chip bg-color">Spring</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2020/07/19/2020-07-03-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F(%E4%B8%80)/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="操作系统(一)">
+                        
+                        <span class="card-title">操作系统(一)</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+TOC{:toc}
+
+操作系统第一章  概述1.1  操作系统的概念计算机系统自下而上可粗分为四个部分：硬件、操作系统、应用程序和用户。操作系统管理各种计算机硬件，为应用程序提供基础，并充当计算机硬件和用户的中介。
+硬件，如中央处理器、内
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-19
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" class="post-category">
+                                    操作系统
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E8%BF%9B%E7%A8%8B%E7%AE%A1%E7%90%86/">
+                        <span class="chip bg-color">操作系统 进程管理</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+<style type="text/css">
+code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
+</style>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            <span id="year">2019</span>
+            <a href="/about" target="_blank">John Doe</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:1181062873@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1181062873" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/search.xml", 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

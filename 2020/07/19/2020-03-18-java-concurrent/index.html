@@ -1,0 +1,1518 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="Java Concurrent, Hexo">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>Java Concurrent | Hexo</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 4.2.1"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Hexo</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Hexo</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">Java Concurrent</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        height: calc(100vh - 250px);
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Java-Concurrent/">
+                                <span class="chip bg-color">Java Concurrent</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Java/" class="post-category">
+                                Java
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2020-07-19
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <ul>
+<li>TOC<br>{:toc}</li>
+</ul>
+<p>线程拥有通过程序运行的独立的并发路径，并且每个线程都有自己的程序计数器，称为堆栈和本地变量。线程存在于进程中，它们与同一进程内的其他线程共享内存、文件句柄以及进程状态。</p>
+<hr>
+<p>JDK 5.0 中的并发改进可以分为三组：</p>
+<ul>
+<li><p>JVM 级别更改。大多数现代处理器对并发对某一硬件级别提供支持，通常以 <strong>compare-and-swap</strong> （CAS）指令形式。CAS 是一种低级别的、细粒度的技术，它允许多个线程更新一个内存位置，同时能够检测其他线程的冲突并进行恢复。它是许多高性能并发算法的基础。在 JDK 5.0 之前，Java 语言中用于协调线程之间的访问的惟一原语是同步，同步是更重量级和粗粒度的。公开 CAS 可以开发高度可伸缩的并发 Java 类。这些更改主要由 JDK 库类使用，而不是由开发人员使用。</p>
+</li>
+<li><p>低级实用程序类 – <code>锁定</code>和<code>原子类</code>。使用 CAS 作为并发原语，<strong>ReentrantLock</strong> 类提供与 synchronized 原语相同的锁定和内存语义，然而这样可以更好地控制锁定（如计时的锁定等待、锁定轮询和可中断的锁定等待）和提供更好的可伸缩性（竞争时的高性能）。大多数开发人员将不再直接使用 ReentrantLock 类，而是使用在 ReentrantLock 类上构建的高级类。</p>
+</li>
+<li><p>高级实用程序类。这些类实现并发构建块，每个计算机科学文本中都会讲述这些类 – <code>信号</code>、<code>互斥</code>、<code>闩锁</code>、<code>屏障</code>、<code>交换程序</code>、<code>线程池</code>和<code>线程安全集合类</code>等。大部分开发人员都可以在应用程序中用这些类来替换许多同步、wait() 和 notify() 的使用，从而提高性能、可读性和正确性。</p>
+</li>
+</ul>
+<hr>
+<h1 id="线程安全的类"><a href="#线程安全的类" class="headerlink" title="线程安全的类"></a>线程安全的类</h1><ul>
+<li><p>首先它必须在单线程环境中正确运行。如果正确实现了类，那么说明它符合规范，对该类的对象的任何顺序的操作（公共字段的读写、公共方法的调用）都不应该：</p>
+<ul>
+<li><p>使对象处于无效状态；</p>
+</li>
+<li><p>观察处于无效状态的对象；</p>
+</li>
+<li><p>违反类的任何变量、前置条件或后置条件。</p>
+</li>
+</ul>
+</li>
+<li><p>而且，要成为线程安全的类，在从多个线程访问时，它必须继续正确运行，而不管运行时环境执行那些线程的调度和交叉，且无需对部分调用代码执行任何其他同步。</p>
+</li>
+<li><p>如果没有线程之间的某种明确协调，比如锁定，运行时可以随意在需要时在多线程中交叉操作执行。</p>
+</li>
+<li><p>在并发编程中，一种被普遍认可的原则就是：尽可能的使用<strong>不可变对象</strong>来创建简单、可靠的代码。</p>
+</li>
+</ul>
+<h1 id="Thread"><a href="#Thread" class="headerlink" title="Thread"></a>Thread</h1><ul>
+<li><p>任何一个时刻，对象的控制权（monitor）只能被一个线程拥有。</p>
+</li>
+<li><p>无论是执行对象的<code>wait</code>、<code>notify</code>还是<code>notifyAll</code>方法，必须保证当前运行的线程取得了该对象的控制权（monitor）。</p>
+</li>
+<li><p>如果在没有控制权的线程里执行对象的以上三种方法，就会报java.lang.IllegalMonitorStateException异常。</p>
+</li>
+<li><p>JVM基于多线程，默认情况下不能保证运行时线程的时序性。</p>
+</li>
+</ul>
+<h2 id="interrupt"><a href="#interrupt" class="headerlink" title="interrupt"></a>interrupt</h2><ul>
+<li><p>当调用<code>th.interrput()</code>的时候，线程th的中断状态(interrupted status) 会被置位。我们可以通过Thread.currentThread().isInterrupted() 来检查这个布尔型的中断状态。</p>
+</li>
+<li><p><strong>没有任何语言方面的需求要求一个被中断的程序应该终止</strong>。中断一个线程只是为了引起该线程的注意，被中断线程可以决定如何应对中断。这说明interrupt中断的是线程的某一部分业务逻辑，前提是线程需要检查自己的中断状态(isInterrupted())。</p>
+</li>
+<li><p>当th被阻塞的时候，比如被<code>Object.wait</code>, <code>Thread.join</code>和<code>Thread.sleep</code>三种方法之一阻塞时, 调用它的interrput()方法，可想而知，没有占用CPU运行的线程是不可能给自己的中断状态置位的, 这就会产生一个InterruptedException异常。</p>
+</li>
+</ul>
+<h2 id="join"><a href="#join" class="headerlink" title="join"></a>join</h2><ul>
+<li><p>join方法可以让一个线程<strong>等待</strong>另一个线程执行完成。</p>
+</li>
+<li><p>若t是一个正在执行的Thread对象，t.join() 将会使当前线程暂停执行并等待t执行完成。重载的join()方法可以让开发者自定义等待周期。然而，和sleep()方法一样join()方法依赖于操作系统的时间处理机制，你不能假定join()方法将会精确的等待你所定义的时长。</p>
+</li>
+<li><p>如同sleep()方法，join()方法响应中断并在中断时抛出InterruptedException。</p>
+</li>
+</ul>
+<h2 id="同步"><a href="#同步" class="headerlink" title="同步"></a>同步</h2><ul>
+<li><p>同步的构造方法没有意义，因为当这个对象被创建的时候，只有创建对象的线程能访问它。</p>
+</li>
+<li><p>静态方法是和类（而不是对象）相关的，所以线程会请求类对象(Class Object)的内部锁。因此用来控制类的<strong>静态域</strong>访问的锁不同于控制<strong>对象</strong>访问的锁。</p>
+</li>
+<li><p>如果类中的两个域需要同步访问，但是两个域没有什么关联，那么可以为两个域个创建一个私有的锁对象，使两个域能分别同步。</p>
+</li>
+</ul>
+<h2 id="锁"><a href="#锁" class="headerlink" title="锁"></a>锁</h2><ul>
+<li><p>死锁描述了这样一种情景，两个或多个线程永久阻塞，互相等待对方释放资源。</p>
+</li>
+<li><p>饥饿是指当一个线程不能正常的访问共享资源并且不能正常执行的情况。这通常在共享资源被其他“贪心”的线程长期占用时发生</p>
+</li>
+<li><p>一个线程通常会有会响应其他线程的活动。如果其他线程也会响应另一个线程的活动，那么就有可能发生活锁。同死锁一样，发生活锁的线程无法继续执行, 然而线程并没有阻塞, 他们在忙于响应对方无法恢复工作。</p>
+</li>
+<li><p>wait方法，释放锁并挂起</p>
+</li>
+<li><p>如果在一个执行序列中，需要确定对象的状态，那么某个线程在执行这个序列时，需要获得所有这些对象的锁（如一来一回的相互鞠躬，必须保证不会同时鞠躬也不会同时静止）</p>
+</li>
+</ul>
+<h1 id="线程安全集合"><a href="#线程安全集合" class="headerlink" title="线程安全集合"></a>线程安全集合</h1><ul>
+<li><p>java.util.concurrent 包添加了多个新的线程安全集合类 <code>ConcurrentHashMap</code>, <code>CopyOnWriteArrayList</code>, <code>CopyOnWriteArraySet</code></p>
+</li>
+<li><p>JDK 5.0 还提供了两个新集合接口 – <code>Queue</code> 和 <code>BlockingQueue</code>。Queue 接口与 List 类似，但它只允许从后面插入，从前面删除。BlockingQueue定义了一个先进先出的数据结构，当你尝试往满队列中添加元素，或者从空队列中获取元素时，将会阻塞或者超时。</p>
+</li>
+<li><p><code>ConcurrentMap</code>是java.util.Map的子接口，定义了一些有用的原子操作。移除或者替换键值对的操作只有当key存在时才能进行，而新增操作只有当key不存在时才能进行, 使这些操作原子化，可以避免同步。ConcurrentMap的标准实现是<code>ConcurrentHashMap</code>，它是<code>HashMap</code>的并发模式。</p>
+</li>
+<li><p><code>ConcurrentNavigableMap</code>是ConcurrentMap的子接口，支持近似匹配。ConcurrentNavigableMap的标准实现是<code>ConcurrentSkipListMap</code>，它是<code>TreeMap</code>的并发模式。</p>
+</li>
+<li><p>所有这些集合，通过 在集合里新增对象和访问或移除对象的操作之间，定义一个<code>happens-before</code>的关系，来帮助程序员避免内存一致性错误。</p>
+</li>
+</ul>
+<h2 id="CopyOnWrite"><a href="#CopyOnWrite" class="headerlink" title="CopyOnWrite"></a>CopyOnWrite</h2><ul>
+<li><p>Vector 的常见应用是存储通过组件注册的监听器的列表。当发生适合的事件时，该组件将在监听器的列表中迭代，调用每个监听器。为了防止ConcurrentModificationException，迭代线程必须复制列表或锁定列表，以便进行整体迭代，而这两种情况都需要大量的性能成本。</p>
+</li>
+<li><p>CopyOnWriteArrayList及CopyOnWriteArraySet 类通过每次添加或删除元素时创建数组的新副本，避免了这个问题，但是进行中的迭代保持对创建迭代器时的副本进行操作。虽然复制也会有一些成本，但是在许多情况下，迭代要比修改多得多，在这些情况下，写入时复制要比其他备用方法具有更好的性能和并发性。</p>
+</li>
+</ul>
+<h2 id="ConcurrentHashMap"><a href="#ConcurrentHashMap" class="headerlink" title="ConcurrentHashMap"></a>ConcurrentHashMap</h2><ul>
+<li><p><code>Hashtable</code> 和 <code>synchronizedMap</code> 所采取的获得同步的简单方法（同步 Hashtable 或者同步 Map 封装器对象中的每个方法）有两个主要的不足：</p>
+<ul>
+<li><p>第一，这种方法对于可伸缩性是一种障碍，因为一次只能有一个线程可以访问 hash 表；</p>
+</li>
+<li><p>第二，这样仍不足以提供真正的线程安全性，许多公用的混合操作仍然需要额外的同步。虽然诸如 get() 和 put() 之类的简单操作可以在不需要额外同步的情况下安全地完成，但还是有一些公用的操作序列，例如迭代或者 put-if-absent（空则放入），需要外部的同步，以避免数据争用。</p>
+</li>
+</ul>
+</li>
+<li><p>在大多数情况下，<code>ConcurrentHashMap</code> 是 Hashtable或 Collections.synchronizedMap(new HashMap()) 的简单替换。然而，其中有一个显著不同，即 ConcurrentHashMap 实例中的同步<strong>不锁定</strong>Map进行独占使用, 实际上，没有办法锁定 ConcurrentHashMap 进行独占使用，它被设计用于进行并发访问。为了使集合不被锁定进行独占使用，还提供了公用的混合操作的其他（原子）方法，如 <strong>put-if-absent</strong>。</p>
+</li>
+<li><p>ConcurrentHashMap 返回的迭代器是弱一致的，意味着它们将不抛出ConcurrentModificationException ，将进行 “合理操作” 来反映迭代过程中其他线程对 Map 的修改。</p>
+</li>
+</ul>
+<h2 id="队列"><a href="#队列" class="headerlink" title="队列"></a>队列</h2><ul>
+<li><p><code>Queue</code> 接口比 List 简单得多，仅包含 put() 和 take() 方法，并允许比 LinkedList 更有效的实现。</p>
+</li>
+<li><p>Queue 接口还允许实现来确定存储元素的顺序。<code>ConcurrentLinkedQueue</code> 类实现先进先出（first-in-first-out，FIFO）队列。<code>PriorityQueue</code> 类实现优先级队列（也称为堆），它对于构建调度器非常有用，调度器必须按优先级或预期的执行时间执行任务。</p>
+</li>
+<li><p>实现 Queue 的类是：</p>
+<ul>
+<li><p><code>LinkedList</code> 已经进行了改进来实现 Queue。</p>
+</li>
+<li><p><code>PriorityQueue</code> 非线程安全的优先级队列（堆）实现，根据自然顺序或比较器返回元素。</p>
+</li>
+<li><p><code>ConcurrentLinkedQueue</code> 快速、线程安全的、无阻塞 FIFO 队列。</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="弱一致的迭代器"><a href="#弱一致的迭代器" class="headerlink" title="弱一致的迭代器"></a>弱一致的迭代器</h2><ul>
+<li><p>java.util 包中的集合类都返回 <code>fail-fast</code> 迭代器，这意味着它们假设线程在集合内容中进行迭代时，集合不会更改它的内容。如果 fail-fast 迭代器检测到在迭代过程中进行了更改操作，那么它会抛出 <strong>ConcurrentModificationException</strong>，这是不可控异常。</p>
+</li>
+<li><p>java.util.concurrent 集合返回的迭代器称为弱一致的（<code>weakly consistent</code>）迭代器。对于这些类，如果元素自从迭代开始已经删除，且尚未由 next() 方法返回，那么它将不返回到调用者。如果元素自迭代开始已经添加，那么它可能返回调用者，也可能不返回。在一次迭代中，无论如何更改底层集合，元素不会被返回两次。</p>
+</li>
+</ul>
+<h1 id="线程池"><a href="#线程池" class="headerlink" title="线程池"></a>线程池</h1><ul>
+<li><p>管理一大组小任务的标准机制是<strong>组合工作队列</strong>和<strong>线程池</strong>。工作队列就是要处理的任务的队列，前面描述的 Queue 类完全适合。线程池是线程的集合，每个线程都提取公用工作队列。当一个工作线程完成任务处理后，它会返回队列，查看是否有其他任务需要处理。如果有，它会转移到下一个任务，并开始处理。</p>
+</li>
+<li><p>线程池为线程生命周期间接成本问题和资源崩溃问题提供了解决方案。</p>
+<ul>
+<li>通过对多个任务重新使用线程，创建线程的间接成本将分布到多个任务中。</li>
+<li>作为一种额外好处，因为请求到达时，线程已经存在，从而可以消除由创建线程引起的延迟, 因此，可以立即处理请求，使应用程序更易响应。</li>
+<li>而且，通过正确调整线程池中的线程数，可以强制超出特定限制的任何请求等待，直到有线程可以处理它，它们等待时所消耗的资源要少于使用额外线程所消耗的资源，这样可以防止资源崩溃。</li>
+</ul>
+</li>
+</ul>
+<h1 id="Executor-框架"><a href="#Executor-框架" class="headerlink" title="Executor 框架"></a>Executor 框架</h1><ul>
+<li><p><code>Executor</code> 接口关注任务提交，确定执行策略。这使在部署时调整执行策略（队列限制、池大小、优先级排列等等）更加容易，更改的代码最少。</p>
+</li>
+<li><p>大多数 Executor 实现类还实现 <code>ExecutorService</code>接口，ExecutorService是Executor的子接口，它还管理执行服务的生命周期。这使它们更易于管理，并向生命可能比单独 Executor 的生命更长的应用程序提供服务。</p>
+</li>
+<li><p><strong>执行策略</strong>定义何时在哪个线程中运行任务，执行任务可能消耗的资源级别（线程、内存等等），以及如果执行程序超载该怎么办。</p>
+</li>
+</ul>
+<h2 id="ExecutorService"><a href="#ExecutorService" class="headerlink" title="ExecutorService"></a>ExecutorService</h2><ul>
+<li><p><code>ExecutorService</code>接口在提供了execute方法的同时，新加了更加通用的<code>submit</code>方法。</p>
+</li>
+<li><p>通过submit方法返回的<code>Future</code>对象可以读取<code>Callable</code>任务的执行结果，或管理Callable任务和Runnable任务的状态。</p>
+</li>
+<li><p>ExecutorService也提供了批量运行Callable任务的方法，ExecutorService还提供了一些关闭执行器的方法。</p>
+</li>
+</ul>
+<h2 id="ScheduledExecutorService"><a href="#ScheduledExecutorService" class="headerlink" title="ScheduledExecutorService"></a>ScheduledExecutorService</h2><ul>
+<li><p><code>ScheduledExecutorService</code>扩展ExecutorService接口并添加了<code>schedule</code>方法。调用schedule方法可以在指定的延时后执行一个Runnable或者Callable任务。</p>
+</li>
+<li><p>ScheduledExecutorService接口还定义了按照指定时间间隔定期执行任务的<code>scheduleAtFixedRate</code>方法和<code>scheduleWithFixedDelay</code>方法。</p>
+</li>
+</ul>
+<h2 id="Executors"><a href="#Executors" class="headerlink" title="Executors"></a>Executors</h2><p><code>Executors类</code>包含用于构造许多不同类型的 Executor 实现的静态工厂方法：</p>
+<ul>
+<li><p><code>newCachedThreadPool()</code> 创建不限制大小的线程池，但是当以前创建的线程可以使用时将重新使用那些线程。如果没有现有线程可用，将创建新的线程并将其添加到池中。已有 60 秒钟未被使用的线程将其终止并从缓存中删除。</p>
+</li>
+<li><p><code>newFixedThreadPool(int n)</code> 创建一个可重用固定线程数的线程池，以共享的无界队列方式来运行这些线程。如果在所有线程处于活动状态时提交附加任务，则在有可用线程之前，附加任务将在队列中等待。如果在关闭前的执行期间由于失败而导致任何线程终止，那么一个新线程将代替它执行后续的任务。</p>
+</li>
+<li><p><code>newSingleThreadExecutor()</code> 创建一个单线程的线程池。这个线程池只有一个线程在工作，也就是相当于单线程串行执行所有任务, 此线程池保证所有任务的执行顺序按照任务的提交顺序执行。如果这个唯一的线程因为异常结束，那么会有一个新的线程来替代它。</p>
+</li>
+<li><p><code>newScheduledThreadPool(int n)</code>  创建一个大小无限的线程池, 此线程池支持定时以及周期性执行任务的需求。</p>
+</li>
+<li><p>如果上面的方法都不满足需要，可以尝试<code>ThreadPoolExecutor</code>或者<code>ScheduledThreadPoolExecutor</code>。</p>
+</li>
+</ul>
+<h2 id="定制-ThreadPoolExecutor"><a href="#定制-ThreadPoolExecutor" class="headerlink" title="定制 ThreadPoolExecutor"></a>定制 ThreadPoolExecutor</h2><p>通过使用包含 <code>ThreadFactory</code> 变量的工厂方法或构造函数的版本，可以定义线程的创建。ThreadFactory 是工厂对象，其构造执行程序要使用的新线程。</p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">DaemonThreadFactory</span> <span class="token keyword">implements</span> <span class="token class-name">ThreadFactory</span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> Thread <span class="token function">newThread</span><span class="token punctuation">(</span>Runnable r<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        Thread thread <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Thread</span><span class="token punctuation">(</span>r<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        thread<span class="token punctuation">.</span><span class="token function">setDaemon</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> thread<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<p>有时，Executor 不能执行任务，因为它已经关闭或者因为 Executor 使用受限制队列存储等待任务，而该队列已满。在这种情况下，需要咨询执行程序的<code>RejectedExecutionHandler</code> 来确定如何处理任务：</p>
+<ul>
+<li><p>抛出异常（默认情况），</p>
+</li>
+<li><p>放弃任务，</p>
+</li>
+<li><p>在调用者的线程中执行任务，</p>
+</li>
+<li><p>或放弃队列中最早的任务以为新任务腾出空间。</p>
+</li>
+<li><p><code>setRejectedExecutionHandler</code>可以设置拒绝的执行处理程序。</p>
+</li>
+</ul>
+<h2 id="需要特别考虑的问题"><a href="#需要特别考虑的问题" class="headerlink" title="需要特别考虑的问题"></a>需要特别考虑的问题</h2><p>如果应用程序对特定执行程序进行了假设，那么应该在 Executor 定义和初始化的附近对这些进行说明，从而使善意的更改不会破坏应用程序的正确功能。</p>
+<ul>
+<li><p>一些任务可能同时等待其他任务完成。在这种情况下，当线程池没有足够的线程时，如果所有当前执行的任务都在等待另一项任务，而该任务因为线程池已满不能执行，那么线程池可能会死锁。</p>
+</li>
+<li><p>一组线程必须作为共同操作组一起工作。在这种情况下，需要确保线程池能够容纳所有线程。</p>
+</li>
+</ul>
+<h2 id="调整线程池"><a href="#调整线程池" class="headerlink" title="调整线程池"></a>调整线程池</h2><ul>
+<li><p>如果线程池太小，资源可能不能被充分利用，在一些任务还在工作队列中等待执行时，可能会有处理器处于闲置状态。</p>
+</li>
+<li><p>另一方面，如果线程池太大，则将有许多有效线程，因为大量有效线程使用内存，或者因为每项任务要比使用少量线程有更多上下文切换，性能可能会受损。</p>
+</li>
+<li><p>Amdahl 法则提供很好的近似公式来确定线程池的大小：</p>
+</li>
+</ul>
+<blockquote>
+<p>用 <code>WT</code> 表示每项任务的平均等待时间，<code>ST</code> 表示每项任务的平均服务时间（计算时间）。则 <code>WT/ST</code> 是每项任务等待所用时间的百分比。对于 N 处理器系统，池中可以近似有 <code>N*(1+WT/ST)</code> 个线程。</p>
+</blockquote>
+<h2 id="Future-接口"><a href="#Future-接口" class="headerlink" title="Future 接口"></a>Future 接口</h2><ul>
+<li><p><code>Future</code> 接口允许表示已经完成的任务、正在执行过程中的任务或者尚未开始执行的任务。通过 Future 接口，可以尝试取消尚未完成的任务，查询任务已经完成还是取消了，以及提取（或等待）任务的结果值。</p>
+</li>
+<li><p><code>FutureTask</code> 类实现了 Future，并包含一些构造函数，允许将 Runnable 或 Callable和 Future 接口封装。因为 FutureTask 也实现 Runnable，所以可以只将 FutureTask 提供给 Executor。一些提交方法（如 <code>ExecutorService.submit()</code>）除了提交任务之外，还将返回 Future 接口。</p>
+</li>
+<li><p><code>Future.get()</code> 方法检索任务计算的结果, 如果任务尚未完成，那么 Future.get() 将被阻塞直到任务完成；如果任务已经完成，那么它将立即返回结果; 如果任务完成，但有异常，则抛出 ExecutionException。</p>
+</li>
+</ul>
+<h2 id="使用-Future-构建缓存"><a href="#使用-Future-构建缓存" class="headerlink" title="使用 Future 构建缓存"></a>使用 Future 构建缓存</h2><p>该示例利用 ConcurrentHashMap 中的原子 <code>putIfAbsent()</code> 方法，确保仅有一个线程试图计算给定关键字的值。如果其他线程随后请求同一关键字的值，它仅能等待（通过 Future.get() 的帮助）第一个线程完成。因此两个线程不会计算相同的值。</p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Cache</span><span class="token operator">&lt;</span>K<span class="token punctuation">,</span>V<span class="token operator">></span> <span class="token punctuation">{</span>
+    <span class="token keyword">private</span> ConcurrentMap<span class="token operator">&lt;</span>K<span class="token punctuation">,</span>FutureTask<span class="token operator">&lt;</span>V<span class="token operator">>></span> map <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ConcurrentHashMap</span><span class="token operator">&lt;</span><span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">private</span> Executor executor <span class="token operator">=</span> Executors<span class="token punctuation">.</span><span class="token function">newFixedThreadPool</span><span class="token punctuation">(</span><span class="token number">8</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">static</span> <span class="token keyword">class</span> <span class="token class-name">Task</span><span class="token operator">&lt;</span>V<span class="token operator">></span> <span class="token keyword">implements</span> <span class="token class-name">Callable</span><span class="token operator">&lt;</span>V<span class="token operator">></span><span class="token punctuation">{</span>
+        <span class="token annotation punctuation">@Override</span>
+        <span class="token keyword">public</span> V <span class="token function">call</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">throws</span> Exception <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> null<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> V <span class="token function">get</span><span class="token punctuation">(</span><span class="token keyword">final</span> K key<span class="token punctuation">)</span> <span class="token keyword">throws</span> ExecutionException<span class="token punctuation">,</span> InterruptedException <span class="token punctuation">{</span>
+        FutureTask<span class="token operator">&lt;</span>V<span class="token operator">></span> ft <span class="token operator">=</span> map<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>ft <span class="token operator">==</span> null<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            ft <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">FutureTask</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Task</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            FutureTask<span class="token operator">&lt;</span>V<span class="token operator">></span> old <span class="token operator">=</span> map<span class="token punctuation">.</span><span class="token function">putIfAbsent</span><span class="token punctuation">(</span>key<span class="token punctuation">,</span> ft<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>old <span class="token operator">==</span> null<span class="token punctuation">)</span><span class="token punctuation">{</span>
+                executor<span class="token punctuation">.</span><span class="token function">execute</span><span class="token punctuation">(</span>ft<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+                ft <span class="token operator">=</span> old<span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> ft<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<h2 id="CompletionService"><a href="#CompletionService" class="headerlink" title="CompletionService"></a>CompletionService</h2><ul>
+<li><p><code>CompletionService</code> 将执行服务与类似 Queue 的接口组合，从任务执行中删除任务结果的处理。CompletionService 接口包含用来提交将要执行的任务的 submit() 方法和用来询问下一完成任务的 <code>take()</code>/<code>poll()</code> 方法。</p>
+</li>
+<li><p>CompletionService 允许应用程序结构化，使用 <code>Producer</code>/<code>Consumer</code> 模式，其中生产者创建任务并提交，消费者请求完成任务的结果并处理这些结果。CompletionService 接口由 <code>ExecutorCompletionService</code> 类实现，该类使用 Executor 处理任务并从 CompletionService 导出 <code>submit</code>/<code>poll</code>/<code>take</code> 方法。</p>
+</li>
+<li><p>下列代码使用 Executor 和 CompletionService 来启动许多任务，并使用第一个生成的非空结果，然后取消其余任务：</p>
+</li>
+</ul>
+<pre class=" language-java"><code class="language-java"><span class="token operator">&lt;</span>V<span class="token operator">></span> V <span class="token function">solve</span><span class="token punctuation">(</span>Executor e<span class="token punctuation">,</span> Collection<span class="token operator">&lt;</span>Callable<span class="token operator">&lt;</span>V<span class="token operator">>></span> tasks<span class="token punctuation">)</span> <span class="token keyword">throws</span> InterruptedException<span class="token punctuation">,</span> ExecutionException <span class="token punctuation">{</span>
+    CompletionService<span class="token operator">&lt;</span>V<span class="token operator">></span> ecs <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ExecutorCompletionService</span><span class="token operator">&lt;</span><span class="token operator">></span><span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    List<span class="token operator">&lt;</span>Future<span class="token operator">&lt;</span>V<span class="token operator">>></span> futures <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token operator">&lt;</span><span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    V result <span class="token operator">=</span> null<span class="token punctuation">;</span>
+
+    <span class="token keyword">try</span> <span class="token punctuation">{</span>
+        tasks<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span>p <span class="token operator">-</span><span class="token operator">></span> futures<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>ecs<span class="token punctuation">.</span><span class="token function">submit</span><span class="token punctuation">(</span>p<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> tasks<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token operator">++</span>i<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            V r <span class="token operator">=</span> ecs<span class="token punctuation">.</span><span class="token function">take</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>r <span class="token operator">!=</span> null<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                result <span class="token operator">=</span> r<span class="token punctuation">;</span>
+                <span class="token keyword">break</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span> <span class="token keyword">finally</span> <span class="token punctuation">{</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span>Future<span class="token operator">&lt;</span>V<span class="token operator">></span> f <span class="token operator">:</span> futures<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            f<span class="token punctuation">.</span><span class="token function">cancel</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">return</span> result<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<h2 id="Fork-Join"><a href="#Fork-Join" class="headerlink" title="Fork/Join"></a>Fork/Join</h2><ul>
+<li><p><code>fork/join</code>框架是ExecutorService接口的一种具体实现，目的是为了更好地利用多处理器带来的好处。它是为那些能够被递归地拆解成子任务的工作类型量身设计的。其目的在于能够使用所有可用的运算能力来提升你的应用的性能。</p>
+</li>
+<li><p>类似于ExecutorService接口的其他实现，fork/join框架会将任务分发给线程池中的工作线程。fork/join框架的独特之处在与它使用工作窃取(<code>work-stealing</code>)算法。完成自己的工作而处于空闲的工作线程能够从其他仍然处于忙碌(busy)状态的工作线程处窃取等待执行的任务。</p>
+</li>
+<li><p>fork/join框架的核心是<code>ForkJoinPool</code>类，它是对<code>AbstractExecutorService</code>类的扩展。ForkJoinPool实现了工作偷取算法，并可以执行ForkJoinTask任务。</p>
+</li>
+<li><p>在Java SE 8中，java.util.<code>Arrays</code>类的一系列<code>parallelSort()</code>方法就使用了fork/join来实现。这些方法与sort()系列方法很类似，但是通过使用fork/join框架，借助了并发来完成相关工作, 在多处理器系统中，对大数组的并行排序会比串行排序更快。</p>
+</li>
+<li><p>其他采用了fork/join框架的方法还有java.util.<code>streams</code>包中的一些方法，此包是Java SE 8发行版中Project Lambda的一部分。</p>
+</li>
+</ul>
+<h1 id="同步工具"><a href="#同步工具" class="headerlink" title="同步工具"></a>同步工具</h1><h2 id="Semaphore"><a href="#Semaphore" class="headerlink" title="Semaphore"></a>Semaphore</h2><ul>
+<li><p><code>Semaphore</code> 类实现标准 Dijkstra 计数信号。计数信号可以认为具有一定数量的许可权，该许可权可以获得或释放。如果有剩余的许可权，<code>acquire()</code> 方法将成功，否则该方法将被阻塞，直到其他线程释放<code>release()</code>许可权, 线程一次可以获得多个许可权。</p>
+</li>
+<li><p>计数信号可以用于限制有权对资源进行并发访问的线程数。该方法对于实现资源池或限制 Web 爬虫（Web crawler）中的输出 socket 连接非常有用。</p>
+</li>
+<li><p>注意信号不跟踪哪个线程拥有多少许可权, 这由应用程序来决定，以确保何时线程释放许可权，该信号表示其他线程拥有许可权或者正在释放许可权，以及其他线程知道它的许可权已释放。</p>
+</li>
+</ul>
+<h2 id="互斥"><a href="#互斥" class="headerlink" title="互斥"></a>互斥</h2><ul>
+<li><p>计数信号的一种特殊情况是<strong>互斥</strong>，或者互斥信号。互斥就是具有单一许可权的计数信号，意味着在给定时间仅一个线程可以具有许可权, 互斥可以用于管理对共享资源的独占访问。</p>
+</li>
+<li><p>虽然互斥许多地方与锁定一样，但互斥还有一个锁定通常没有的功能，就是互斥可以由不具有许可权的其他线程来释放, 这在死锁恢复时会非常有用。</p>
+</li>
+</ul>
+<h2 id="CyclicBarrier"><a href="#CyclicBarrier" class="headerlink" title="CyclicBarrier"></a>CyclicBarrier</h2><ul>
+<li><p><code>CyclicBarrier</code> 类可以帮助同步，它允许一组线程等待整个线程组到达公共屏障点。CyclicBarrier 是使用整型变量构造的，其确定组中的线程数。当一个线程到达屏障时（通过调用 CyclicBarrier.<code>await()</code>），它会被阻塞，直到所有线程都到达屏障，然后在该点允许所有线程继续执行。</p>
+</li>
+<li><p>CyclicBarrier可以重新使用, 一旦所有线程都已经在屏障处集合并释放，则可以将该屏障重新初始化到它的初始状态。 还可以指定在屏障处等待时的超时；如果在该时间内其余线程还没有到达屏障，则认为屏障被打破，所有正在等待的线程会收到 <code>BrokenBarrierException</code>。</p>
+</li>
+<li><p>下列代码将创建 CyclicBarrier 并启动一组线程，每个线程在到达屏障点前会打印出自己的名字，等待其他线程到齐后，将执行CyclicBarrier绑定的Runnable，该Runnable在每个屏障点只执行一次。</p>
+</li>
+</ul>
+<pre class=" language-java"><code class="language-java">    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        Runnable ready <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Runnable</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token annotation punctuation">@Override</span>
+            <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"ready"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+        CyclicBarrier cyclicBarrier <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">CyclicBarrier</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span> ready<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        ExecutorService executor <span class="token operator">=</span> Executors<span class="token punctuation">.</span><span class="token function">newCachedThreadPool</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">5</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            Runnable task <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Runnable</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token annotation punctuation">@Override</span>
+                <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    <span class="token keyword">try</span> <span class="token punctuation">{</span>
+                        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>Thread<span class="token punctuation">.</span><span class="token function">currentThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                        cyclicBarrier<span class="token punctuation">.</span><span class="token function">await</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">InterruptedException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                        e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">BrokenBarrierException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                        e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token punctuation">}</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span><span class="token punctuation">;</span>
+            executor<span class="token punctuation">.</span><span class="token function">submit</span><span class="token punctuation">(</span>task<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        executor<span class="token punctuation">.</span><span class="token function">shutdown</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span></code></pre>
+<h2 id="CountdownLatch"><a href="#CountdownLatch" class="headerlink" title="CountdownLatch"></a>CountdownLatch</h2><ul>
+<li><p><code>CountdownLatch</code> 类与 CyclicBarrier 相似，因为它的角色是对已经在它们中间分摊了问题的一组线程进行协调。它也是使用整型变量构造的，指明计数的初始值，但是与 CyclicBarrier 不同的是，CountdownLatch 不能重新使用。</p>
+</li>
+<li><p>其中，CyclicBarrier 是到达屏障的所有线程的大门，只有当所有线程都已经到达屏障或屏障被打破时，才允许这些线程通过。CountdownLatch 将到达和等待功能分离，任何线程都可以通过调用 <code>countDown()</code> 减少当前计数，这种方式不会阻塞线程，而只是减少计数。<code>await()</code> 方法的行为与 CyclicBarrier.await() 稍微有所不同，调用 await() 任何线程都会被阻塞，直到闩锁计数减少为零，在该点等待的所有线程才被释放，对 await() 的后续调用将立即返回。</p>
+</li>
+<li><p>当问题已经分解为许多部分，每个线程都被分配一部分计算时，CountdownLatch 非常有用。在工作线程结束时，它们将减少计数，协调线程可以在闩锁处等待当前这一批计算结束，然后继续移至下一批计算。</p>
+</li>
+</ul>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token keyword">throws</span> InterruptedException <span class="token punctuation">{</span>
+    <span class="token keyword">int</span> concurrency <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">;</span>
+    ExecutorService executor <span class="token operator">=</span> Executors<span class="token punctuation">.</span><span class="token function">newCachedThreadPool</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">final</span> CountDownLatch ready <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">CountDownLatch</span><span class="token punctuation">(</span>concurrency<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">final</span> CountDownLatch start <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">CountDownLatch</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">final</span> CountDownLatch done <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">CountDownLatch</span><span class="token punctuation">(</span>concurrency<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> i<span class="token operator">&lt;</span>concurrency<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        executor<span class="token punctuation">.</span><span class="token function">execute</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Runnable</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                ready<span class="token punctuation">.</span><span class="token function">countDown</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">try</span> <span class="token punctuation">{</span>
+                    start<span class="token punctuation">.</span><span class="token function">await</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>Thread<span class="token punctuation">.</span><span class="token function">currentThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">"----done"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">InterruptedException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+                done<span class="token punctuation">.</span><span class="token function">countDown</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    ready<span class="token punctuation">.</span><span class="token function">await</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"all threads are ready"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    start<span class="token punctuation">.</span><span class="token function">countDown</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    done<span class="token punctuation">.</span><span class="token function">await</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"all threads finished"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    executor<span class="token punctuation">.</span><span class="token function">shutdown</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<h2 id="Exchanger"><a href="#Exchanger" class="headerlink" title="Exchanger"></a>Exchanger</h2><ul>
+<li><p><code>Exchanger</code> 类方便了两个共同操作线程之间的双向交换，就像具有计数为 2 的 CyclicBarrier，并且两个线程在都到达屏障时可以”交换”一些状态。（Exchanger 模式有时也称为聚集。）</p>
+</li>
+<li><p>Exchanger 通常用于一个线程填充缓冲（通过读取 socket），而另一个线程清空缓冲（通过处理从 socket 收到的命令）的情况。当两个线程在屏障处集合时，它们交换缓冲。</p>
+</li>
+<li><p>下列代码说明了这项技术：</p>
+</li>
+</ul>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    Exchanger<span class="token operator">&lt;</span>String<span class="token operator">></span> exchanger <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Exchanger</span><span class="token operator">&lt;</span><span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    ExecutorService executor <span class="token operator">=</span> Executors<span class="token punctuation">.</span><span class="token function">newCachedThreadPool</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    Runnable producer <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Runnable</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token annotation punctuation">@Override</span>
+        <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">5</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">try</span> <span class="token punctuation">{</span>
+                    String data <span class="token operator">=</span> <span class="token string">"produce"</span><span class="token punctuation">;</span>
+                    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>Thread<span class="token punctuation">.</span><span class="token function">currentThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">"-offer----"</span> <span class="token operator">+</span> data<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    exchanger<span class="token punctuation">.</span><span class="token function">exchange</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">InterruptedException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+    Runnable consumer <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Runnable</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token annotation punctuation">@Override</span>
+        <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">5</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">try</span> <span class="token punctuation">{</span>
+                    String data <span class="token operator">=</span> exchanger<span class="token punctuation">.</span><span class="token function">exchange</span><span class="token punctuation">(</span>null<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>Thread<span class="token punctuation">.</span><span class="token function">currentThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">"-get----"</span> <span class="token operator">+</span> data<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">InterruptedException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+    executor<span class="token punctuation">.</span><span class="token function">execute</span><span class="token punctuation">(</span>producer<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    executor<span class="token punctuation">.</span><span class="token function">execute</span><span class="token punctuation">(</span>consumer<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    executor<span class="token punctuation">.</span><span class="token function">shutdown</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<h1 id="Lock工具"><a href="#Lock工具" class="headerlink" title="Lock工具"></a>Lock工具</h1><ul>
+<li><p><code>Lock</code> 接口将内置监视器锁定的行为普遍化，允许多个锁定实现，同时提供一些内置锁定缺少的功能，如<strong>计时</strong>的等待、<strong>可中断</strong>的等待、锁定<strong>轮询</strong>、每个锁定有多个<strong>条件</strong>等待集合以及<strong>无阻塞</strong>结构的锁定。</p>
+</li>
+<li><p>java.util.concurrent.<code>locks</code>包提供了复杂的锁, 锁对象作用非常类似同步代码使用的隐式锁, 每次只有一个线程可以获得锁对象。通过关联<code>Condition</code>对象，锁对象也支持<code>wait/notify</code>机制。</p>
+</li>
+<li><p>锁对象之于隐式锁最大的优势在于，它们<strong>有能力收回获取锁的尝试</strong>（如果获取锁失败，将不会继续请求，以免发生死锁）。如果当前锁对象不可用，或者锁请求超时（如果超时时间已指定），<code>tryLock</code>方法会收回获取锁的请求。如果在锁获取前，另一个线程发送了一个中断，<code>lockInterruptibly</code>方法也会收回获取锁的请求。</p>
+</li>
+</ul>
+<h2 id="ReentrantLock"><a href="#ReentrantLock" class="headerlink" title="ReentrantLock"></a>ReentrantLock</h2><ul>
+<li><p><code>ReentrantLock</code> 是具有与隐式监视器锁定（使用 synchronized 方法和语句访问）相同的基本行为和语义的 Lock 的实现，但它具有扩展的能力。</p>
+</li>
+<li><p>在竞争条件下，ReentrantLock 的实现要比现在的 synchronized 实现更具有可伸缩性。这意味着当许多线程都竞争相同锁定时，使用 ReentrantLock 的吞吐量通常要比 synchronized 好。</p>
+</li>
+<li><p>虽然 ReentrantLock 类有许多优点，但是与同步相比，它有一个主要<strong>缺点</strong> – 它可能忘记释放锁定。因为锁定失误（忘记释放锁定）的风险，所以对于基本锁定，强烈建议继续使用 synchronized，除非真的需要 ReentrantLock 额外的灵活性和可伸缩性。</p>
+</li>
+<li><p>建议当获得和释放 ReentrantLock 时使用下列结构：</p>
+</li>
+</ul>
+<pre class=" language-java"><code class="language-java">Lock lock <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ReentrantLock</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+lock<span class="token punctuation">.</span><span class="token function">lock</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">try</span> <span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">// perform operations protected by lock</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">catch</span><span class="token punctuation">(</span>Exception ex<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+ <span class="token comment" spellcheck="true">// restore invariants</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">finally</span> <span class="token punctuation">{</span>
+  lock<span class="token punctuation">.</span><span class="token function">unlock</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<h2 id="Condition"><a href="#Condition" class="headerlink" title="Condition"></a>Condition</h2><ul>
+<li><p>就像 Lock 接口是同步的具体化，<code>Condition</code> 接口是 Object 中 wait() 和 notify() 方法的具体化。Lock 中的一个方法是 <code>newCondition()</code>，它要求该锁定返回新的 Condition 对象限制。</p>
+</li>
+<li><p><code>await()</code>、<code>signal()</code> 和 <code>signalAll()</code> 方法类似于 wait()、notify() 和 notifyAll()，但增加了灵活性，每个 Lock 都可以创建多个条件变量。这简化了一些并发算法的实现。</p>
+</li>
+</ul>
+<h2 id="ReadWriteLock"><a href="#ReadWriteLock" class="headerlink" title="ReadWriteLock"></a>ReadWriteLock</h2><ul>
+<li><p>ReentrantLock 实现的锁定规则非常简单 – 每当一个线程具有锁定时，其他线程必须等待，直到该锁定可用。</p>
+</li>
+<li><p>有时，当对数据结构的读取通常多于修改时，可以使用更复杂的称为读写锁定的锁定结构，它允许有多个并发读者，同时还允许一个写入者独占锁定。该方法在一般情况下（只读）提供了更大的并发性，同时在必要时仍提供独占访问的安全性。</p>
+</li>
+<li><p><code>ReadWriteLock</code> 接口和 <code>ReentrantReadWriteLock</code> 类提供这种功能 – <strong>多读者</strong>、<strong>单写入</strong>者锁定规则，可以用这种功能来保护共享的易变资源。</p>
+</li>
+</ul>
+<h1 id="原子变量"><a href="#原子变量" class="headerlink" title="原子变量"></a>原子变量</h1><ul>
+<li><p>java.util.concurrent.<code>atomic</code>包定义了对单一变量进行原子操作的类。所有的类都提供了<code>get</code>和<code>set</code>方法，可以使用它们像读写<code>volatile</code>变量一样读写原子类。就是说，同一变量上的一个set操作对于任意后续的get操作存在happens-before关系。原子的<code>compareAndSet</code>方法也有内存一致性特点，就像应用到整型原子变量中的简单原子算法。</p>
+</li>
+<li><p>即使大多数用户将很少直接使用它们，原子变量类（<code>AtomicInteger</code>、<code>AtomicLong</code>、<code>AtomicReference</code> 等等）也有充分理由是最显著的新并发类。这些类公开对 JVM 的低级别改进，允许进行具有高度可伸缩性的<strong>原子读-修改-写操作</strong>。大多数现代 CPU 都有原子读-修改-写的原语，比如比较并交换（CAS）或加载链接/条件存储（LL/SC）。原子变量类使用硬件提供的最快的并发结构来实现。</p>
+</li>
+<li><p>几乎 java.util.concurrent 中的所有类都是在 <code>ReentrantLock</code> 之上构建的，ReentrantLock 则是在<strong>原子变量类</strong>的基础上构建的。所以，虽然仅少数并发专家使用原子变量类，但 java.util.concurrent 类的很多可伸缩性改进都是由它们提供的。</p>
+</li>
+<li><p>原子变量主要用于为原子地更新 “热” 字段提供有效的、细粒度的方式， “热” 字段是指由多个线程频繁访问和更新的字段。另外，原子变量还是计数器或生成序号的自然机制。</p>
+</li>
+</ul>
+<h1 id="并发随机数"><a href="#并发随机数" class="headerlink" title="并发随机数"></a>并发随机数</h1><ul>
+<li><p>在JDK7中，java.util.concurrent包含了一个相当便利的类，<code>ThreadLocalRandom</code>，当应用程序期望在多个线程或ForkJoinTasks中使用随机数时。</p>
+</li>
+<li><p>对于并发访问，使用TheadLocalRandom代替Math.random()可以减少竞争，从而获得更好的性能。</p>
+</li>
+<li><p>只需调用ThreadLocalRandom.<code>current()</code>， 然后调用它的其中一个方法去获取一个随机数即可。</p>
+</li>
+</ul>
+<h1 id="性能与可伸缩性"><a href="#性能与可伸缩性" class="headerlink" title="性能与可伸缩性"></a>性能与可伸缩性</h1><ul>
+<li><p><strong>性能</strong>是 “可以快速执行此任务的程度” 的评测。<strong>可伸缩性</strong>描述应用程序的<strong>吞吐量如何表现为它的工作量和可用计算资源增加</strong>。</p>
+</li>
+<li><p>可伸缩的程序可以按比例使用更多的处理器、内存或 I/O 带宽来处理更多个工作量。当我们在并发环境中谈论可伸缩性时，我们是在问当许多线程同时访问给定类时，这个类的执行情况。</p>
+</li>
+<li><p>java.util.concurrent 中的低级别类 ReentrantLock 和原子变量类的可伸缩性要比内置监视器（同步）锁定高得多。因此，使用 ReentrantLock 或原子变量类来协调共享访问的类也可能更具有可伸缩性。</p>
+</li>
+</ul>
+
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">John Doe</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://lovote-web.github.io/2020/07/19/2020-03-18-java-concurrent/">http://lovote-web.github.io/2020/07/19/2020-03-18-java-concurrent/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">John Doe</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/Java-Concurrent/">
+                                    <span class="chip bg-color">Java Concurrent</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2020/07/19/2020-04-19-%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="八种排序">
+                        
+                        <span class="card-title">八种排序</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+TOC{:toc}
+
+
+ 
+
+1.直接插入排序基本思想：在要排序的一组数中，假设前面(n-1) [n&gt;=2] 个数已经是排好顺序的，现在要把第n个数插到前面的有序数中，使得这n个数也是排好顺序的。如此反复循环，直到全部排好顺序。
+
+
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-07-19
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/algorithm/" class="post-category">
+                                    algorithm
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E7%AE%97%E6%B3%95-algorithm-%E6%8E%92%E5%BA%8F/">
+                        <span class="chip bg-color">算法 algorithm 排序</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2020/07/19/2020-03-12-spring-security/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="spring security 探秘">
+                        
+                        <span class="card-title">spring security 探秘</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            概述Spring Security这是一种基于Spring AOP和Servlet过滤器的安全框架。它提供全面的安全性解决方案，同时在Web请求级和方法调用级处理身份确认和授权。在Spring Framework基础上，Spring Sec
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-19
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/web/" class="post-category">
+                                    web
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/spring-security-Java/">
+                        <span class="chip bg-color">spring security Java</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+<style type="text/css">
+code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
+</style>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            <span id="year">2019</span>
+            <a href="/about" target="_blank">John Doe</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:1181062873@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1181062873" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/search.xml", 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

@@ -1,0 +1,1229 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="操作系统(二), Hexo">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>操作系统(二) | Hexo</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 4.2.1"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Hexo</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Hexo</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/22.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">操作系统(二)</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        height: calc(100vh - 250px);
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86-%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86/">
+                                <span class="chip bg-color">操作系统 内存管理 文件管理</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" class="post-category">
+                                操作系统
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2020-07-19
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <ul>
+<li>TOC<br>{:toc}</li>
+</ul>
+<h1 id="第三章-内存管理"><a href="#第三章-内存管理" class="headerlink" title="第三章 内存管理"></a>第三章 内存管理</h1><h2 id="3-1-内存管理基础"><a href="#3-1-内存管理基础" class="headerlink" title="3.1 内存管理基础"></a>3.1 内存管理基础</h2><h3 id="0、内存管理的概念"><a href="#0、内存管理的概念" class="headerlink" title="0、内存管理的概念"></a>0、内存管理的概念</h3><p>内存管理是操作系统中最重要和最复杂的内容之一。</p>
+<p>操作系统必须将内存空间进行合理的划分和动态分配，<strong>操作系统对内存的划分和动态分配</strong>，就是内存管理的概念。</p>
+<p><strong>内存管理的功能有</strong>：</p>
+<ul>
+<li>内存空间的分配与回收，包括内存的分配和共享</li>
+<li>地址转换，把逻辑地址转换成相应的物理地址</li>
+<li>内存空间的扩充，利用虚拟技术或自动覆盖技术，从逻辑上扩充内存。</li>
+<li>存储保护，保证各道作业在各自空间内运行。互不干扰。</li>
+</ul>
+<p>创建进程首先要将程序和数据装入内存。将用户源程序变成内存中执行的程序，通常需要以下几个步骤：</p>
+<ul>
+<li>编译：由编译程序将用户源代码编译成若干个目标模块。</li>
+<li>链接：由链接程序将编译后形成的一组目标模块，以及所需库函数链接，形成完整的装入模块。</li>
+<li>装入：由装入程序将装入模块装入内存。</li>
+</ul>
+<p>程序的链接有以下三种方式：</p>
+<ul>
+<li>静态链接</li>
+<li>装入时动态链接</li>
+<li>运行时动态链接</li>
+</ul>
+<h3 id="1、覆盖与交换"><a href="#1、覆盖与交换" class="headerlink" title="1、覆盖与交换"></a>1、覆盖与交换</h3><p>覆盖与交换技术是在多道程序环境下用来扩充内存的两种方法。</p>
+<p><strong>交换的基本思想</strong>是：把处于等待状态（或在CPU调度原则下被剥夺运行权利）的进程从内存移到辅存，把内存空间腾出来，这一过程又叫换出；把准备好竞争CPU运行的进程从辅存移到内存，这一过程又称为换入。</p>
+<h3 id="2、连续分配管理方式"><a href="#2、连续分配管理方式" class="headerlink" title="2、连续分配管理方式"></a>2、连续分配管理方式</h3><p>连续分配管理方式，是指为一个用户程序分配一个连续的内存空间。主要包括：<strong>单一连续分配，固定分区分配 和 动态分区分配</strong>。</p>
+<p><strong>固定分区分配</strong>：将内存用户空间划分为若干个固定大小的区域，每个分区只装入一道作业。当有空闲分区时，便可以再从外存的后备队列中选择适当大小的作业装入该分区。如此循环。</p>
+<h3 id="3、非连续分配管理方式"><a href="#3、非连续分配管理方式" class="headerlink" title="3、非连续分配管理方式"></a>3、非连续分配管理方式</h3><p>非连续分配方式允许一个程序分散的装入不相邻的内存分区中，根据<strong>分区的大小是否固定</strong>分为<strong>分页存储管理方式</strong>和<strong>分段存储管理方式</strong>。</p>
+<p>分页存储管理方式中，又根据<strong>运行作业时是否要把作业的所有页面都装入内存才能运行</strong>分为<strong>基本分页存储管理</strong>和<strong>请求分页存储管理</strong>方式。</p>
+<p><strong>固定分区会产生内部碎片，动态分区会产生外部碎片</strong>，两种技术对内存的利用率都比较低。我们希望<strong>内存的使用能尽量避免碎片的产生</strong>，这就引出了分页思想：把主存空间划分为大小相等且固定的块，块相对较小，作为主存的基本单位。每个进程也以块为单位进行划分，进程在执行时，以块为单位逐个申请主存中的块空间。</p>
+<p><strong>1）分页存储的几个基本概念</strong></p>
+<ul>
+<li><strong>页面和页面大小</strong>：进程中的块称为页，内存中的块称为页框。进程在执行时需要申请主存空间，就是要为每个页面分配主存中的可用页框，这就产生了页和页框的一一对应。</li>
+<li><strong>地址结构</strong>：分页存储器的地址结构包含两部分：前一部分为页号，后一部分为页内偏移量W。</li>
+<li><strong>页表</strong>：为了便于在内存中找到进程的每个页面所对应的物理块，系统为每个进程建立一张页表，记录页面在内存中对应的物理块号，页表一般存放在内存中。页表作用：<strong>实现从页号到物理块号的地址映射</strong>。</li>
+</ul>
+<p><strong>2）基本地址变换机构</strong></p>
+<p>地址变换机构的任务是<strong>将逻辑地址中的页号，转换为内存中物理块号，地址变换是借助于页表实现的</strong>。</p>
+<p><strong>3）具有快表的地址变换机构</strong></p>
+<p>若页表全部放在内存中，则要存取一个数据或一条指令至少要访问两次内存：一次是访问页表，确定要存取的数据或指令的物理地址，第二次才根据该地址存取数据或指令。显然，这种方法比通常执行指令的速度慢了一半。</p>
+<p>在地址变换机构中增设了一个具有并行查找能力的<strong>高速缓冲存储器</strong>——<strong>快表</strong>，又称联想寄存器TLB，<strong>用以存放当前访问的若干页表项</strong>.</p>
+<p><strong>4) 两级页表</strong></p>
+<p>将页表的10页空间也进行地址映射，建立上一级页表，所以上一级页表只需要一页就足够。在进程执行时，只需要将这一页上一级页表调入内存即可，进程的页表和进程本身的页面，可以在后面的执行中再调入内存</p>
+<p><strong>1）分段</strong></p>
+<p>短时系统<strong>按照用户进程中的自然段划分逻辑空间</strong>。</p>
+<p>例如，用户进程由主程序、两个子程序、栈和一段数据组成，于是可以把这个用户进程划分为5个段，每段从0开始编址，并采用一段连续的地址空间（段内要求连续，段间不要求连续），其逻辑地址由两部分组成：<strong>段号与段内偏移量</strong>，分别记为S、W。</p>
+<p>在页式系统中，逻辑地址的页号和页内偏移量对用户是透明的。</p>
+<p>在段式系统中，段号和段内偏移量必须由用户显示提供，在高级程序语言中，这个工作由编译程序完成。</p>
+<p><strong>2）段表</strong></p>
+<p>每个进程都有一张逻辑空间与主存空间映射的段表，其中每一段表项对应进程的一个段，段表项纪录路该段在内存中的起始地址和段的长度。</p>
+<p><strong>3）地址变换机构</strong></p>
+<p>为了实现进程从逻辑地址到物理地址的变换功能，在系统中设置了段表寄存器，用于存放段表始址和段表长度TL。</p>
+<p><strong>页式存储管理能有效的提高内存利用率</strong>，而<strong>分段存储管理能反应程序的逻辑结构并有利于段的共享</strong>。如果将这两种存储管理方法结合起来，就形成了<strong>段页式存储管理方式</strong>。</p>
+<p><strong>4） 段页式存储管理</strong></p>
+<p>在段页式系统中，作业的地址空间首先被分成若干个逻辑段，每段都有自己的段号，然后再将每一段分成若干个大小固定的页。对内存空间的管理仍然和分页存储管理一样，将其分成若干个和页面大小相同的存储块，对内存的分配以存储块为单位。</p>
+<p>在段页式系统中，作业的逻辑地址分为三部分：<strong>段号、页号和页内偏移量。</strong></p>
+<p>为了实现地址变换，系统为每个进程建立一张段表，而每个分段有一张页表。段表表项中至少包括段号、页表长度和页表起始地址，页表表项中至少包括页号和块号。此外，系统中还应有一个段表寄存器，指出作业的段表起始地址和段表长度。</p>
+<p>在进行地址变换时，首先通过段表查到页表起始地址，然后通过页表找到帧号，最后形成物理地址。进行一次访问实际需要三次访问主存，这里同样可以使用快表提供加快速度，其关键字由段号、页号组成，值是对应的页帧号和保护码。</p>
+<h2 id="3-2-虚拟内存管理"><a href="#3-2-虚拟内存管理" class="headerlink" title="3.2  虚拟内存管理"></a>3.2  虚拟内存管理</h2><h3 id="1、虚拟内存的基本概念"><a href="#1、虚拟内存的基本概念" class="headerlink" title="1、虚拟内存的基本概念"></a>1、虚拟内存的基本概念</h3><p>上节讨论的各种内存管理策略都是<strong>为了同时将多个进程保存在内存中以便允许多道程序设计</strong>。</p>
+<p>他们具有以下两个共同特征：</p>
+<ul>
+<li><strong>一次性</strong>：作业必须一次性全部装入内存后，分可运行。</li>
+<li><strong>驻留性</strong>：作业被装入内存后，就一直驻留在内存中，其任何部分都不会被换出，直至作业运行结束。运行中的进程，会因等待IO而被阻塞，可能处于长期等待状态。</li>
+</ul>
+<p>许多在程序运行中不用或暂时不用的程序（数据）占据了大量的内存空间。而一些需要运行的作业又无法装入运行，显然浪费了宝贵的内存空间。</p>
+<h3 id="2、局部性原理"><a href="#2、局部性原理" class="headerlink" title="2、局部性原理"></a>2、局部性原理</h3><p><strong>快表、页高速缓存以及虚拟内存技术从广义上讲，都是属于高速缓存技术</strong>。这个技术所依赖的原理就是<strong>局部性原理</strong>。局部性原理既适用于程序结构，也适用于数据结构。</p>
+<p>局部性原理表现在以下两个方面：</p>
+<ul>
+<li><strong>时间局部性</strong>：如果程序中的某条指令一旦执行，则不久以后该指令可能再次执行；如果某数据被访问过，则不久以后该数据可能再次被访问。<strong>产生时间局部性的典型原因，是由于在程序中存在着大量的循环操作</strong>。</li>
+<li><strong>空间局部性</strong>：一旦程序访问量某个存储单元，在不久之后，其附近的存储单元也将被访问，即<strong>程序在一段时间内所访问的地址，可能集中在一定的范围之内</strong>，其典型情况便是程序的顺序执行。</li>
+</ul>
+<p>时间局部性是通过<strong>将进来使用的指令和数据保存到高速缓存存储器</strong>中，并使用高速缓存的层次结构实现。</p>
+<p>空间局部性通常是使用较大的高速缓存，并将预取机制集成到高速缓存控制逻辑中实现。</p>
+<h3 id="3、虚拟内存技术"><a href="#3、虚拟内存技术" class="headerlink" title="3、虚拟内存技术"></a>3、虚拟内存技术</h3><p>虚拟内存技术实际上就是<strong>建立了“内存-外存”的两级存储器的结构</strong>，<strong>利用局部性原理实现高速缓存</strong>。</p>
+<p>基于<strong>局部性原理</strong>，在程序装入时，可以将程序的一部分装入内存，而将其与部分留在外存，就可以启动程序执行。在程序执行过程中，当所访问的信息不在内存时，由操作系统将所需要的部分调入内存，然后继续执行程序。另一方面，操作系统将内存中暂时不使用的内容换到外存上，从而腾出空间存放将要调入内存的信息。这样，计算机好像为用户提供了一个比实际内存大的多的存储器，成为<strong>虚拟存储器</strong>。</p>
+<p>之所以将其称为虚拟存储器，是因为这种存储器实际上并不存在，只是由于系统提供了部分装入、请求调入和置换功能后，给用户的感觉是好像存在一个比实际物理内存大得多的存储器。</p>
+<p>虚拟存储器有以下三个<strong>主要特征</strong>：</p>
+<ul>
+<li><strong>多次性</strong>：是指无需在作业运行时一次性地全部装入内存，而是允许被分成多次调入内存运行。</li>
+<li><strong>对换性</strong>：是指无需在作业运行时一直常驻内存，而是允许在作业的运行过程中，进行换进和换出。</li>
+<li><strong>虚拟性</strong>：是指从逻辑上扩充内存的容量，是用户所看到的内存容量，远大于实际的内存容量。</li>
+</ul>
+<p>虚拟内存中，允许讲一个作业分多次调入内存。<strong>采用连续分配方式时，会是相当一部分内存空间都处于暂时或永久的空闲状态</strong>，造成内存资源的严重浪费，而且也无法从逻辑上扩大内存容量。因此，虚拟内存的实现需要建立在离散分配的内存管理方式的基础上。</p>
+<p><strong>虚拟内存的实现有以下三种方式</strong>：</p>
+<ul>
+<li>请求分页存储管理</li>
+<li>请求分段存储管理</li>
+<li>请求段页式存储管理</li>
+</ul>
+<p>不管哪种方式，都需要有<strong>一定的硬件支持</strong>。一般需要的支持有以下几个方面：</p>
+<ul>
+<li>一定容量的内存和外存。</li>
+<li>页表机制或段表机制，作为主要的数据结构。</li>
+<li>中断机构，当用户程序要访问的部分尚未调入内存，则产生中断。</li>
+<li>地址变换机构，逻辑地址到物理地址的变换。</li>
+</ul>
+<h3 id="4、请求分页管理方式"><a href="#4、请求分页管理方式" class="headerlink" title="4、请求分页管理方式"></a>4、请求分页管理方式</h3><p>请求分页系统建立在基本分页系统基础上，为了支持虚拟存储器功能而增加了<strong>请求调页功能</strong>和<strong>页面置换功能</strong>。请求分页是目前最常用的一种实现虚拟存储器的方法。</p>
+<p>为了实现请求分页，系统必须提供一定的<strong>硬件支持</strong>。除了需要一定容量的内存及外存的计算机系统，还需要有<strong>页表机制</strong>、<strong>缺页中断机构和地址变换机构</strong>。</p>
+<h3 id="5、页面置换算法"><a href="#5、页面置换算法" class="headerlink" title="5、页面置换算法"></a>5、页面置换算法</h3><p>进程运行时，若其访问的页面不在内存而需将其调入，但内存已无空闲空间时，就需要从内存中调出一页程序或数据，送入磁盘的兑换区。而选择调出页面的算法就成为<strong>页面置换算法</strong>。</p>
+<p>常见的置换算法有以下四种：</p>
+<ul>
+<li><strong>最佳置换算法（OPT）</strong></li>
+</ul>
+<p>所选择的被淘汰页面将是以后永不使用的，或者是在最长时间内不再被访问的页面，这样可以保证获得最低的缺页率。</p>
+<ul>
+<li><strong>优先淘汰最早进入内存的页面（FIFP）</strong></li>
+</ul>
+<p>在内存中驻留时间最久的页面。该算法实现简单，只需把调入内存的页面根据先后次序连接成队列，设置一个指针总指向最先的页面。但该算法与进程实际运行时的规律不适应，因为在进程中，有的页面经常被访问。</p>
+<ul>
+<li><strong>最近最长未使用（LRU）</strong></li>
+</ul>
+<p>他认为过去一段时间内未访问过的页面，在最近的将来可能也不会被访问。该算法为每个页面设置一个访问字段，来记录页面自上次被访问以来所经历的时间，淘汰页面时选择现有页面中值最大的予以淘汰。</p>
+<ul>
+<li><strong>CLOCK 算法</strong></li>
+</ul>
+<p>简单的CLOCK算法是给每一帧关联一个附加位，称为使用位。当某一页首次装入主存时，该帧的使用位设置为1；当该页随后再被访问到时，他的使用位也被置为1.对于液体换算法，用于替换的候选帧集合看做一个循环缓冲区，并且有一个指针与之相关联。当某一页被替换时，该指针被设置成指向缓冲区中的下一帧。当需要替换一页时，操作系统扫描缓冲区，以查找使用位被指为0的帧，每当遇到一个使用位为1的帧时，操作系统就将该位重新置为0；如果在这个过程开始时，缓冲区中所有帧的使用位均为0，则选择遇到的第一个帧替换；如果所有帧的使用位均为1，则指针在缓冲区中完整的循环一周，把所有使用位都置为0，并且停留在最初的位置上，替换该帧中的页。由于该算法循环的检查各页面的情况，故称为CLOCK算法，又称为最近未用NRU（ Not recently used）算法。</p>
+<h3 id="6、页面分配策略"><a href="#6、页面分配策略" class="headerlink" title="6、页面分配策略"></a>6、页面分配策略</h3><p>对于分页式的虚拟内存，在准备执行时，不需要也不可能把一个进程的所有页都读取到主存，因此，操作系统必须决定读取多少页。也就是说，给特定的进程分配多大的主存空间。这需要考虑以下几点：</p>
+<p>1）分配给一个进程的存储量越小，在任何时候驻留在主存的进程数越多，从而可以提高处理器的时间利用率。</p>
+<p>2）如果一个进程在主存中的页数过少，尽管有局部性原理，页错误率仍然会相对较高。</p>
+<p>3）如果页数过多，由于局部性原理，给特定的进程分配更多的主存空间对该进程的错误率没有明显的影响。</p>
+<p>基于这些因素，现代操作系统通常采用三种策略：</p>
+<p>1）固定分配局部置换。它为每个进程分配一定数量的物理块，在整个运行期间都不改变。若进程在运行中发现缺页，则只能从该进程在内存的页面中选出一个换出，然后再调入需要的页面。实现这种策略难以确定为每个进程应分配的物理块数量：太少会频繁出现缺页中断，太多又会使CPU和其他资源利用率下降。</p>
+<p>2）可变分配全局置换。这是最易于实现的物理块分配和置换策略，为系统中的每个进程分配一定数量的物理块，操作系统自身也保持一个空闲物理块队列。当某进程发现缺页时，系统从空闲物理块队列中取出物理块分配给该进程，并将于调入的页装入其中。</p>
+<p>3）可变分配局部置换。它为每个进程分配一定数目的物理块，当某进程发现缺页时，只允许从该进程在内存的页面中选出一页换出，这样就不会影响其他进程的运行。如果进程在运行中频繁的换页，系统需再为该进程分配若干附加物理块，直至该进程缺页率趋于适当程度为止；反之，若一个进程在运行过程中缺页率特别低，则此时可适当减少该进程的物理块。</p>
+<p>为确定系统将进程运行时所缺的页面调入内存的时机，可采取预调页策略或请求调页策略。</p>
+<p>1）预调页策略。根据局部性原理，一次调入若干个相邻的页可能比一次调入一页更高效。但如果调入的一批页面中大厦多数都未被访问，则又是低效的。所以就需要采用以预测为基础的预调页策略，将预计在不久之后便会被访问的页面预先调入内存。但目前预调页的成功率仅约50%。股这种策略主要用于进程的首次调入时，有程序员指出应该先调入哪些页。</p>
+<p>2）请求调页策略。进程在运行中需要访问的页面不在内存而提出的请求，由系统将所需页面调入内存。这种策略调入的页一定会被访问，且这种策略比较易于实现，故在目前的虚拟存储器中大多采用此策略。它的缺点在于每次调入一页，会花费过多的IO开销。</p>
+<p>3）从何处调入页面。</p>
+<p>请求分页系统中的外存分为两部分：用于存放文件的文件区和用于存放对换页面的对换区。对换区通常是采用连续分配方式，而文件区采用离散分配方式，故对换区的磁盘IO速度比文件区高。这里从何处调入页面有三种情况：</p>
+<p>1）系统拥有足够的对换区空间：可以全部从对换区调入所需页面，以提高调页速度。为此，在进程运行前，需将与该进程有关的文件从文件区复制到对换区。</p>
+<p>2）系统缺少足够的对换区空间：饭不会被修改的文件都直接从文件区调入；而当换出这些页面时，由于他们未被修改而不必再将它们换出。但对于那些可能被修改的部分，在将他们换出时需调到对换区，以后需要以后需要时再从对换区调入。</p>
+<p>3）UNIX方式：与进程有关的文件都存放在文件去，故未运行过的页面都应从文件区调入。曾经运行过的但有被换出的页面，由于是被放在对换区，因此下次调入时应从对换区调入。进程请求的共享页面若被其他进程调入内粗你，则无需再从对换区调入。</p>
+<h3 id="7、抖动和工作集"><a href="#7、抖动和工作集" class="headerlink" title="7、抖动和工作集"></a>7、抖动和工作集</h3><p>在进程的页面置换过程中，频繁的页面调度行为成为抖动。</p>
+<p>如果一个进程在换页上的时间多于执行时间，那么这个进程就在颠簸。</p>
+<p>为了防止出现抖动现象，需要选择合适的驻留集大小。</p>
+<p>驻留级（或工作集）：指在某段时间间隔内，进程要访问的页面集合。常被使用的页面需要在驻留集中，而长期不被使用的页面要从驻留集中被丢弃。驻留集模型使用较为简单：操作系统跟踪每个进程的驻留集，并为进程分配大于驻留集的的空间。如果还有空闲，那么可启动另一个进程。如果所有驻留集之和增加一直超过了可用物理块啊的总数，那么系统会怎听一个进程，将其页面调出并且将其物理块分配给其他进程。</p>
+<h3 id="8、请求分段管理方式"><a href="#8、请求分段管理方式" class="headerlink" title="8、请求分段管理方式"></a>8、请求分段管理方式</h3><p>请求分段存储管理系统已基本短时存储管理为基础，为用户提供一个比主存容量更大的虚拟存储器。作业的若干分段别放入内存，就可以开始作业运行，作业的其他部分被放在外存中，等到需要的时候才被调入内存。请求分段管理方式与请求分页存储管理方式类似，支不果断的大小不是固定的，在内存中空闲区域不够时，不能像分页一样采用简单的置换算法，可能需要置换多个端才有足够的空闲区。</p>
+<h3 id="9、请求段页式管理方式"><a href="#9、请求段页式管理方式" class="headerlink" title="9、请求段页式管理方式"></a>9、请求段页式管理方式</h3><p>请求段页式管理方式只要求将作业若干页或段装入内存就可以开始运行作业，作业的其他部分别放在外存中，等待运行需要的时候才被调入内存，</p>
+<p>请求段页式管理方式要求相对程序按逻辑意义分段后再分页，所以相对于请求页式管理方式能够方便用户使用，便于共享、保护和动态链接。进程在启动的时候采取与装入模式，则可以根据段的意义装入某些进程运行开始阶段所需要的段。</p>
+<h1 id="第四章-文件管理"><a href="#第四章-文件管理" class="headerlink" title="第四章 文件管理"></a>第四章 文件管理</h1><h2 id="4-1-文件系统基础"><a href="#4-1-文件系统基础" class="headerlink" title="4.1 文件系统基础"></a>4.1 文件系统基础</h2><h3 id="1、文件的概念"><a href="#1、文件的概念" class="headerlink" title="1、文件的概念"></a>1、文件的概念</h3><p>在系统运行时，计算机以进程为基本单位进行资源的调度和分配；而<strong>在用户进行的输入、输出中，则以文件为基本单位</strong>。</p>
+<p>用户通过文件系统建立文件，提供应用程序的输入输出，对资源进行管理。</p>
+<p>首先了解<strong>文件的结构</strong>，我们通过自底向上的方式来定义。</p>
+<ul>
+<li><strong>数据项</strong></li>
+</ul>
+<p>数据项是文件系统中最低级的数据组织形式，可分为以下两种类型：① 基本数据项 ：用于描述一个对象的某种属性的一个值，如姓名，是数据中可命名的最小逻辑数据单位，即原子数据。</p>
+<p>② 组合数据项：由多个基本数据项组成。</p>
+<ul>
+<li><strong>记录</strong></li>
+</ul>
+<p>记录是一组相关的数据项集合，用于描述一个对象在某方面的属性，如一个考生报名记录包括考生姓名、出生日期、报考学校代号、身份证号等一系列域</p>
+<ul>
+<li><strong>文件</strong></li>
+</ul>
+<p>文件是指由穿件这所定义的一组相关信息的集合，可分为有结构文件和无结构文件两种。在有结构文件中，文件由一组相似记录组成，如报考某学校的所有考生的报考信息记录；而无结构文件则被看成是一个字符流，比如一个二进制文件或字符文件。</p>
+<p>文件有一定的<strong>属性</strong>，根据系统的不同而有所不同，但通常包括如下属性：</p>
+<ul>
+<li>名称</li>
+<li>标识符</li>
+<li>类型</li>
+<li>位置</li>
+<li>大小</li>
+<li>保护</li>
+<li>时间，日期和用户标识</li>
+</ul>
+<p><strong>所有文件的信息都保存在目录结构中，而目录结构也保存在外存上。文件信息当需要时再调入内存</strong>。</p>
+<p>通常，目录条目包括文件名称及其唯一标示符，而标示符定位其他属性的信息。</p>
+<p>文件属于抽象数据类型。为了恰当的定义文件，就需要考虑有关文件的操作。<strong>操作系统提供系统调用，他对文件进行创建、写、读、定位和截断</strong>。</p>
+<p>每个<strong>打开文件都有如下关联信息</strong>：</p>
+<ul>
+<li><strong>文件指针</strong>：系统跟踪上次读写位置作为当前文件位置指针。</li>
+<li><strong>文件打开计数</strong>：因为多个进程可能打开同一个文件，所以系统在删除打开文件条目之前，必须等待最后一个进程关闭文件。</li>
+<li><strong>文件磁盘位置</strong>：绝大多数文件操作都要求系统修改文件数据，该信息在内存中以免为每个操作都从磁盘中读取。</li>
+<li><strong>访问权限</strong>：每个进程打开文件都需要有一个访问模式（创建、只读、读写、添加等）。该信息保存在进程的打开文件表中一边操作系统能允许或拒绝之后的IO请求。</li>
+</ul>
+<h3 id="2、文件的逻辑结构"><a href="#2、文件的逻辑结构" class="headerlink" title="2、文件的逻辑结构"></a>2、文件的逻辑结构</h3><p>文件的逻辑结构是从用户观点出发看到的文件的组织形式。</p>
+<p>文件的逻辑结构与存储介质特征无关，但文件的物理结构与存储介质的特性有很大关系。</p>
+<p>按<strong>逻辑结构</strong>，文件有无结构文件和有结构文件两种类型：</p>
+<p>有结构文件按记录的组织形式可以分为:</p>
+<ul>
+<li>顺序文件</li>
+<li>索引文件</li>
+<li>索引顺序表</li>
+<li>直接文件或散列文件（哈希文件，Hash File）</li>
+</ul>
+<h3 id="3、目录结构"><a href="#3、目录结构" class="headerlink" title="3、目录结构"></a>3、目录结构</h3><p>与<strong>文件管理系统和文件集合相关联的是文件目录</strong>，它包含有文件的信息，包括属性、位置和所有权等，这些信息都由操作系统进行管理。</p>
+<p>目录管理的基本要求 ：从用户的角度看，目录在用户所需要的文件名和文件之间提供一种映射，所以目录管理要实现“按名存取”；目录存取的效率直接影响到系统的性能，所以要提高对目录的检索速度；在共享系统中，目录还需要提供用于控制访问文件的信息。此外，文件允许重名也是用户的合理和必然要求，目录管理通过树形结构来解决和实现。</p>
+<p>同进程管理一样，为实现目录管理，操作系统中引入了<strong>文件控制块</strong>的数据结构。</p>
+<h3 id="4、文件共享"><a href="#4、文件共享" class="headerlink" title="4、文件共享"></a>4、文件共享</h3><p>文件共享十多个用户进程共享同一份文件，系统中只需保留该文件的一份副本。如果系统不能提供共享功能，那么每个需要该文件的用户都要有各自的副本，会造成对存储空间的极大浪费。</p>
+<h3 id="5、文件保护"><a href="#5、文件保护" class="headerlink" title="5、文件保护"></a>5、文件保护</h3><p>为了防止文件共享可能会导致文件被破坏或未经核准的用户修改文件，文件系统必须控制用户对文件的存取，即解决对文件的读、写、执行的许可问题。为此，必须在文件系统中建立相应的文件保护机制。</p>
+<h2 id="4-2-文件系统实现"><a href="#4-2-文件系统实现" class="headerlink" title="4.2 文件系统实现"></a>4.2 文件系统实现</h2><h2 id="4-3-磁盘组织与管理"><a href="#4-3-磁盘组织与管理" class="headerlink" title="4.3 磁盘组织与管理"></a>4.3 磁盘组织与管理</h2><h3 id="1、磁盘的结构"><a href="#1、磁盘的结构" class="headerlink" title="1、磁盘的结构"></a>1、磁盘的结构</h3><p>磁盘是由表面涂有磁性物质的金属或塑料构成的圆形盘片，通过一个称谓磁头的到体系安全从磁盘中存取数据。在读写操作期间，磁头固定，磁盘在下面高速旋转。磁盘的表面上数据存储在一组同心圆中，称为磁道。每个磁道与磁头一样快，一个盘面上有上千个磁道。磁道有划分为几百个扇区，每个扇区固定存储大小（通常为512B），一个扇区称为一个盘块。由于扇区按固定圆心角划分，所以每季度从最外道向里道增加，磁盘的存储能力受限于最内道的最大记录密度。</p>
+<p><strong>磁盘地址用“柱面号-盘面号-扇区号（或块号）”来表示</strong>。</p>
+<h3 id="2、磁盘调度算法"><a href="#2、磁盘调度算法" class="headerlink" title="2、磁盘调度算法"></a>2、磁盘调度算法</h3><ul>
+<li>先来先服务（FCFS）算法</li>
+<li>最短寻找时间优先（SSTF）算法</li>
+<li>扫描（SCAN）算法又称为电梯算法</li>
+<li>循环扫描（C-SCAN）算法</li>
+</ul>
+<h3 id="3-磁盘的管理"><a href="#3-磁盘的管理" class="headerlink" title="3. 磁盘的管理"></a>3. 磁盘的管理</h3><p>一个新的磁盘只是一个含有磁性记录材料的空白盘。在磁盘能存储数据之前，它必须分成扇区以便磁盘控制器能进行读和写的操作，这个过程称为低级格式化（物理分区）。低级格式化为磁盘的每个扇区采用特别的数据结构。每个扇区的数据结构通常由头、数据区域（通常为512B）大小和尾部组成。头部和尾部包含了一些磁盘控制器所使用的信息。</p>
+<p>为了使用磁盘存储文件。操作系统还需要将自己的数据结构记录在磁盘上：第一步将磁盘分为一个或多个柱面组成分区；低而不对物理分区进行逻辑格式化，操作系统将出师的文件系统数据结构存储在磁盘上，这些数据结构包括空闲和已分配的空间以及一个初始为空的目录。</p>
+<p>（2）引导块</p>
+<p>计算机启动时需要运行一个初始化程序（自举程序），它初始化CPU、寄存器、设备控制器和内存等，接着启动操作系统。为此，该自举程序应找到磁盘上的操作系统内核，装入内存，并转到起始地址，从而开始操作系统的运行。</p>
+<p>自举程序通常保存在ROM中，为了避免改变自举代码需要改变ROM硬件的问题，故指在ROM中保留很小的自举装入程序，将完整功能的自举程序保存在磁盘的启动块上，启动块位于磁盘的固定位。拥有启动分区的磁盘称为启动磁盘或者系统磁盘。</p>
+<p>（3）坏块</p>
+<p>由于磁盘有移动部件且容错能力弱，所以容易导致一个或多个扇区损坏。部分磁盘甚至从出厂时就有坏扇区。根据所使用的磁盘和控制器，对这些坏块有多种处理方式。</p>
+<p>对于简单磁盘，坏扇可手工处理。</p>
+<p>对于复杂的磁盘，其控制器维护一个磁盘坏块链表。该链表在出厂前进行低级格式化就初始化了，并在磁盘的整个使用过程中不断更新。低级格式化将一些块保留作为备用，对操作系统透明。控制器可以使用备用块来逻辑地代替坏块，这种方案称为扇区备用。</p>
+
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">John Doe</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://lovote-web.github.io/2020/07/19/2020-07-03-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F(%E4%BA%8C)/">http://lovote-web.github.io/2020/07/19/2020-07-03-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F(%E4%BA%8C)/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">John Doe</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86-%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86/">
+                                    <span class="chip bg-color">操作系统 内存管理 文件管理</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2020/07/19/2020-07-03-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F(%E4%B8%89)/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="操作系统(三)">
+                        
+                        <span class="card-title">操作系统(三)</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+TOC{:toc}
+
+第五章 输入输出管理5.1 IO 管理概述1、IO设备IO设备管理是操作系统设计中最凌乱也最具挑战性的部分。由于它包含了很多领域的不同设备以及与设备相关的应用程序，因此很难有一个通用且一直的设计方案。所以在理解设备管
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-07-19
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" class="post-category">
+                                    操作系统
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E7%AE%A1%E7%90%86/">
+                        <span class="chip bg-color">操作系统 输入输出管理</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2020/07/19/2020-07-01-Java_%E9%9B%86%E5%90%88/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="集合详解">
+                        
+                        <span class="card-title">集合详解</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+TOC{:toc}
+
+集合
+Iterable 接口实现此接口 允许 对象称为  for_each  循环的目标，也就是 增强 for 循环，它是 Java 中的一种语法糖。
+Jdk 1.8 之前  Iterator 只有 iterator
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-19
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E9%9B%86%E5%90%88-Java/" class="post-category">
+                                    集合 Java
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Java-%E9%9B%86%E5%90%88/">
+                        <span class="chip bg-color">Java 集合</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+<style type="text/css">
+code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
+</style>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            <span id="year">2019</span>
+            <a href="/about" target="_blank">John Doe</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:1181062873@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1181062873" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/search.xml", 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
