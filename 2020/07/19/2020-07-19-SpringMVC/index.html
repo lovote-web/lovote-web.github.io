@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="2020-07-17-并发--HashMap与CurrentHashMap, Hexo">
+    <meta name="keywords" content="2020-07-19-SpringMVC, Hexo">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>2020-07-17-并发--HashMap与CurrentHashMap | Hexo</title>
+    <title>2020-07-19-SpringMVC | Hexo</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -242,12 +242,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/22.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/11.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">2020-07-17-并发--HashMap与CurrentHashMap</h1>
+                    <h1 class="description center-align post-title">2020-07-19-SpringMVC</h1>
                 </div>
             </div>
         </div>
@@ -392,10 +392,34 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="HashMap-和-ConcurrentHashMap-详解"><a href="#HashMap-和-ConcurrentHashMap-详解" class="headerlink" title="HashMap 和 ConcurrentHashMap 详解"></a>HashMap 和 ConcurrentHashMap 详解</h1><h2 id="Java7-HashMap"><a href="#Java7-HashMap" class="headerlink" title="Java7 HashMap"></a>Java7 HashMap</h2><p>HashMap 是由一个<strong>数组</strong>，数组中每个元素是一个<strong>单向链表</strong>。</p>
-<p><strong>capacity</strong>：当前数组容量，始终保持 2^n，可以扩容，扩容后数据大小为当前的 2 倍。</p>
-<p><strong>loadFactor</strong>：负载因子，默认为 0.75</p>
-<p><strong>threshold</strong>：扩容的阈值，等于 capacity*loadFactor</p>
+                <h1 id="SpringMVC"><a href="#SpringMVC" class="headerlink" title="SpringMVC"></a>SpringMVC</h1><p>SpringMVC 核心类是 DispatcherServlet，它是一个 Servlet，顶层是实现的 Servlet 接口。</p>
+<h2 id="Spring-MVC-工作原理"><a href="#Spring-MVC-工作原理" class="headerlink" title="Spring MVC 工作原理"></a>Spring MVC 工作原理</h2><ol>
+<li>客户端发送请求，直接请求到 DispatcherServlet。</li>
+<li>DispatchServlet 根据请求信息调用 HandlerMapping，解析请求对应的 Handler。</li>
+<li>HandlerAdapter 会根据 Handler 来调用真正的处理器开处理请求，并处理相应的业务逻辑。</li>
+<li>处理器返回一个模型视图 ModelAndView</li>
+<li>视图解析器进行解析，并返回一个视图对象</li>
+<li>前端控制器 DispatcherServlet 渲染数据（Moder)，并得到的视图对象返回给用户。</li>
+</ol>
+<p>图来自：<a href="https://blog.csdn.net/qq_39470733/article/details/80980320" target="_blank" rel="noopener">https://blog.csdn.net/qq_39470733/article/details/80980320</a></p>
+<p><img src="https://img-blog.csdn.net/20180710091113541?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5NDcwNzMz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="img"></p>
+<ol>
+<li><strong>前端控制器 DispatcherServlet</strong></li>
+</ol>
+<p>SpringMVC 的入口函数。接受请求，响应结果，相当于转发器，中央处理器。DispatcherServlet 是整个流程控制的中心，由它调用其他组件处理用户的请求，DispatcherServlet 的存在降低了组件之间的耦合性。</p>
+<ol start="2">
+<li><strong>处理器映射器 HandlerMapping</strong></li>
+</ol>
+<p>HandlerMapping 负责处理用户 URL 和 对应的处理类。HandlerMapping 并没有规定这个 URL 与应用的处理类如何映射，在 HandlerMapping 接口中只定义了根据一个 URL 必须返回一个由 HandlerExecutionChain 代表的处理链。</p>
+<ol start="3">
+<li><strong>处理器适配器 HandlerAdapter</strong></li>
+</ol>
+<p>按照特定规则（HandlerAdapter要求的规则）去执行Handler 通过HandlerAdapter对处理器进行执行，这是适配器模式的应用，通过扩展适配器可以对更多类型的处理器进行执行。</p>
+<ol start="4">
+<li><strong>处理器 Handler</strong></li>
+<li><strong>视图 View</strong></li>
+</ol>
+<p><strong>DispatcherServlet</strong> ：在 Web MVC 框架中，每个 DispatcherServlet 都拥有自己的 WebApplicationContext，他继承了 ApplicationContext，WebApplicationContext 包含了其上下文和Servlet 实例之间共享的所有基础框架 beans.</p>
 
             </div>
             <hr/>
@@ -421,7 +445,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://lovote-web.github.io/2020/07/19/2020-07-17-%E5%B9%B6%E5%8F%91--HashMap%E4%B8%8ECurrentHashMap/">http://lovote-web.github.io/2020/07/19/2020-07-17-%E5%B9%B6%E5%8F%91--HashMap%E4%B8%8ECurrentHashMap/</a>
+                    <a href="http://lovote-web.github.io/2020/07/19/2020-07-19-SpringMVC/">http://lovote-web.github.io/2020/07/19/2020-07-19-SpringMVC/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -628,44 +652,24 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/07/19/2020-07-11-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%80%BB%E7%BB%93/">
+                <a href="/2020/07/20/2020-07-20-MyBatis/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="2020-07-11-数据结构总结">
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="2020-07-20-MyBatis">
                         
-                        <span class="card-title">2020-07-11-数据结构总结</span>
+                        <span class="card-title">2020-07-20-MyBatis</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
-
-
-
-常用数据结构
-数组，字符串
-链表
-栈
-队列
-双端队列
-树
-
-数组、字符串字符串常用方法
-
-equals 方法只比较字符串里面的内容。
-
-charAt 方法根据索引返回 char 类型的字符。
-
-concat 方法连接字符串
-
-con
+                            MyBatisMyBatis 是一个基于 Java 的持久层框架，以SQL语句为核心的不完全的 ORM (关系型映射)框架，在 使用了 MyBatis 之后，只需要提供 SQL 语句，其他的：建立连接，操作 Statment，ResultS
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-07-19
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-07-20
                         </span>
                         <span class="publish-author">
                             
@@ -685,19 +689,21 @@ con
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/07/19/2020-07-16-%E5%B9%B6%E5%8F%91--Unsafe%E7%B1%BB/">
+                <a href="/2020/07/19/2020-07-17-LeetCode/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="2020-07-16-并发--Unsafe类">
+                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="2020-07-17-LeetCode">
                         
-                        <span class="card-title">2020-07-16-并发--Unsafe类</span>
+                        <span class="card-title">2020-07-17-LeetCode</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Java 类：Unsafe 应用解析1.1 Unsafe 类Unsafe 类 位于 sum.misc 包下，用于提供一些用于执行低级别，不安全操作的方法，例如直接访问系统内存资源，自主管理内存资源等，这些方法为提升 Java 运行效率，增强
+                            链表1.1 如何实现链表的增删操作1.2 如何从链表中删除重复数据解一：用空间复杂度换时间复杂度。
+public void deleteDuplecate(Node head){
+    Hashtable&lt;Integer,Integ
                         
                     </div>
                     <div class="publish-info">
