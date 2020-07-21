@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="2020-07-20-MyBatis, Hexo">
+    <meta name="keywords" content="2020-07-21-Linux命令top详解, Hexo">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>2020-07-20-MyBatis | Hexo</title>
+    <title>2020-07-21-Linux命令top详解 | Hexo</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -179,12 +179,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">2020-07-20-MyBatis</h1>
+                    <h1 class="description center-align post-title">2020-07-21-Linux命令top详解</h1>
                 </div>
             </div>
         </div>
@@ -313,7 +313,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-07-20
+                    2020-07-21
                 </div>
                 
 
@@ -329,67 +329,62 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="MyBatis"><a href="#MyBatis" class="headerlink" title="MyBatis"></a>MyBatis</h1><p>MyBatis 是一个基于 Java 的持久层框架，以<strong>SQL语句为核心的不完全的 ORM (关系型映射)框架</strong>，在 使用了 MyBatis 之后，只需要提供 SQL 语句，其他的：建立连接，操作 Statment，ResultSet，处理 JDBC 相关异常等等都可以交给 MyBatis 去处理。</p>
-<img src="D:\GitSpace\lovote-web.github.io\source\_posts\2020-07-20-MyBatis.assets\image-20200720091951433.png" alt="image-20200720091951433" style="zoom:50%;" />
-
+                <h1 id="top-命令"><a href="#top-命令" class="headerlink" title="top 命令"></a>top 命令</h1><p>top 命令是我们常用的 Linux 命令之一，它可以实时显示正在执行的进程的 <strong>CPU 使用率</strong>，<strong>内存使用率</strong>等系统信息。<code>top -Hp pid</code> 可以查看线程的系统资源使用情况。</p>
+<p><img src="D:%5CGitSpace%5Clovote-web.github.io%5Csource_posts%5C2020-07-21-Linux%E5%91%BD%E4%BB%A4top%E8%AF%A6%E8%A7%A3.assets%5Cimage-20200721115759120.png" alt="image-20200721115759120"></p>
+<ol>
+<li><p>top：<strong>代表系统运行时间和平均负载</strong>。</p>
 <ul>
-<li><strong>SqlSessionFactory</strong></li>
+<li>当前时间</li>
+<li>系统已运行的时间</li>
+<li>当前登录用户的数量</li>
+<li>相应最近5，10，15 分钟内的p</li>
 </ul>
-<p>SqlSessionFactory 是 MyBatis 的关键对象，它是个单个数据库映射关系经过编译后的内存镜像。每一个MyBatis的应用程序都以一个SqlSessionFactory对象的实例为核心.同时SqlSessionFactory也是线程安全的,SqlSessionFactory一旦被创建,应该在应用执行期间都存在.在应用运行期间不要重复创建多次,建议使用单例模式.SqlSessionFactory是创建SqlSession的工厂。</p>
+</li>
+<li><p>Tasks：<strong>任务或者进程的总结</strong></p>
 <ul>
-<li><strong>SqlSession</strong></li>
+<li>100 个进程，3个正在运行，96 个在休眠</li>
 </ul>
-<p>SqlSession 类似于 JDBC 中的 Connection，它是应用程序与持久层之间执行交互操作的一个单线程对象，也是 MyBatis 执行持久化操作的关键对象。SqlSession 对象完全包含以数据库为背景的所有执行SQL操作的方法，封装了 JDBC 连接，<strong>可以用 SqlSession 实例在直接执行被映射的 SQL 语句</strong>。每个线程应该有它自己的 SqlSession 实例。</p>
+</li>
+<li><p><strong>CPU：CPU 状态</strong></p>
+</li>
+<li><p><strong>内存使用</strong></p>
+</li>
+<li><p><strong>各进程（任务）的状态监控</strong>。</p>
 <ul>
-<li><strong>Executor</strong></li>
-</ul>
-<p>MyBatis 中所有的 <strong>Mapper 语句的执行</strong>都是通过 Executor 进行的。Executor 接口的实现类由 BaseExecutor 和 CachingExecutor。</p>
-<p>BaseExecutor是一个抽象类，只实现了一些公共的封装，而真正的核心实现都通过方法抽象出来给子类实现。SimpleExecutor，ReuseExecutor 和 BatchExecutor。</p>
-<p>CachingExecutor 只是在 Executor 的基础上加入了缓存的功能，底层还是通过 Executor 调用的。</p>
+<li><p>PID：进程ID，进程的唯一标识符</p>
+</li>
+<li><p>USER：进程所有者的实际用户名。</p>
+</li>
+<li><p>PR：进程的调度优先级。这个字段的一些值是’rt’。这意味这这些进程运行在实时态。</p>
+</li>
+<li><p>NI：进程的nice值（优先级）。越小的值意味着越高的优先级。负值表示高优先级，正值表示低优先级</p>
+</li>
+<li><p>VIRT：进程使用的虚拟内存。进程使用的虚拟内存总量，单位kb。VIRT=SWAP+RES</p>
+</li>
+<li><p>RES：驻留内存大小。驻留内存是任务使用的非交换物理内存大小。进程使用的、未被换出的物理内存大小，单位kb。RES=CODE+DATA</p>
+</li>
+<li><p>SHR：SHR是进程使用的共享内存。共享内存大小，单位kb</p>
+</li>
+<li><p>S：这个是进程的状态。它有以下不同的值:</p>
 <ul>
-<li><strong>MappedStatement</strong></li>
+<li>D - 不可中断的睡眠态。</li>
+<li>R – 运行态</li>
+<li>S – 睡眠态</li>
+<li>T – 被跟踪或已停止</li>
+<li>Z – 僵尸态</li>
 </ul>
-<p>MappedStatement 对象对应 Mapper.xml 配置文件中的一个 select/update/insert/delete 节点，描述的就是一条 SQL 语句</p>
-<p><img src="https://ss.csdn.net/p?https://mmbiz.qpic.cn/mmbiz_png/laEmibHFxFw4YfWQ0c4A6zGI5tLB4FxHVjRVsemq8piauS2KOicmcFjssMfvPxjdOBnBsg3UxRvRLGqdNlyhgS01g/640?wx_fmt=png" alt="640?wx_fmt=png"></p>
-<blockquote>
-<p> (1)、定义一个Configuration对象，其中包含数据源、事务、mapper文件资源以及影响数据库行为属性设置settings ，Configuration 对象是通过 XMLConfigBuilder 类的 parse 方法进行初始化的，Mapper.xml 文件是初始化 Configuration 对象的时候进行解析加载的。</p>
-<p>(2)、通过配置对象，则可以创建一个SqlSessionFactoryBuilder对象（MyBatis 的入口类）</p>
-<p>(3)、通过 SqlSessionFactoryBuilder 获得SqlSessionFactory 的实例。</p>
-<p>(4)、SqlSessionFactory 的实例可以获得操作数据的SqlSession实例，通过这个实例对数据库进行操作</p>
-<p>(5)、Executor 是跟 SqlSession 绑定在一起的，每一个 SqlSession 都拥有一个新的 Executor 对象，由 Configuration 创建。</p>
-<p>(6)、MappedStatement 对象是初始化 Configuration 对象的时候创建的，并且是 final 类型不可更改。</p>
-</blockquote>
-<p>更多了解 Configuration：<a href="https://blog.csdn.net/javageektech/article/details/99518588" target="_blank" rel="noopener">https://blog.csdn.net/javageektech/article/details/99518588</a></p>
-<h1 id="MyBatis-的-XML-文件"><a href="#MyBatis-的-XML-文件" class="headerlink" title="MyBatis 的 XML 文件"></a>MyBatis 的 XML 文件</h1><p>SQL 映射文件的几个顶级元素：</p>
-<ul>
-<li><p>cache：给定命名空间的缓存配置</p>
 </li>
-<li><p>cache-ref：其他命名空间缓存配置的引用</p>
+<li><p>%CPU：自从上一次更新时到现在任务所使用的CPU时间百分比。</p>
 </li>
-<li><p>resultMap：用来描述如何从数据集中加载对象</p>
+<li><p>%MEM：进程使用的可用物理内存百分比。</p>
 </li>
-<li><p>sql：可被其他语句引用的可重用语句块</p>
+<li><p>TIME+：任务启动后到现在所使用的全部CPU时间，精确到百分之一秒。</p>
 </li>
-<li><p>insert：映射插入语句</p>
-</li>
-<li><p>update：映射更新语句</p>
-</li>
-<li><p>delete：映射删除语句</p>
-</li>
-<li><p>select：映射查询语句</p>
+<li><p>COMMAND：运行进程所使用的命令。进程名称（命令名/命令行）</p>
 </li>
 </ul>
-<p>resultMap:</p>
-<ul>
-<li>id：一个 ID 结果，标记出作为 ID 的结果可以提高整体性能</li>
-<li>result：注入到字段或 JavaBean 属性的普通结果</li>
-<li>association：一个复杂类型的关联，许多结果将包装成这种类型</li>
-<li>collection：一个复杂类型的集合嵌套结果映射，集合可以指定为一个 resultMap 元素，或者引用一个</li>
-</ul>
-<h1 id="MyBatis-中的缓存"><a href="#MyBatis-中的缓存" class="headerlink" title="MyBatis 中的缓存"></a>MyBatis 中的缓存</h1><p>MyBatis 中有一级缓存和二级缓存，默认情况下一级缓存是开启的，而且是不能关闭的。</p>
-<p><strong>一级缓存</strong>是指 SqlSession 级别的缓存，当在同一个 SqlSession 中进行相同的 SQL 语句查询时，第二次以后的查询不会从数据库查询，而是直接从缓存中获取，一级缓存最多缓存 1024 条 SQL。</p>
-<p><strong>二级缓存</strong>是指可以跨 SqlSession 的缓存。</p>
-<p>MyBatis 中进行 SQL 查询是通过 org.apache.ibatis.executor.Executor 接口进行的，总体来讲，它一共有两类实现，，一类是 BaseExecutor，一类是 CachingExecutor。前者是非启用二级缓存时使用的，而后者是采用的装饰器模式，在启用了二级缓存时使用，当二级缓存没有命中时，底层还是通过 BaseExecutor 来实现的。</p>
+</li>
+</ol>
 
             </div>
             <hr/>
@@ -415,7 +410,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://lovote-web.github.io/2020/07/20/2020-07-20-MyBatis/">http://lovote-web.github.io/2020/07/20/2020-07-20-MyBatis/</a>
+                    <a href="http://lovote-web.github.io/2020/07/21/2020-07-21-Linux%E5%91%BD%E4%BB%A4top%E8%AF%A6%E8%A7%A3/">http://lovote-web.github.io/2020/07/21/2020-07-21-Linux%E5%91%BD%E4%BB%A4top%E8%AF%A6%E8%A7%A3/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -618,9 +613,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2020/07/21/2020-07-21-Linux%E5%91%BD%E4%BB%A4top%E8%AF%A6%E8%A7%A3/">
                     <div class="card-image">
@@ -643,9 +639,9 @@ top：代表系统运行时间和平均负载。
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-07-21
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-21
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -654,6 +650,7 @@ top：代表系统运行时间和平均负载。
                         </span>
                     </div>
                 </div>
+
                 
             </div>
         </div>
@@ -664,26 +661,24 @@ top：代表系统运行时间和平均负载。
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/07/19/2020-07-19-SpringMVC/">
+                <a href="/2020/07/20/2020-07-20-MyBatis/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="2020-07-19-SpringMVC">
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="2020-07-20-MyBatis">
                         
-                        <span class="card-title">2020-07-19-SpringMVC</span>
+                        <span class="card-title">2020-07-20-MyBatis</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            SpringMVCSpringMVC 核心类是 DispatcherServlet，它是一个 Servlet，顶层是实现的 Servlet 接口。
-Spring MVC 工作原理
-客户端发送请求，直接请求到 DispatcherServle
+                            MyBatisMyBatis 是一个基于 Java 的持久层框架，以SQL语句为核心的不完全的 ORM (关系型映射)框架，在 使用了 MyBatis 之后，只需要提供 SQL 语句，其他的：建立连接，操作 Statment，ResultS
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-19
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-20
                             </span>
                         <span class="publish-author">
                             
