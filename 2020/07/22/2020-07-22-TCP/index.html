@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="2020-07-21-Linux命令top详解, Hexo">
+    <meta name="keywords" content="2020-07-22-TCP, Hexo">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>2020-07-21-Linux命令top详解 | Hexo</title>
+    <title>2020-07-22-TCP | Hexo</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -179,12 +179,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/23.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">2020-07-21-Linux命令top详解</h1>
+                    <h1 class="description center-align post-title">2020-07-22-TCP</h1>
                 </div>
             </div>
         </div>
@@ -313,7 +313,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-07-21
+                    2020-07-22
                 </div>
                 
 
@@ -329,59 +329,82 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="top-命令"><a href="#top-命令" class="headerlink" title="top 命令"></a>top 命令</h1><p>top 命令是我们常用的 Linux 命令之一，它可以实时显示正在执行的进程的 <strong>CPU 使用率</strong>，<strong>内存使用率</strong>等系统信息。<code>top -Hp pid</code> 可以查看线程的系统资源使用情况。</p>
-<p><img src="D:%5CGitSpace%5Clovote-web.github.io%5Csource_posts%5C2020-07-21-Linux%E5%91%BD%E4%BB%A4top%E8%AF%A6%E8%A7%A3.assets%5Cimage-20200721115759120.png" alt="image-20200721115759120"></p>
+                <h1 id="TCP"><a href="#TCP" class="headerlink" title="TCP"></a>TCP</h1><p><strong>IP 层</strong>是<strong>不可靠</strong>的，它<strong>不能保证网络包的交付，不保证网络包的按序交付，也不保证网络包中的数据的完整性</strong>，所以需要传输层的 TCP 象以来负责。</p>
+<p>TCP 是<strong>面向连接</strong>的，<strong>可靠</strong>的，基于<strong>字节流</strong>的<strong>传输层通信</strong>协议。</p>
+<p>TCP 是一个工作在<strong>传输层</strong>的<strong>可靠</strong>数据传输的服务，它能确保<strong>接收端接收的网络包是无损坏，无间隔，非冗余和按序的</strong>。</p>
+<ul>
+<li><strong>面向连接</strong>：一对一，不像 UDP ，一对多。</li>
+<li><strong>可靠的</strong>：无论的网络链接中出现了怎样的链路变化，TCP 都可以保证一个报文一定能够到达接收端。</li>
+<li><strong>字节流</strong>：消息是「没有边界」的，所以无论我们消息有多大都可以进行传输。并且消息是「有序的」，当「前一个」消息没有收到的时候，即使它先收到了后面的字节已经收到，那么也不能扔给应用层去处理，同时对「重复」的报文会自动丢弃。</li>
+</ul>
+<p>TCP 为了保证可靠性和流量控制维护得到某些状态信息，这些信息的组合，包括 Socket，序列号和窗口大小称为连接。</p>
+<h1 id="TCP-头格式"><a href="#TCP-头格式" class="headerlink" title="TCP 头格式"></a>TCP 头格式</h1><img src="https://img-blog.csdn.net/20180913164138814?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2ZseWluZ3NiaXJk/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述" style="zoom: 67%;" />
+
+<ul>
+<li><p><strong>源端口号</strong>（16位）</p>
+</li>
+<li><p><strong>目的端口号</strong></p>
+</li>
+<li><p><strong>序列号</strong>：在建立连接时由计算机生成的随机数作为初始值，通过 SYN 包传给接收端主机，每发送一次数据，就累加一次该数据字节数的大小，<strong>用来解决网络包乱序问题</strong>。</p>
+</li>
+<li><p><strong>确认应答号</strong>：指下一次「期望」收到的数据的序列号，发送端收到这个确认应答以后可以认为在这个序号以前的数据都已经被正常接收。<strong>用来解决不丢包的问题。</strong></p>
+</li>
+<li><p><strong>控制位</strong>：</p>
+<ul>
+<li><strong>ACK</strong>：确认应答</li>
+<li><strong>RST</strong>：表示TCP 连接中出现必须强制断开连接</li>
+<li><strong>SYN</strong>：表示希望建立连接，并在其序列号的字段进行序列号初始化值得设定</li>
+<li><strong>FIN</strong>：表示今后不会再有数据发送，希望断开连接。</li>
+</ul>
+</li>
+<li><p><strong>窗口大小</strong></p>
+</li>
+<li><p><strong>校验和</strong>：包含TCP 端头和数据部分，用来校验段头和数据部分的可靠性。</p>
+</li>
+<li><p><strong>紧急指针</strong>：指明段这包含紧急信息</p>
+</li>
+</ul>
+<h1 id="TCP-与-UDP-的区别"><a href="#TCP-与-UDP-的区别" class="headerlink" title="TCP 与 UDP 的区别"></a>TCP 与 UDP 的区别</h1><p>UDP <strong>头部格式</strong></p>
+<ul>
+<li>目标和源端口：主要告诉UDP协议应该把报文发给哪个进程。</li>
+<li>包长度：保存了 UDP 首部的长度跟数据的长度之和。</li>
+<li>校验和：为了提供可靠的 UDP 首部和数据而设计。</li>
+</ul>
+<p><strong>TCP 和 UDP 区别</strong>：</p>
 <ol>
-<li><p>top：<strong>代表系统运行时间和平均负载</strong>。</p>
-<ul>
-<li>当前时间</li>
-<li>系统已运行的时间</li>
-<li>当前登录用户的数量</li>
-<li>相应最近5，10，15 分钟内的p</li>
+<li>连接<ul>
+<li>TCP 是面向连接的传输层协议，传输数据前先要建立连接</li>
+<li>UDP 是不需要连接，即刻传输数据</li>
 </ul>
 </li>
-<li><p>Tasks：<strong>任务或者进程的总结</strong></p>
-<ul>
-<li>100 个进程，3个正在运行，96 个在休眠</li>
+<li>服务对象<ul>
+<li>TCP 是一对一的两点服务，即一条连接只有两个断点</li>
+<li>UDP 支持一对一，一对多，多对多的交互通信</li>
 </ul>
 </li>
-<li><p><strong>CPU：CPU 状态</strong></p>
-</li>
-<li><p><strong>内存使用</strong></p>
-</li>
-<li><p><strong>各进程（任务）的状态监控</strong>。</p>
-<ul>
-<li><p>PID：进程ID，进程的唯一标识符</p>
-</li>
-<li><p>USER：进程所有者的实际用户名。</p>
-</li>
-<li><p>PR：进程的调度优先级。这个字段的一些值是’rt’。这意味这这些进程运行在实时态。</p>
-</li>
-<li><p>NI：进程的nice值（优先级）。越小的值意味着越高的优先级。负值表示高优先级，正值表示低优先级</p>
-</li>
-<li><p>VIRT：进程使用的虚拟内存。进程使用的虚拟内存总量，单位kb。VIRT=SWAP+RES</p>
-</li>
-<li><p>RES：驻留内存大小。驻留内存是任务使用的非交换物理内存大小。进程使用的、未被换出的物理内存大小，单位kb。RES=CODE+DATA</p>
-</li>
-<li><p>SHR：SHR是进程使用的共享内存。共享内存大小，单位kb</p>
-</li>
-<li><p>S：这个是进程的状态。它有以下不同的值:</p>
-<ul>
-<li>D - 不可中断的睡眠态。</li>
-<li>R – 运行态</li>
-<li>S – 睡眠态</li>
-<li>T – 被跟踪或已停止</li>
-<li>Z – 僵尸态</li>
+<li>可靠性<ul>
+<li>TCP 是可靠交付数据的，数据可以无差错，不丢失，不重复，按需到达</li>
+<li>UDP 是尽最大努力交付，不保证可靠交付数据</li>
 </ul>
 </li>
-<li><p>%CPU：自从上一次更新时到现在任务所使用的CPU时间百分比。</p>
+<li>拥塞控制，流量控制<ul>
+<li>TCP 有拥塞控制和流量控制机制，保证数据传输的安全性。</li>
+<li>UDP 则没有，即使网络非常拥堵了，也不会影响 UDP 的发送速率。</li>
+</ul>
 </li>
-<li><p>%MEM：进程使用的可用物理内存百分比。</p>
+<li>首部开销<ul>
+<li>TCP 首部长度较长，会有一定的开销。</li>
+<li>UDP 首部只有 8 个字节，并且是固定不变的，开销较小</li>
+</ul>
 </li>
-<li><p>TIME+：任务启动后到现在所使用的全部CPU时间，精确到百分之一秒。</p>
+<li>传输方式<ul>
+<li>TCP 是流式传输，没有边界，但保证顺序和可靠</li>
+<li>UDP 是一个一个包的发送，是有边界的，但可能会丢包和乱序。</li>
+</ul>
 </li>
-<li><p>COMMAND：运行进程所使用的命令。进程名称（命令名/命令行）</p>
-</li>
+<li>应用场景<ul>
+<li>TCP 是面向连接的，能保证数据的可靠性交付，经常用于<strong>FTP 文件传输</strong>，<strong>HTTP/HTTPS</strong></li>
+<li>UDP 面向无连接的，它可以随时发送数据，再加上 UDP 本身的处理即简单又高效，常用于 <strong>包总量较少的通信，如 DNS，SNMP 等</strong>，<strong>视频，音频等多媒体通信</strong>，<strong>广播通信</strong>。</li>
 </ul>
 </li>
 </ol>
@@ -410,7 +433,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://lovote-web.github.io/2020/07/21/2020-07-21-Linux%E5%91%BD%E4%BB%A4top%E8%AF%A6%E8%A7%A3/">http://lovote-web.github.io/2020/07/21/2020-07-21-Linux%E5%91%BD%E4%BB%A4top%E8%AF%A6%E8%A7%A3/</a>
+                    <a href="http://lovote-web.github.io/2020/07/22/2020-07-22-TCP/">http://lovote-web.github.io/2020/07/22/2020-07-22-TCP/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -613,9 +636,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2020/07/22/2020-07-22-TCP/">
                     <div class="card-image">
@@ -635,9 +659,9 @@ TCP 是一个工作在传输层的可靠数
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-07-22
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-22
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -646,6 +670,7 @@ TCP 是一个工作在传输层的可靠数
                         </span>
                     </div>
                 </div>
+
                 
             </div>
         </div>
@@ -656,24 +681,29 @@ TCP 是一个工作在传输层的可靠数
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/07/20/2020-07-20-MyBatis/">
+                <a href="/2020/07/21/2020-07-21-Linux%E5%91%BD%E4%BB%A4top%E8%AF%A6%E8%A7%A3/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="2020-07-20-MyBatis">
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="2020-07-21-Linux命令top详解">
                         
-                        <span class="card-title">2020-07-20-MyBatis</span>
+                        <span class="card-title">2020-07-21-Linux命令top详解</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            MyBatisMyBatis 是一个基于 Java 的持久层框架，以SQL语句为核心的不完全的 ORM (关系型映射)框架，在 使用了 MyBatis 之后，只需要提供 SQL 语句，其他的：建立连接，操作 Statment，ResultS
+                            top 命令top 命令是我们常用的 Linux 命令之一，它可以实时显示正在执行的进程的 CPU 使用率，内存使用率等系统信息。top -Hp pid 可以查看线程的系统资源使用情况。
+
+
+top：代表系统运行时间和平均负载。
+
+当前时间
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-20
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-21
                             </span>
                         <span class="publish-author">
                             
