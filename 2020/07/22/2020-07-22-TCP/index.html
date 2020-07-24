@@ -372,42 +372,82 @@
 </ul>
 <p><strong>TCP 和 UDP 区别</strong>：</p>
 <ol>
-<li>连接<ul>
+<li><strong>连接</strong><ul>
 <li>TCP 是面向连接的传输层协议，传输数据前先要建立连接</li>
 <li>UDP 是不需要连接，即刻传输数据</li>
 </ul>
 </li>
-<li>服务对象<ul>
+<li><strong>服务对象</strong><ul>
 <li>TCP 是一对一的两点服务，即一条连接只有两个断点</li>
 <li>UDP 支持一对一，一对多，多对多的交互通信</li>
 </ul>
 </li>
-<li>可靠性<ul>
+<li><strong>可靠性</strong><ul>
 <li>TCP 是可靠交付数据的，数据可以无差错，不丢失，不重复，按需到达</li>
 <li>UDP 是尽最大努力交付，不保证可靠交付数据</li>
 </ul>
 </li>
-<li>拥塞控制，流量控制<ul>
+<li><strong>拥塞控制，流量控制</strong><ul>
 <li>TCP 有拥塞控制和流量控制机制，保证数据传输的安全性。</li>
 <li>UDP 则没有，即使网络非常拥堵了，也不会影响 UDP 的发送速率。</li>
 </ul>
 </li>
-<li>首部开销<ul>
+<li><strong>首部开销</strong><ul>
 <li>TCP 首部长度较长，会有一定的开销。</li>
 <li>UDP 首部只有 8 个字节，并且是固定不变的，开销较小</li>
 </ul>
 </li>
-<li>传输方式<ul>
+<li><strong>传输方式</strong><ul>
 <li>TCP 是流式传输，没有边界，但保证顺序和可靠</li>
 <li>UDP 是一个一个包的发送，是有边界的，但可能会丢包和乱序。</li>
 </ul>
 </li>
-<li>应用场景<ul>
+<li><strong>应用场景</strong><ul>
 <li>TCP 是面向连接的，能保证数据的可靠性交付，经常用于<strong>FTP 文件传输</strong>，<strong>HTTP/HTTPS</strong></li>
 <li>UDP 面向无连接的，它可以随时发送数据，再加上 UDP 本身的处理即简单又高效，常用于 <strong>包总量较少的通信，如 DNS，SNMP 等</strong>，<strong>视频，音频等多媒体通信</strong>，<strong>广播通信</strong>。</li>
 </ul>
 </li>
 </ol>
+<h1 id="TCP-建立连接"><a href="#TCP-建立连接" class="headerlink" title="TCP 建立连接"></a>TCP 建立连接</h1><h2 id="TCP-三次握手过程"><a href="#TCP-三次握手过程" class="headerlink" title="TCP 三次握手过程"></a>TCP 三次握手过程</h2><p>TCP 是面向连接的协议。</p>
+<p><strong>三次握手</strong></p>
+<ul>
+<li>客户端和服务器端都处于 <code>CLOSED</code> 状态。服务端先主动监听某个端口，处于 <code>LISTEN</code> 状态。</li>
+<li>客户端随机初始化序号(<code>client_isn</code>) ，将此序号置于 TCP 首部的序号字段中，同时把 <code>SYN</code> 标志位置为 <code>1</code>，表示 <code>SYN</code> 报文。接着把第一个 SYN 报文发送给服务端，表示向服务端发起连接，该报文不包含应用层数据，之后客户端处于 <code>SYN-SENT</code> 状态。</li>
+<li>服务端收到客户端的 <code>SYN</code> 报文后，首先服务端也随机初始化自己的序号（<code>server_isn</code>），将此序号填入 TCP 首部的序号字段中，其次把 TCP 首部的确认应答号字段填入 <code>client_isn +1</code> ，接着把 <code>SYN</code> 和 <code>ACK</code> 标志位置为 <code>1</code>，最后把该报文发送给客户端，该报文也不包含应用层数据，之后服务端处于 <code>SYN-RCVD</code> 状态。</li>
+<li>客户端收到服务端报文后，还要向服务端回应最后一个应答报文，首先该应答报文 TCP 首部 ACK 标志位置为 1，其次确认应答号字段填入 server_isn + 1 ，最后把报文发送给服务端，这次报文可以携带客户到服务器的数据，之后客户端处于 ESTABLISHED 状态。</li>
+<li>服务器收到客户端的应答报文后，也进入 ESTABLISHED 状态。</li>
+</ul>
+<p>注意：<strong>第三次握手是可以携带数据的，前两次握手是不可以携带数据的</strong>。</p>
+<p><strong>为什么是三次握手？不是两次，四次？</strong></p>
+<ul>
+<li><p><strong>三次握手才能保证双方具有接收和发送的能力</strong>。</p>
+</li>
+<li><p><strong>可以阻止重复历史连接的初始化（主要原因）</strong></p>
+<p>客户端连续发送多次 SYN 建立连接的报文，在<strong>网络拥堵情况下</strong>：</p>
+<ul>
+<li>一个旧的 SYN 报文比最新的SYN 报文早到了服务端</li>
+<li>那么此时服务端就会回一个 SYN + ACK 报文给客户端</li>
+<li>客户端收到后可以根据自身的上下文，判断是否是一个历史连接（序列号过期或超时），那么客户端就会发送一个 RST 报文给服务端，表示终止这次连接。</li>
+</ul>
+<p>如果是两次连接，就不能判断当前连接是否是历史连接。<strong>三次握手就可以在客户端判断当前连接是否是历史连接</strong>：① 如果是历史连接，第三次握手发送的报文是 <code>RST</code> 报文，以此终止历史连接。 ② 如果不是历史连接，则第三次发送的报文是 ACK 报文，通信双方就会成功建立来连接。</p>
+</li>
+<li><p><strong>可以同步双方的初始化序列号</strong></p>
+<p>TCP 协议的通信双方，都必须维护一个<strong>序列号</strong>，<strong>序列号是可靠传输的一个关键因素</strong>：</p>
+<ul>
+<li>接收方可以去除重复的数据</li>
+<li>接受方可以根据数据包的序列号按序接收</li>
+<li>可以标识发送出去的数据包中，哪些是已经被对方收到的。</li>
+</ul>
+<p>当客户端发送携带「初始序列号」的 <code>SYN</code> 报文的时候，需要服务端回一个 <code>ACK</code> 应答报文，表示客户端的 SYN 报文已被服务端成功接收，那当服务端发送「初始序列号」给客户端的时候，依然也要得到客户端的应答回应，<strong>这样一来一回，才能确保双方的初始序列号能被可靠的同步。</strong>两次握手只保证了一方的初始序列号能被对方成功接收，没办法保证双方的初始序列号都能被确认接收。</p>
+</li>
+<li><p><strong>可以避免资源浪费</strong></p>
+<p>如果只有「两次握手」，当客户端的 <code>SYN</code> 请求连接在网络中阻塞，客户端没有接收到 <code>ACK</code> 报文，就会重新发送 <code>SYN</code> ，由于没有第三次握手，服务器不清楚客户端是否收到了自己发送的建立连接的 <code>ACK</code> 确认信号，所以每收到一个 <code>SYN</code> 就只能先主动建立一个连接，这会造成什么情况呢？</p>
+<p>如果客户端的 <code>SYN</code> 阻塞了，重复发送多次 <code>SYN</code> 报文，那么服务器在收到请求后就会<strong>建立多个冗余的无效链接，造成不必要的资源浪费。</strong></p>
+<p>即<strong>两次握手会造成消息滞留情况下，服务器重复接受无用的连接请求 <code>SYN</code> 报文，而造成重复分配资源</strong>。</p>
+</li>
+</ul>
+<p><strong>两次握手</strong>：无法防止历史连接的建立，会造成双方资源的浪费，也无法可靠的同步双发序列号。</p>
+<p><strong>四次握手</strong>：三次握手就已经理论上最少可靠连接建立，所以不需要使用更多的通信次数。</p>
 
             </div>
             <hr/>
